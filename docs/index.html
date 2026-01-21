@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>로스팅 데이터 분석 대시보드</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         
@@ -193,15 +194,6 @@
             color: #f0883e;
         }
 
-        /* Coffee Price Chart */
-        .chart-container {
-            background: #161b22;
-            border: 1px solid #30363d;
-            border-radius: 12px;
-            padding: 16px;
-            height: 400px;
-        }
-
         /* Specialty Coffee List */
         .specialty-list {
             display: grid;
@@ -288,42 +280,6 @@
 
         <!-- Main Content -->
         <main class="main-content">
-            <!-- Coffee Price Chart Section -->
-            <section class="content-section">
-                <div class="section-header">
-                    <h2 class="section-title">
-                        <span class="icon">📈</span>
-                        커피 시세 (ICE 연결선물)
-                    </h2>
-                </div>
-                <div class="chart-container">
-                    <!-- TradingView Widget -->
-                    <div class="tradingview-widget-container" style="height:100%;width:100%">
-                        <div class="tradingview-widget-container__widget" style="height:calc(100% - 32px);width:100%"></div>
-                        <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-advanced-chart.js" async>
-                        {
-                        "autosize": true,
-                        "symbol": "TVC:KC1!",
-                        "interval": "D",
-                        "timezone": "Asia/Seoul",
-                        "theme": "dark",
-                        "style": "1",
-                        "locale": "ko",
-                        "enable_publishing": false,
-                        "backgroundColor": "rgba(22, 27, 34, 1)",
-                        "gridColor": "rgba(48, 54, 61, 0.5)",
-                        "hide_top_toolbar": false,
-                        "hide_legend": false,
-                        "save_image": false,
-                        "calendar": false,
-                        "hide_volume": false,
-                        "support_host": "https://www.tradingview.com"
-                        }
-                        </script>
-                    </div>
-                </div>
-            </section>
-
             <!-- Specialty Coffee List Section -->
             <section class="content-section">
                 <div class="section-header">
