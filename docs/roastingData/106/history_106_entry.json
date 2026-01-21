@@ -1,0 +1,18 @@
+{
+  "id": 1,
+  "roasterID": 0,
+  "status": "ok",
+  "data": {
+    "creationDate": "1768638795",
+    "endTemp": 174.25,
+    "endWeight": 0.173,
+    "fillTemp": 157.5,
+    "fillWeight": 0.2,
+    "greenCoffeeId": 0,
+    "isTestRoast": true,
+    "name": "코스타리카 SHB San Rafael",
+    "note": "",
+    "reference": true,
+    "roastingTime": 644
+  }
+}

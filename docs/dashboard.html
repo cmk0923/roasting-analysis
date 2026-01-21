@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Professional Roast Analyzer</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+    <style>
+        :root {
+            --bg-black: #000000;
+            --bg-dark: #0b0b0b;
+            --bg-card: #141414;
+            --text-main: #ffffff;
+            --text-dim: #a0a0a0;
+            --bt-color: #ff4d6d;    /* Bean Temp - Pink/Red */
+            --ror-color: #ffb142;   /* RoR - Orange/Yellow */
+            --heat-color: #ff5252;  /* Heat Power - Red */
+            --fan-color: #3498db;   /* Fan Speed - Blue */
+            --border: #2a2a2a;
+            --success: #00e676;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: var(--bg-black);
+            color: var(--text-main);
+            margin: 0;
+            padding: 15px;
+            overflow-x: hidden;
+        }
+
+        /* 상단 네비게이션 바 */
+        .top-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-bottom: 15px;
+            margin-bottom: 15px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .back-btn {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            color: var(--text-dim);
+            padding: 8px 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .back-btn:hover {
+            border-color: var(--bt-color);
+            color: var(--text-main);
+            background: #1a1a1a;
+        }
+
+        .folder-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--text-main);
+        }
+
+        /* 대시보드 헤더 (이미지 상단 섹션) */
+        .dashboard-header {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            background: var(--bg-dark);
+            padding: 15px 20px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+
+        .stat-group { display: flex; flex-direction: column; gap: 4px; }
+        .bean-row { grid-column: 1 / -1; margin-bottom: 8px; }
+        .bean-row .stat-row { font-size: 1rem; }
+        .stat-row { display: flex; justify-content: space-between; font-size: 0.85rem; }
+        .label { color: var(--text-dim); }
+        .value { font-weight: 600; }
+        .highlight { color: var(--bt-color); }
+
+        /* 메인 레이아웃: 그래프(좌) + 로그(우) */
+        .main-layout {
+            display: grid;
+            grid-template-columns: 1fr 300px;
+            gap: 15px;
+            height: calc(100vh - 250px);
+            min-height: 500px;
+        }
+
+        .visual-section {
+            display: flex;
+            flex-direction: column;
+            background: var(--bg-dark);
+            border-radius: 8px;
+            padding: 15px;
+            border: 1px solid var(--border);
+        }
+
+        .chart-wrapper { flex: 1; min-height: 0; position: relative; }
+        .control-chart-wrapper { height: 100px; border-top: 1px solid var(--border); padding-top: 10px; }
+
+        /* 로그 테이블 (우측) */
+        .log-section {
+            background: var(--bg-dark);
+            border-radius: 8px;
+            border: 1px solid var(--border);
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        .log-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.85rem;
+        }
+
+        .log-table th {
+            background: #1a1a1a;
+            color: var(--text-dim);
+            padding: 10px;
+            text-align: left;
+            position: sticky;
+            top: 0;
+        }
+
+        .log-table td { padding: 8px 10px; border-bottom: 1px solid #1a1a1a; }
+        .t-time { color: var(--text-dim); width: 60px; }
+        .t-bt { color: var(--bt-color); font-weight: bold; width: 70px; }
+        .t-event { color: var(--success); font-weight: 500; }
+
+        /* 로딩/에러 표시 */
+        #loading { position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 100; background: rgba(0,0,0,0.8); padding: 20px; border-radius: 8px; }
+        .hidden { display: none !important; }
+
+        @media (max-width: 1100px) {
+            .main-layout { grid-template-columns: 1fr; height: auto; }
+            .log-section { height: 300px; }
+        }
+
+        /* Giscus 섹션 */
+        .giscus-section {
+            background: var(--bg-dark);
+            border-radius: 8px;
+            padding: 20px;
+            margin-top: 15px;
+            border: 1px solid var(--border);
+        }
+    </style>
+    
+    <!-- Giscus 스크립트 -->
+    <script src="https://giscus.app/client.js"
+        data-repo="[YOUR_GITHUB_USERNAME]/[REPO_NAME]"
+        data-repo-id="[REPO_ID]"
+        data-category="[CATEGORY_NAME]"
+        data-category-id="[CATEGORY_ID]"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="bottom"
+        data-theme="dark_dimmed"
+        data-lang="ko"
+        crossorigin="anonymous"
+        async>
+    </script>
+</head>
+<body>
+
+    <div id="loading" class="hidden">⌛ 데이터를 불러오는 중...</div>
+
+    <div class="top-nav">
+        <button class="back-btn" onclick="location.href='/'">← 목록으로</button>
+        <div id="folderTitle" class="folder-title">-</div>
+    </div>
+
+    <div id="dashHeader" class="dashboard-header hidden">
+        <div class="bean-row">
+            <div class="stat-row"><span class="label">Bean</span><span id="dashBean" class="value">-</span></div>
+        </div>
+        <div class="stat-group">
+            <div class="stat-row"><span id="dashDate" class="value" style="font-size: 1rem;">-</span></div>
+        </div>
+        <div class="stat-group">
+            <div class="stat-row"><span class="label">Total Time</span><span id="dashTotalTime" class="value">-</span></div>
+        </div>
+        <div class="stat-group">
+            <div class="stat-row"><span class="label">Green Weight</span><span id="dashGreen" class="value">-</span></div>
+            <div class="stat-row"><span class="label">Roasted Weight</span><span id="dashRoasted" class="value">-</span></div>
+            <div class="stat-row"><span class="label">Weight Loss</span><span id="dashLoss" class="value">-</span></div>
+        </div>
+        <div class="stat-group">
+            <div class="stat-row"><span class="label">Roast Level</span><span id="dashLevel" class="value">Medium</span></div>
+            <div class="stat-row"><span class="label">Last BT</span><span id="dashAmbient" class="value">-</span></div>
+        </div>
+    </div>
+
+    <div id="mainContent" class="main-layout hidden">
+        <div class="visual-section">
+            <div class="chart-wrapper">
+                <canvas id="mainChart"></canvas>
+            </div>
+            
+            <div class="control-chart-wrapper">
+                <canvas id="controlChart"></canvas>
+            </div>
+        </div>
+
+        <div class="log-section">
+            <div style="overflow-y: auto;">
+                <table class="log-table">
+                    <thead>
+                        <tr><th>Time</th><th>BT</th><th>Event</th></tr>
+                    </thead>
+                    <tbody id="logBody"></tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- Giscus 댓글 섹션 -->
+    <div id="giscusSection" class="giscus-section hidden">
+        <h3 style="margin-top: 0; color: var(--text-main);">💬 댓글</h3>
+        <div class="giscus"></div>
+    </div>
+
+    <script>
+        let mainChart = null;
+        let controlChart = null;
+
+        // 초기 실행
+        window.addEventListener('DOMContentLoaded', init);
+
+        async function init() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const folderId = urlParams.get('id');
+            if (folderId) {
+                document.getElementById('folderTitle').textContent = `📁 ${folderId}`;
+                loadChartData(folderId);
+            }
+        }
+
+        async function loadChartData(folderId) {
+            document.getElementById('loading').classList.remove('hidden');
+            try {
+                // JSON 파일 직접 로드
+                const [dataRes, entryRes] = await Promise.all([
+                    fetch(`roastingData/${folderId}/history_${folderId}_chart.json`),
+                    fetch(`roastingData/${folderId}/history_${folderId}_entry.json`)
+                ]);
+                
+                if (!dataRes.ok || !entryRes.ok) {
+                    throw new Error('데이터 파일을 찾을 수 없습니다.');
+                }
+                
+                const dataResult = await dataRes.json();
+                const entryResult = await entryRes.json();
+
+                // JSON 구조: { data: [...] } 또는 { data: { data: ... } }
+                const chartData = dataResult.data || [];
+                const entryData = entryResult.data || {};
+
+                updateUI(chartData, entryData, folderId);
+            } catch (e) {
+                console.error("데이터 로드 실패", e);
+                document.getElementById('loading').innerHTML = `<div style="color: #ff4d6d;">❌ 데이터를 불러올 수 없습니다.<br>${e.message}</div>`;
+            }
+        }
+
+        function updateUI(data, entry, folderId) {
+            document.getElementById('dashHeader').classList.remove('hidden');
+            document.getElementById('mainContent').classList.remove('hidden');
+
+            // 1. 헤더 데이터 매핑
+            const creationDate = entry.creationDate ? new Date(parseInt(entry.creationDate) * 1000) : new Date();
+            document.getElementById('dashDate').textContent = creationDate.toISOString().slice(0, 10).replace(/-/g, '.');
+            document.getElementById('dashBean').textContent = entry.name || `로스팅 #${folderId}`;
+            document.getElementById('dashGreen').textContent = (entry.fillWeight * 1000).toFixed(1) + 'g';
+            document.getElementById('dashRoasted').textContent = (entry.endWeight * 1000).toFixed(1) + 'g';
+            
+            const loss = ((entry.fillWeight - entry.endWeight) / entry.fillWeight * 100);
+            document.getElementById('dashLoss').textContent = loss.toFixed(1) + '%';
+            
+            // 무게 손실율 기준 roast level 계산
+            let roastLevel = 'Medium';
+            if (loss < 13) roastLevel = 'Light';
+            else if (loss < 15) roastLevel = 'Medium';
+            else if (loss < 16.5) roastLevel = 'City';
+            else if (loss < 18) roastLevel = 'Full City';
+            else roastLevel = 'Dark';
+            document.getElementById('dashLevel').textContent = roastLevel;
+            
+            const totalSec = entry.roastingTime || 0;
+            document.getElementById('dashTotalTime').textContent = Math.floor(totalSec/60) + ':' + (totalSec%60).toString().padStart(2, '0');
+
+            // 마지막 빈온도 기록
+            let lastBeanTempForHeader = null;
+            for (let i = data.length - 1; i >= 0; i--) {
+                if (data[i].beanTemp !== undefined && data[i].beanTemp !== null) {
+                    lastBeanTempForHeader = data[i].beanTemp;
+                    break;
+                }
+            }
+            document.getElementById('dashAmbient').textContent = lastBeanTempForHeader !== null ? lastBeanTempForHeader.toFixed(1) + '°C' : '-';
+
+            // 2. 로그 테이블 및 페이즈 계산
+            const logBody = document.getElementById('logBody');
+            logBody.innerHTML = '';
+            
+            let deTime = 0, fcTime = 0;
+            let lastBeanTemp = null;
+
+            // 데이터 전처리 (forward fill)
+            let lastBeanTempForTP = null;
+            const filledBeanTemps = data.map(d => {
+                if (d.beanTemp !== undefined && d.beanTemp !== null) {
+                    lastBeanTempForTP = d.beanTemp;
+                }
+                return lastBeanTempForTP;
+            });
+
+            let lastRateOfRise = null;
+            const filledRateOfRise = data.map(d => {
+                if (d.rateOfRise !== undefined && d.rateOfRise !== null) {
+                    lastRateOfRise = d.rateOfRise;
+                }
+                return lastRateOfRise;
+            });
+
+            // TP 시간 계산 (콩온도 최저점)
+            const minBeanTemp = Math.min(...filledBeanTemps.filter(t => t !== null));
+            const tpIndex = filledBeanTemps.findIndex(t => t === minBeanTemp);
+            const tpTime = data[tpIndex] ? data[tpIndex].timestamp : 0;
+
+            // 최고 RoR 시간 계산 (1분 이후)
+            const oneMinuteIndex = data.findIndex(d => d.timestamp >= 60);
+            let maxRorAfterOneMin = 0;
+            let maxRorIndex = 0;
+            if (oneMinuteIndex >= 0) {
+                const rorAfterOneMin = filledRateOfRise.slice(oneMinuteIndex);
+                maxRorAfterOneMin = Math.max(...rorAfterOneMin.filter(r => r !== null && r >= 0));
+                maxRorIndex = filledRateOfRise.findIndex((r, i) => r === maxRorAfterOneMin && i >= oneMinuteIndex);
+            }
+
+            // 최저 RoR 시간 계산 (최고 RoR 이후)
+            let minRorAfterMax = 0;
+            let minRorIndex = 0;
+            if (maxRorIndex >= 0) {
+                const rorAfterMax = filledRateOfRise.slice(maxRorIndex);
+                minRorAfterMax = Math.min(...rorAfterMax.filter(r => r !== null && r >= 0));
+                minRorIndex = filledRateOfRise.findIndex((r, i) => r === minRorAfterMax && i >= maxRorIndex);
+            }
+
+            // 이벤트 목록 생성
+            const events = [];
+
+            // 화력 조절 시간 계산 - 화력 유지 시간 1분 이상 기준으로 그룹화
+            // 화력 forward fill (빈값을 이전 값으로 채우기)
+            let burnerForEvents = null;
+            const filledBurnersForEvents = data.map((d, i) => {
+                if (d.burner !== undefined && d.burner !== null) {
+                    burnerForEvents = d.burner;
+                }
+                return { index: i, timestamp: d.timestamp, burner: burnerForEvents };
+            });
+            
+            // 화력이 변화하는 구간 감지 (30초 이상 유지되는 화력 수치 기준)
+            const stableBurners = [];
+            let currentStableStart = null;
+            let currentStableIndex = null;
+            let currentStableValue = null;
+            let lastChangeIndex = 0; // 마지막 화력 변화 인덱스 추적
+            
+            for (let i = 0; i < filledBurnersForEvents.length; i++) {
+                const item = filledBurnersForEvents[i];
+                
+                if (currentStableValue === null) {
+                    currentStableValue = item.burner;
+                    currentStableStart = item.timestamp;
+                    currentStableIndex = i;
+                    lastChangeIndex = i;
+                } else if (item.burner !== currentStableValue) {
+                    // 화력이 변화하면 유지 시간 확인
+                    const duration = item.timestamp - currentStableStart;
+                    if (duration >= 30) {
+                        // 30초 이상 유지되면 안정 상태로 기록
+                        stableBurners.push({
+                            value: currentStableValue,
+                            startTime: currentStableStart,
+                            endIndex: i - 1,
+                            index: lastChangeIndex
+                        });
+                    }
+                    currentStableValue = item.burner;
+                    currentStableStart = item.timestamp;
+                    lastChangeIndex = i;
+                }
+            }
+            
+            // 마지막 안정 상태 처리
+            if (currentStableValue !== null) {
+                const lastItem = filledBurnersForEvents[filledBurnersForEvents.length - 1];
+                const duration = lastItem.timestamp - currentStableStart;
+                if (duration >= 30) {
+                    stableBurners.push({
+                        value: currentStableValue,
+                        startTime: currentStableStart,
+                        endIndex: filledBurnersForEvents.length - 1,
+                        index: lastChangeIndex
+                    });
+                }
+            }
+            
+            // 안정 상태 사이의 화력 변화 그룹화
+            for (let i = 0; i < stableBurners.length - 1; i++) {
+                const currentStable = stableBurners[i];
+                const nextStable = stableBurners[i + 1];
+                
+                // 두 안정 상태 사이의 화력 변화 추출
+                const changeStart = currentStable.endIndex + 1;
+                const changeEnd = nextStable.index - 1;
+                
+                if (changeStart <= changeEnd && changeStart < filledBurnersForEvents.length && changeEnd < filledBurnersForEvents.length) {
+                    // 안정 상태의 값과 다음 안정 상태의 값 비교
+                    if (currentStable.value !== null && nextStable.value !== null && currentStable.value !== nextStable.value) {
+                        const endItem = filledBurnersForEvents[changeEnd];
+                        const timeStr = Math.floor(endItem.timestamp/60) + ':' + (endItem.timestamp%60).toString().padStart(2, '0');
+                        const btDisplay = filledBeanTemps[endItem.index] !== null ? filledBeanTemps[endItem.index].toFixed(1) : '-';
+                        events.push({
+                            time: timeStr,
+                            bt: btDisplay,
+                            event: `화력 조절: ${currentStable.value}% → ${nextStable.value}%`
+                        });
+                    }
+                }
+            }
+            
+            // 첫 번째 안정 상태 이전의 초기 화력 변화 처리
+            if (stableBurners.length > 0) {
+                const firstStable = stableBurners[0];
+                if (firstStable.index > 0) {
+                    const changeStart = 0;
+                    const changeEnd = firstStable.index - 1;
+                    
+                    if (changeStart <= changeEnd && changeEnd < filledBurnersForEvents.length) {
+                        const startItem = filledBurnersForEvents[changeStart];
+                        const endItem = filledBurnersForEvents[changeEnd];
+                        
+                        // 초기 값과 첫 번째 안정 상태의 값 비교
+                        if (startItem.burner !== null && firstStable.value !== null && startItem.burner !== firstStable.value) {
+                            const timeStr = Math.floor(endItem.timestamp/60) + ':' + (endItem.timestamp%60).toString().padStart(2, '0');
+                            const btDisplay = filledBeanTemps[endItem.index] !== null ? filledBeanTemps[endItem.index].toFixed(1) : '-';
+                            events.push({
+                                time: timeStr,
+                                bt: btDisplay,
+                                event: `화력 조절: ${startItem.burner}% → ${firstStable.value}%`
+                            });
+                        }
+                    }
+                }
+            }
+            
+            // TP 이벤트
+            if (tpTime > 0) {
+                const tpTimeStr = Math.floor(tpTime/60) + ':' + (tpTime%60).toString().padStart(2, '0');
+                events.push({ time: tpTimeStr, bt: minBeanTemp.toFixed(1), event: 'TP (Turning Point)' });
+            }
+
+            // 최고 RoR 이벤트
+            if (maxRorIndex >= 0 && data[maxRorIndex]) {
+                const maxRorTime = data[maxRorIndex].timestamp;
+                const maxRorTimeStr = Math.floor(maxRorTime/60) + ':' + (maxRorTime%60).toString().padStart(2, '0');
+                events.push({ time: maxRorTimeStr, bt: filledBeanTemps[maxRorIndex]?.toFixed(1) || '-', event: `Max RoR: ${maxRorAfterOneMin.toFixed(2)}°C/min` });
+            }
+
+            // 최저 RoR 이벤트
+            if (minRorIndex >= 0 && data[minRorIndex]) {
+                const minRorTime = data[minRorIndex].timestamp;
+                const minRorTimeStr = Math.floor(minRorTime/60) + ':' + (minRorTime%60).toString().padStart(2, '0');
+                events.push({ time: minRorTimeStr, bt: filledBeanTemps[minRorIndex]?.toFixed(1) || '-', event: `Min RoR: ${minRorAfterMax.toFixed(2)}°C/min` });
+            }
+
+            // 기존 이벤트 추가
+            data.forEach(d => {
+                if (d.event) {
+                    const timeStr = Math.floor(d.timestamp/60) + ':' + (d.timestamp%60).toString().padStart(2, '0');
+                    const btDisplay = d.beanTemp !== null ? d.beanTemp.toFixed(1) : '-';
+                    events.push({ time: timeStr, bt: btDisplay, event: d.event });
+                    
+                    if (d.event.includes('DE')) deTime = d.timestamp;
+                    if (d.event.includes('FC')) fcTime = d.timestamp;
+                }
+            });
+
+            // 이벤트 시간순 정렬
+            events.sort((a, b) => {
+                const aTime = a.time.split(':').map(Number);
+                const bTime = b.time.split(':').map(Number);
+                return (aTime[0] * 60 + aTime[1]) - (bTime[0] * 60 + bTime[1]);
+            });
+
+            // 로그 테이블 렌더링
+            events.forEach(e => {
+                logBody.innerHTML += `<tr><td class="t-time">${e.time}</td><td class="t-bt">${e.bt}</td><td class="t-event">${e.event}</td></tr>`;
+            });
+
+            // 마지막 줄에 로스팅 끝난 시간과 최종 BT 온도 추가
+            const lastData = data[data.length - 1];
+            if (lastData) {
+                const endTimeStr = Math.floor(lastData.timestamp/60) + ':' + (lastData.timestamp%60).toString().padStart(2, '0');
+                const endBT = lastData.beanTemp !== null ? lastData.beanTemp.toFixed(1) : '-';
+                logBody.innerHTML += `<tr><td class="t-time">${endTimeStr}</td><td class="t-bt">${endBT}</td><td class="t-event">Last BT</td></tr>`;
+            }
+
+            // 3. 차트 그리기
+            renderCharts(data);
+
+            // 4. Giscus 섹션 표시
+            document.getElementById('giscusSection').classList.remove('hidden');
+        }
+
+        function renderCharts(data) {
+            if (mainChart) mainChart.destroy();
+            if (controlChart) controlChart.destroy();
+
+            // null값 이전 값으로 채우기 (forward fill)
+            let lastBeanTemp = null;
+            const filledBeanTemps = data.map(d => {
+                if (d.beanTemp !== undefined && d.beanTemp !== null) {
+                    lastBeanTemp = d.beanTemp;
+                }
+                return lastBeanTemp;
+            });
+
+            let lastExhaustTemp = null;
+            const filledExhaustTemps = data.map(d => {
+                if (d.exhaustAirTemp !== undefined && d.exhaustAirTemp !== null) {
+                    lastExhaustTemp = d.exhaustAirTemp;
+                }
+                return lastExhaustTemp;
+            });
+
+            let lastRateOfRise = null;
+            const filledRateOfRise = data.map(d => {
+                if (d.rateOfRise !== undefined && d.rateOfRise !== null) {
+                    lastRateOfRise = d.rateOfRise;
+                }
+                return lastRateOfRise;
+            });
+
+            let lastBurner = null;
+            const filledBurners = data.map(d => {
+                if (d.burner !== undefined && d.burner !== null) {
+                    lastBurner = d.burner;
+                }
+                return lastBurner;
+            });
+
+            let lastAirPressure = null;
+            const filledAirPressures = data.map(d => {
+                if (d.airPressure !== undefined && d.airPressure !== null) {
+                    lastAirPressure = d.airPressure;
+                }
+                return lastAirPressure;
+            });
+
+            const labels = data.map(d => Math.floor(d.timestamp/60) + ':' + (d.timestamp%60).toString().padStart(2, '0'));
+
+            // 메인 BT, ET & RoR 차트
+            mainChart = new Chart(document.getElementById('mainChart').getContext('2d'), {
+                type: 'line',
+                data: {
+                    labels: labels,
+                    datasets: [
+                        {
+                            label: 'BT',
+                            data: filledBeanTemps,
+                            borderColor: '#ff4d6d',
+                            borderWidth: 2.5,
+                            pointRadius: 0,
+                            tension: 0.3,
+                            yAxisID: 'y'
+                        },
+                        {
+                            label: 'ET',
+                            data: filledExhaustTemps,
+                            borderColor: '#8b5cf6',
+                            borderWidth: 2,
+                            pointRadius: 0,
+                            tension: 0.3,
+                            yAxisID: 'y'
+                        },
+                        {
+                            label: 'RoR',
+                            data: filledRateOfRise,
+                            borderColor: '#ffb142',
+                            borderWidth: 2,
+                            pointRadius: 0,
+                            tension: 0.4,
+                            yAxisID: 'y1'
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: { legend: { display: false } },
+                    scales: {
+                        x: {
+                            grid: { color: '#1a1a1a' },
+                            ticks: { color: '#555', maxTicksLimit: 12 },
+                            title: { display: false, text: '시간 (mm:ss)', color: '#a0a0a0', font: { size: 11 } }
+                        },
+                        y: {
+                            position: 'left',
+                            grid: { color: '#1a1a1a' },
+                            ticks: { color: '#ff4d6d' },
+                            title: { display: true, text: '온도 (°C)', color: '#a0a0a0', font: { size: 11 } }
+                        },
+                        y1: {
+                            position: 'right',
+                            grid: { display: false },
+                            ticks: { color: '#ffb142' },
+                            title: { display: true, text: '분당 상승률 (°C/min)', color: '#a0a0a0', font: { size: 11 } },
+                            min: 0
+                        }
+                    }
+                }
+            });
+
+            // 하단 Heat & Fan 차트
+            controlChart = new Chart(document.getElementById('controlChart').getContext('2d'), {
+                type: 'line',
+                data: {
+                    labels: labels,
+                    datasets: [
+                        {
+                            label: 'Heat',
+                            data: filledBurners,
+                            borderColor: '#ff5252',
+                            borderWidth: 1.5,
+                            stepped: true,
+                            pointRadius: 0,
+                            yAxisID: 'y'
+                        },
+                        {
+                            label: 'Fan',
+                            data: filledAirPressures,
+                            borderColor: '#3498db',
+                            borderWidth: 1.5,
+                            stepped: true,
+                            pointRadius: 0,
+                            yAxisID: 'y1'
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: { legend: { display: false } },
+                    scales: {
+                        x: {
+                            display: true,
+                            grid: { color: '#1a1a1a' },
+                            ticks: { color: '#555', maxTicksLimit: 12 }
+                        },
+                        y: {
+                            position: 'left',
+                            grid: { color: '#1a1a1a' },
+                            ticks: { color: '#ff5252' },
+                            title: { display: true, text: '버너 용량 (%)', color: '#a0a0a0', font: { size: 11 } }
+                        },
+                        y1: {
+                            position: 'right',
+                            grid: { display: false },
+                            ticks: { color: '#3498db' },
+                            title: { display: true, text: '공기 압력', color: '#a0a0a0', font: { size: 11 } }
+                        }
+                    }
+                }
+            });
+        }
+    </script>
+</body>
+</html>
