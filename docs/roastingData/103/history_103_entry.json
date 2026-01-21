@@ -1,0 +1,18 @@
+{
+  "id": 1,
+  "roasterID": 0,
+  "status": "ok",
+  "data": {
+    "creationDate": "1768364652",
+    "endTemp": 172.75,
+    "endWeight": 0.125,
+    "fillTemp": 149,
+    "fillWeight": 0.15,
+    "greenCoffeeId": 0,
+    "isTestRoast": true,
+    "name": "",
+    "note": "",
+    "reference": false,
+    "roastingTime": 769
+  }
+}

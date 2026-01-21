@@ -48,9 +48,9 @@
             overflow: hidden;
         }
 
-        /* Left Sidebar */
+        /* Left Sidebar - 로스팅 데이터 */
         .sidebar {
-            width: 280px;
+            width: 50%;
             background: #161b22;
             border-right: 1px solid #30363d;
             display: flex;
@@ -142,9 +142,9 @@
             transform: translateX(4px);
         }
 
-        /* Main Content */
+        /* Main Content - 업체 리스트 */
         .main-content {
-            flex: 1;
+            width: 50%;
             display: flex;
             flex-direction: column;
             overflow-y: auto;
@@ -268,7 +268,7 @@
     </header>
 
     <div class="dashboard-container">
-        <!-- Left Sidebar -->
+        <!-- 왼쪽 패널: 로스팅 데이터 -->
         <aside class="sidebar">
             <div class="sidebar-header">
                 <h2>로스팅 데이터</h2>
@@ -278,20 +278,20 @@
             </div>
         </aside>
 
-        <!-- Main Content -->
+        <!-- 오른쪽 패널: 업체 리스트 -->
         <main class="main-content">
-            <!-- Specialty Coffee List Section -->
+            <!-- 업체 리스트 섹션 -->
             <section class="content-section">
                 <div class="section-header">
                     <h2 class="section-title">
-                        <span class="icon">☕</span>
-                        스페셜티 업체 리스트
+                        <span class="icon">🏢</span>
+                        업체 리스트
                     </h2>
                 </div>
                 <div id="specialtyList" class="specialty-list">
                     <div class="empty-state">
                         <div class="icon">📋</div>
-                        <div class="text">추후 스페셜티 업체 정보가 추가될 예정입니다.</div>
+                        <div class="text">추후 업체 정보가 추가될 예정입니다.</div>
                     </div>
                 </div>
             </section>
@@ -301,6 +301,7 @@
     <script>
         // 정적으로 관리되는 로스팅 데이터 폴더 목록
         const roastingFolders = [
+            { id: '103', name: '2026-01-14_이름없음_172.75°C' },
             { id: '104', name: '2026-01-15_이름없음_168.75°C' },
             { id: '105', name: '2026-01-15_이름없음_193.75°C' },
             { id: '106', name: '2026-01-17_코스타리카 SHB San Rafael_174.25°C' }
