@@ -172,7 +172,7 @@
     <div id="loading" class="hidden">⌛ 데이터를 불러오는 중...</div>
 
     <div class="top-nav">
-        <button class="back-btn" onclick="location.href='/'">← 목록으로</button>
+        <button class="back-btn" onclick="location.href='index.html'">← 목록으로</button>
         <div id="folderTitle" class="folder-title">-</div>
     </div>
 
@@ -272,6 +272,7 @@
         function updateUI(data, entry, folderId) {
             document.getElementById('dashHeader').classList.remove('hidden');
             document.getElementById('mainContent').classList.remove('hidden');
+            document.getElementById('loading').classList.add('hidden');
 
             // 1. 헤더 데이터 매핑
             const creationDate = entry.creationDate ? new Date(parseInt(entry.creationDate) * 1000) : new Date();

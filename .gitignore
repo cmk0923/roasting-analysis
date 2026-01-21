@@ -1,0 +1,22 @@
+# 로컬 서버용 파일 (GitHub Pages에 배포하지 않음)
+local-server/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
