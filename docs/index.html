@@ -3,124 +3,374 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>로스팅 데이터 분석</title>
+    <title>로스팅 데이터 분석 대시보드</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
+        
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: #0d1117;
+            color: #e6edf3;
             min-height: 100vh;
             display: flex;
             flex-direction: column;
-            justify-content: center;
+        }
+
+        /* Header */
+        .header {
+            background: #161b22;
+            border-bottom: 1px solid #30363d;
+            padding: 16px 24px;
+            display: flex;
             align-items: center;
-            padding: 20px;
+            justify-content: space-between;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.3);
         }
-        .container {
-            background: white;
-            padding: 40px;
-            border-radius: 20px;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
-            max-width: 600px;
-            width: 100%;
+
+        .header h1 {
+            font-size: 20px;
+            font-weight: 600;
+            color: #e6edf3;
         }
-        h1 {
-            text-align: center;
-            color: #333;
-            margin-bottom: 30px;
-            font-size: 28px;
+
+        .header .subtitle {
+            font-size: 12px;
+            color: #8b949e;
+            margin-left: 10px;
         }
-        .folder-list {
-            display: grid;
-            gap: 10px;
+
+        /* Main Layout */
+        .dashboard-container {
+            display: flex;
+            flex: 1;
+            height: calc(100vh - 60px);
+            overflow: hidden;
         }
-        .folder-item {
-            background: #f8f9fa;
-            border: 2px solid #e9ecef;
-            border-radius: 10px;
-            padding: 15px 20px;
+
+        /* Left Sidebar */
+        .sidebar {
+            width: 280px;
+            background: #161b22;
+            border-right: 1px solid #30363d;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        .sidebar-header {
+            padding: 16px;
+            border-bottom: 1px solid #30363d;
+            background: #161b22;
+        }
+
+        .sidebar-header h2 {
+            font-size: 14px;
+            font-weight: 600;
+            color: #8b949e;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .roasting-list {
+            flex: 1;
+            overflow-y: auto;
+            padding: 8px;
+        }
+
+        /* Custom Scrollbar */
+        .roasting-list::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .roasting-list::-webkit-scrollbar-track {
+            background: #0d1117;
+        }
+
+        .roasting-list::-webkit-scrollbar-thumb {
+            background: #30363d;
+            border-radius: 3px;
+        }
+
+        .roasting-list::-webkit-scrollbar-thumb:hover {
+            background: #484f58;
+        }
+
+        .roasting-item {
+            background: #21262d;
+            border: 1px solid #30363d;
+            border-radius: 8px;
+            padding: 14px 16px;
+            margin-bottom: 8px;
             cursor: pointer;
             transition: all 0.2s;
-            font-size: 18px;
-            font-weight: 500;
-            color: #333;
             display: flex;
-            justify-content: space-between;
             align-items: center;
+            justify-content: space-between;
         }
-        .folder-item:hover {
-            background: #667eea;
-            color: white;
-            border-color: #667eea;
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+
+        .roasting-item:hover {
+            background: #30363d;
+            border-color: #58a6ff;
+            transform: translateX(4px);
         }
-        .folder-item .arrow {
-            font-size: 20px;
-        }
-        .loading {
-            text-align: center;
-            color: #666;
-            padding: 40px;
-        }
-        .error {
-            text-align: center;
-            color: #dc3545;
-            padding: 20px;
-        }
-        .nav-buttons {
+
+        .roasting-item .info {
             display: flex;
-            gap: 10px;
-            margin-bottom: 20px;
-            justify-content: center;
+            align-items: center;
+            gap: 12px;
         }
-        .nav-btn {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            border: none;
-            border-radius: 10px;
-            padding: 12px 24px;
+
+        .roasting-item .icon {
+            font-size: 18px;
+        }
+
+        .roasting-item .name {
+            font-size: 14px;
+            font-weight: 500;
+            color: #e6edf3;
+        }
+
+        .roasting-item .arrow {
+            color: #8b949e;
+            font-size: 14px;
+            transition: transform 0.2s;
+        }
+
+        .roasting-item:hover .arrow {
+            color: #58a6ff;
+            transform: translateX(4px);
+        }
+
+        /* Main Content */
+        .main-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            overflow-y: auto;
+            background: #0d1117;
+        }
+
+        .main-content::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .main-content::-webkit-scrollbar-track {
+            background: #0d1117;
+        }
+
+        .main-content::-webkit-scrollbar-thumb {
+            background: #30363d;
+            border-radius: 4px;
+        }
+
+        .main-content::-webkit-scrollbar-thumb:hover {
+            background: #484f58;
+        }
+
+        /* Content Sections */
+        .content-section {
+            padding: 24px;
+            border-bottom: 1px solid #30363d;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 16px;
+        }
+
+        .section-title {
             font-size: 16px;
             font-weight: 600;
-            cursor: pointer;
-            transition: transform 0.2s, box-shadow 0.2s;
+            color: #e6edf3;
+            display: flex;
+            align-items: center;
+            gap: 8px;
         }
-        .nav-btn:hover {
+
+        .section-title .icon {
+            color: #f0883e;
+        }
+
+        /* Coffee Price Chart */
+        .chart-container {
+            background: #161b22;
+            border: 1px solid #30363d;
+            border-radius: 12px;
+            padding: 16px;
+            height: 400px;
+        }
+
+        /* Specialty Coffee List */
+        .specialty-list {
+            display: grid;
+            gap: 12px;
+        }
+
+        .specialty-card {
+            background: #161b22;
+            border: 1px solid #30363d;
+            border-radius: 12px;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            transition: all 0.2s;
+        }
+
+        .specialty-card:hover {
+            border-color: #58a6ff;
             transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        }
+
+        .specialty-card .info {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .specialty-card .name {
+            font-size: 15px;
+            font-weight: 600;
+            color: #e6edf3;
+        }
+
+        .specialty-card .origin {
+            font-size: 13px;
+            color: #8b949e;
+        }
+
+        .specialty-card .badge {
+            background: #238636;
+            color: #e6edf3;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 500;
+        }
+
+        .empty-state {
+            text-align: center;
+            padding: 60px 20px;
+            color: #8b949e;
+        }
+
+        .empty-state .icon {
+            font-size: 48px;
+            margin-bottom: 16px;
+        }
+
+        .empty-state .text {
+            font-size: 14px;
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>🔥 로스팅 데이터 분석</h1>
-        <div id="folderList" class="folder-list">
-            <!-- 폴더 목록이 여기에 렌더링됩니다 -->
+    <header class="header">
+        <div>
+            <h1>🔥 로스팅 데이터 분석</h1>
+            <span class="subtitle">Roasting Analysis Dashboard</span>
         </div>
+    </header>
+
+    <div class="dashboard-container">
+        <!-- Left Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h2>로스팅 데이터</h2>
+            </div>
+            <div id="roastingList" class="roasting-list">
+                <!-- 로스팅 데이터 목록이 여기에 렌더링됩니다 -->
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Coffee Price Chart Section -->
+            <section class="content-section">
+                <div class="section-header">
+                    <h2 class="section-title">
+                        <span class="icon">📈</span>
+                        커피 시세 (ICE 연결선물)
+                    </h2>
+                </div>
+                <div class="chart-container">
+                    <!-- TradingView Widget -->
+                    <div class="tradingview-widget-container" style="height:100%;width:100%">
+                        <div class="tradingview-widget-container__widget" style="height:calc(100% - 32px);width:100%"></div>
+                        <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-advanced-chart.js" async>
+                        {
+                        "autosize": true,
+                        "symbol": "TVC:KC1!",
+                        "interval": "D",
+                        "timezone": "Asia/Seoul",
+                        "theme": "dark",
+                        "style": "1",
+                        "locale": "ko",
+                        "enable_publishing": false,
+                        "backgroundColor": "rgba(22, 27, 34, 1)",
+                        "gridColor": "rgba(48, 54, 61, 0.5)",
+                        "hide_top_toolbar": false,
+                        "hide_legend": false,
+                        "save_image": false,
+                        "calendar": false,
+                        "hide_volume": false,
+                        "support_host": "https://www.tradingview.com"
+                        }
+                        </script>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Specialty Coffee List Section -->
+            <section class="content-section">
+                <div class="section-header">
+                    <h2 class="section-title">
+                        <span class="icon">☕</span>
+                        스페셜티 업체 리스트
+                    </h2>
+                </div>
+                <div id="specialtyList" class="specialty-list">
+                    <div class="empty-state">
+                        <div class="icon">📋</div>
+                        <div class="text">추후 스페셜티 업체 정보가 추가될 예정입니다.</div>
+                    </div>
+                </div>
+            </section>
+        </main>
     </div>
 
     <script>
         // 정적으로 관리되는 로스팅 데이터 폴더 목록
-        // 새로운 데이터를 추가할 때 이 배열을 업데이트하세요
         const roastingFolders = [
             { id: '105', name: '로스팅 #105' },
             { id: '106', name: '코스타리카 SHB San Rafael' }
         ];
 
-        window.addEventListener('DOMContentLoaded', loadFolders);
+        window.addEventListener('DOMContentLoaded', loadRoastingList);
 
-        function loadFolders() {
-            const list = document.getElementById('folderList');
+        function loadRoastingList() {
+            const list = document.getElementById('roastingList');
             
             if (roastingFolders.length === 0) {
-                list.innerHTML = '<div class="error">저장된 데이터가 없습니다.</div>';
+                list.innerHTML = `
+                    <div class="empty-state">
+                        <div class="icon">📁</div>
+                        <div class="text">저장된 데이터가 없습니다.</div>
+                    </div>
+                `;
             } else {
-                list.innerHTML = roastingFolders.map(f =>
-                    `<div class="folder-item" onclick="openDashboard('${f.id}')">
-                        <span>📁 ${f.name}</span>
+                list.innerHTML = roastingFolders.map(f => `
+                    <div class="roasting-item" onclick="openDashboard('${f.id}')">
+                        <div class="info">
+                            <span class="icon">🔥</span>
+                            <span class="name">${f.name}</span>
+                        </div>
                         <span class="arrow">→</span>
-                    </div>`
-                ).join('');
+                    </div>
+                `).join('');
             }
         }
 
