@@ -197,13 +197,14 @@
         }
     </style>
     
-    <!-- Giscus 스크립트 (심플 버전) -->
+    <!-- Giscus 스크립트 (로스팅 배치별 댓글 분리) -->
     <script src="https://giscus.app/client.js"
             data-repo="cmk0923/roasting-analysis"
             data-repo-id="R_kgDOQ98FFQ"
             data-category="General"
             data-category-id="DIC_kwDOQ98FFc4C1N-_"
-            data-mapping="pathname"
+            data-mapping="specific"
+            data-term=""
             data-strict="0"
             data-reactions-enabled="0"
             data-emit-metadata="0"
@@ -268,7 +269,7 @@
     </div>
 
     <!-- Giscus 댓글 섹션 -->
-    <div id="giscusSection" class="giscus-section hidden">
+    <div id="giscusSection" class="giscus-section">
         <div class="giscus"></div>
     </div>
 
@@ -309,6 +310,7 @@
                 const entryData = entryResult.data || {};
 
                 updateUI(chartData, entryData, folderId);
+                document.getElementById('giscusSection').classList.remove('hidden');
             } catch (e) {
                 console.error("데이터 로드 실패", e);
                 document.getElementById('loading').innerHTML = `<div style="color: #ff4d6d;">❌ 데이터를 불러올 수 없습니다.<br>${e.message}</div>`;
@@ -319,6 +321,12 @@
             document.getElementById('dashHeader').classList.remove('hidden');
             document.getElementById('mainContent').classList.remove('hidden');
             document.getElementById('loading').classList.add('hidden');
+
+            // Giscus data-term 설정 (로스팅 배치별 댓글 분리)
+            const giscusScript = document.querySelector('script[src*="giscus"]');
+            if (giscusScript) {
+                giscusScript.setAttribute('data-term', `roasting-${folderId}`);
+            }
 
             // 1. 헤더 데이터 매핑
             const creationDate = entry.creationDate ? new Date(parseInt(entry.creationDate) * 1000) : new Date();
@@ -342,15 +350,16 @@
             const totalSec = entry.roastingTime || 0;
             document.getElementById('dashTotalTime').textContent = Math.floor(totalSec/60) + ':' + (totalSec%60).toString().padStart(2, '0');
 
-            // 마지막 빈온도 기록
-            let lastBeanTempForHeader = null;
-            for (let i = data.length - 1; i >= 0; i--) {
+            // 최고 빈온도 기록
+            let maxBeanTempForHeader = null;
+            for (let i = 0; i < data.length; i++) {
                 if (data[i].beanTemp !== undefined && data[i].beanTemp !== null) {
-                    lastBeanTempForHeader = data[i].beanTemp;
-                    break;
+                    if (maxBeanTempForHeader === null || data[i].beanTemp > maxBeanTempForHeader) {
+                        maxBeanTempForHeader = data[i].beanTemp;
+                    }
                 }
             }
-            document.getElementById('dashAmbient').textContent = lastBeanTempForHeader !== null ? lastBeanTempForHeader.toFixed(1) + '°C' : '-';
+            document.getElementById('dashAmbient').textContent = maxBeanTempForHeader !== null ? maxBeanTempForHeader.toFixed(1) + '°C' : '-';
 
             // 2. 로그 테이블 및 페이즈 계산
             const logBody = document.getElementById('logBody');
