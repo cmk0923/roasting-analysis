@@ -196,24 +196,6 @@
             margin-top: 1rem;
         }
     </style>
-    
-    <!-- Giscus 스크립트 (로스팅 배치별 댓글 분리) -->
-    <script src="https://giscus.app/client.js"
-            data-repo="cmk0923/roasting-analysis"
-            data-repo-id="R_kgDOQ98FFQ"
-            data-category="General"
-            data-category-id="DIC_kwDOQ98FFc4C1N-_"
-            data-mapping="specific"
-            data-term=""
-            data-strict="0"
-            data-reactions-enabled="0"
-            data-emit-metadata="0"
-            data-input-position="top"
-            data-theme="dark_dimmed"
-            data-lang="ko"
-            crossorigin="anonymous"
-            async>
-    </script>
 </head>
 <body class="dark">
 
@@ -270,7 +252,7 @@
 
     <!-- Giscus 댓글 섹션 -->
     <div id="giscusSection" class="giscus-section">
-        <div class="giscus"></div>
+        <div id="giscusContainer"></div>
     </div>
 
     <script>
@@ -310,7 +292,6 @@
                 const entryData = entryResult.data || {};
 
                 updateUI(chartData, entryData, folderId);
-                document.getElementById('giscusSection').classList.remove('hidden');
             } catch (e) {
                 console.error("데이터 로드 실패", e);
                 document.getElementById('loading').innerHTML = `<div style="color: #ff4d6d;">❌ 데이터를 불러올 수 없습니다.<br>${e.message}</div>`;
@@ -322,11 +303,8 @@
             document.getElementById('mainContent').classList.remove('hidden');
             document.getElementById('loading').classList.add('hidden');
 
-            // Giscus data-term 설정 (로스팅 배치별 댓글 분리)
-            const giscusScript = document.querySelector('script[src*="giscus"]');
-            if (giscusScript) {
-                giscusScript.setAttribute('data-term', `roasting-${folderId}`);
-            }
+            // Giscus 로드 (로스팅 배치별 댓글 분리)
+            loadGiscus(folderId);
 
             // 1. 헤더 데이터 매핑
             const creationDate = entry.creationDate ? new Date(parseInt(entry.creationDate) * 1000) : new Date();
@@ -737,6 +715,36 @@
                     }
                 }
             });
+        }
+
+        // Giscus 동적 로드 함수
+        function loadGiscus(folderId) {
+            const giscusContainer = document.getElementById('giscusContainer');
+            if (!giscusContainer) return;
+
+            // 기존 giscus 요소 제거
+            giscusContainer.innerHTML = '';
+
+            // giscus 스크립트 생성
+            const script = document.createElement('script');
+            script.src = 'https://giscus.app/client.js';
+            script.setAttribute('data-repo', 'cmk0923/roasting-analysis');
+            script.setAttribute('data-repo-id', 'R_kgDOQ98FFQ');
+            script.setAttribute('data-category', 'General');
+            script.setAttribute('data-category-id', 'DIC_kwDOQ98FFc4C1N-_');
+            script.setAttribute('data-mapping', 'specific');
+            script.setAttribute('data-term', `roasting-${folderId}`);
+            script.setAttribute('data-strict', '0');
+            script.setAttribute('data-reactions-enabled', '0');
+            script.setAttribute('data-emit-metadata', '0');
+            script.setAttribute('data-input-position', 'top');
+            script.setAttribute('data-theme', 'dark_dimmed');
+            script.setAttribute('data-lang', 'ko');
+            script.setAttribute('crossorigin', 'anonymous');
+            script.setAttribute('async', '');
+
+            giscusContainer.appendChild(script);
+            document.getElementById('giscusSection').classList.remove('hidden');
         }
     </script>
 </body>
