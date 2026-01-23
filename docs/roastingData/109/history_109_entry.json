@@ -1,0 +1,18 @@
+{
+  "id": 1,
+  "roasterID": 0,
+  "status": "ok",
+  "data": {
+    "creationDate": "1769148557",
+    "endTemp": 174.25,
+    "endWeight": 0.131,
+    "fillTemp": 148.75,
+    "fillWeight": 0.15,
+    "greenCoffeeId": 0,
+    "isTestRoast": true,
+    "name": "GSC 에디오피아 시다마 아르베고나 25 루무다모 G1 워시드",
+    "note": "",
+    "reference": false,
+    "roastingTime": 668
+  }
+}
