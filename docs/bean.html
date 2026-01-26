@@ -191,12 +191,20 @@
 
     <div id="content">
         <div class="top-nav">
-            <button class="back-btn" onclick="window.close()">← 닫기</button>
+            <button class="back-btn" onclick="location.href='index.html'">← 목록으로</button>
         </div>
 
         <div class="bean-header">
             <h1 id="beanName" class="bean-title">-</h1>
             <div id="beanOrigin" class="bean-subtitle">-</div>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">구매 정보</h2>
+            <table class="spec-table">
+                <tbody id="purchaseTableBody">
+                </tbody>
+            </table>
         </div>
 
         <div class="section">
@@ -229,20 +237,20 @@
 
         async function init() {
             const urlParams = new URLSearchParams(window.location.search);
-            const beanFile = urlParams.get('file');
+            const beanId = urlParams.get('id');
 
-            if (!beanFile) {
-                showError('생두 파일이 지정되지 않았습니다.');
+            if (!beanId) {
+                showError('생두 ID가 지정되지 않았습니다.');
                 return;
             }
 
-            await loadBeanData(beanFile);
+            await loadBeanData(beanId);
         }
 
-        async function loadBeanData(beanFile) {
+        async function loadBeanData(beanId) {
             try {
                 // 생두 데이터 로드
-                const response = await fetch(`beanData/${beanFile}`);
+                const response = await fetch(`beanData/${beanId}.json`);
                 if (!response.ok) {
                     throw new Error('생두 데이터를 불러올 수 없습니다.');
                 }
@@ -261,8 +269,24 @@
 
             // 헤더
             document.getElementById('beanName').textContent = data.name || '-';
-            document.getElementById('beanOrigin').textContent = 
+            document.getElementById('beanOrigin').textContent =
                 `${data.origin || ''}${data.region ? ', ' + data.region : ''}`;
+
+            // 구매 정보
+            const purchaseTableBody = document.getElementById('purchaseTableBody');
+            const purchaseInfo = [
+                { label: '구매 날짜', value: data.date || '-' },
+                { label: '구입처', value: data.distributor || '-' },
+                { label: '구매 가격', value: data.price ? `${data.price.toLocaleString()}원` : '-' }
+            ];
+
+            purchaseTableBody.innerHTML = purchaseInfo
+                .map(info => `
+                    <tr>
+                        <th>${info.label}</th>
+                        <td>${info.value}</td>
+                    </tr>
+                `).join('');
 
             // 개괄 요약
             const overviewList = document.getElementById('overviewList');
@@ -275,14 +299,13 @@
             // 상세 제원
             const specTableBody = document.getElementById('specTableBody');
             const specs = [
-                { label: '유통회사', value: data.origin },
                 { label: '국가', value: data.origin },
                 { label: '지역', value: data.region },
                 { label: '농장/조합', value: data.farm },
                 { label: '재배 고도', value: data.altitude },
                 { label: '품종', value: data.variety },
                 { label: '가공 방식', value: data.process },
-                { label: '수확 시기', value: data.harvestSeason },
+                { label: '수확 시기', value: data.harvest_season },
                 { label: '등급', value: data.grade }
             ];
 
@@ -299,12 +322,12 @@
             const flavorSection = document.getElementById('flavorSection');
             let flavorHtml = '';
 
-            if (data.cupNotes) {
-                flavorHtml += `<p><strong>컵 노트:</strong> ${data.cupNotes}</p>`;
+            if (data.cup_notes) {
+                flavorHtml += `<p><strong>컵 노트:</strong> ${data.cup_notes}</p>`;
             }
 
-            if (data.farmInfo) {
-                flavorHtml += `<p><strong>농장 정보:</strong> ${data.farmInfo}</p>`;
+            if (data.farm_info) {
+                flavorHtml += `<p><strong>농장 정보:</strong> ${data.farm_info}</p>`;
             }
 
             if (data.awards && data.awards.length > 0) {
@@ -325,17 +348,17 @@
             const marketSection = document.getElementById('marketSection');
             let marketHtml = '';
 
-            if (data.marketGrade) {
-                const gradeClass = `grade-${data.marketGrade.toLowerCase().replace(' ', '-')}`;
-                marketHtml += `<span class="market-grade ${gradeClass}">${data.marketGrade}</span><br>`;
+            if (data.market_grade) {
+                const gradeClass = `grade-${data.market_grade.toLowerCase().replace(' ', '-')}`;
+                marketHtml += `<span class="market-grade ${gradeClass}">${data.market_grade}</span><br>`;
             }
 
-            if (data.priceRangeKrw) {
-                marketHtml += `<p><strong>예상 가격:</strong> ${data.priceRangeKrw}</p>`;
+            if (data.price_range_krw) {
+                marketHtml += `<p><strong>예상 가격:</strong> ${data.price_range_krw}</p>`;
             }
 
-            if (data.priceFactors) {
-                marketHtml += `<p><strong>가격 형성 요인:</strong> ${data.priceFactors}</p>`;
+            if (data.price_factors) {
+                marketHtml += `<p><strong>가격 형성 요인:</strong> ${data.price_factors}</p>`;
             }
 
             if (!marketHtml) {

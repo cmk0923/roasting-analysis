@@ -78,7 +78,7 @@
                 } else {
                     list.innerHTML = roastingFolders.map(f => `
                         <div class="post-wrapper">
-                            <a href="dashboard.html?id=${f.id}">${f.name}</a>
+                            <a href="roastingLog.html?id=${f.id}">${f.name}</a>
                         </div>
                     `).join('');
                 }
@@ -112,9 +112,11 @@
                 } else {
                     list.innerHTML = beans.map(b => {
                         const displayName = `${b.date || ''} ${b.distributor || ''} ${b.name || ''} ${b.price || 0}원`.trim();
+                        // file에서 확장자 제거한 부분을 id로 사용
+                        const beanId = b.file.replace('.json', '');
                         return `
                             <div class="post-wrapper">
-                                <a href="bean.html?file=${b.file}">${displayName}</a>
+                                <a href="bean.html?id=${beanId}">${displayName}</a>
                             </div>
                         `;
                     }).join('');

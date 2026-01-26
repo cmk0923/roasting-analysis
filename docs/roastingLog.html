@@ -258,6 +258,7 @@
     <script>
         let mainChart = null;
         let controlChart = null;
+        let beanDataCache = {}; // 생두 데이터 캐시
 
         // 초기 실행
         window.addEventListener('DOMContentLoaded', init);
@@ -268,6 +269,30 @@
             if (folderId) {
                 // document.getElementById('folderTitle').textContent = `📁 ${folderId}`;
                 loadChartData(folderId);
+            }
+        }
+
+        // 생두 데이터 로드
+        async function loadBeanData(beanId) {
+            if (!beanId || beanId === '0') return null;
+            
+            // 캐시 확인
+            if (beanDataCache[beanId]) {
+                return beanDataCache[beanId];
+            }
+            
+            try {
+                const response = await fetch(`beanData/${beanId}.json`);
+                if (!response.ok) {
+                    console.warn(`생두 데이터를 불러올 수 없습니다: beanData/${beanId}.json`);
+                    return null;
+                }
+                const data = await response.json();
+                beanDataCache[beanId] = data;
+                return data;
+            } catch (e) {
+                console.warn(`생두 데이터 로드 실패: ${e}`);
+                return null;
             }
         }
 
@@ -309,12 +334,27 @@
             // 1. 헤더 데이터 매핑
             const creationDate = entry.creationDate ? new Date(parseInt(entry.creationDate) * 1000) : new Date();
             document.getElementById('dashDate').textContent = creationDate.toISOString().slice(0, 10).replace(/-/g, '.');
-            const beanName = entry.name || `로스팅 #${folderId}`;
-            const dashBean = document.getElementById('dashBean');
-            dashBean.textContent = beanName;
-            dashBean.onclick = () => {
-                window.open(`bean.html?name=${encodeURIComponent(beanName)}`, '_blank');
-            };
+            
+            // 생두 ID로 생두 데이터 가져오기
+            const greenCoffeeId = entry.greenCoffeeId || '0';
+            loadBeanData(greenCoffeeId).then(beanData => {
+                const beanName = beanData ? beanData.name : (entry.name || `로스팅 #${folderId}`);
+                const dashBean = document.getElementById('dashBean');
+                dashBean.textContent = beanName;
+                
+                // 생두 ID가 있는 경우에만 클릭 가능
+                if (greenCoffeeId && greenCoffeeId !== '0') {
+                    dashBean.style.cursor = 'pointer';
+                    dashBean.style.textDecoration = 'underline';
+                    dashBean.onclick = () => {
+                        window.open(`bean.html?id=${greenCoffeeId}`, '_blank');
+                    };
+                } else {
+                    dashBean.style.cursor = 'default';
+                    dashBean.style.textDecoration = 'none';
+                    dashBean.onclick = null;
+                }
+            });
             document.getElementById('dashGreen').textContent = (entry.fillWeight * 1000).toFixed(1) + 'g';
             document.getElementById('dashRoasted').textContent = (entry.endWeight * 1000).toFixed(1) + 'g';
             
