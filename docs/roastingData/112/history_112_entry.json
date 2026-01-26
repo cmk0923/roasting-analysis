@@ -3,16 +3,16 @@
   "roasterID": 0,
   "status": "ok",
   "data": {
-    "creationDate": "1769148557",
-    "endTemp": 174.25,
-    "endWeight": 0.131,
-    "fillTemp": 148.75,
-    "fillWeight": 0.15,
+    "creationDate": "1769388629",
+    "endTemp": 167.5,
+    "endWeight": 0.15,
+    "fillTemp": 142.75,
+    "fillWeight": 0.17,
     "greenCoffeeId": 0,
     "isTestRoast": true,
     "name": "코빈즈 에디오피아 시다마 아르베고나 25 루무다모 G1 워시드",
     "note": "",
     "reference": false,
-    "roastingTime": 668
+    "roastingTime": 737
   }
 }

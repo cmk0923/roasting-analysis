@@ -1,0 +1,18 @@
+{
+  "id": 1,
+  "roasterID": 0,
+  "status": "ok",
+  "data": {
+    "creationDate": "1768455882",
+    "endTemp": 168.75,
+    "endWeight": 0.132,
+    "fillTemp": 152.75,
+    "fillWeight": 0.15,
+    "greenCoffeeId": 0,
+    "isTestRoast": true,
+    "name": "코빈즈 콜롬비아 후알라 EA 디카페인",
+    "note": "",
+    "reference": false,
+    "roastingTime": 496
+  }
+}
