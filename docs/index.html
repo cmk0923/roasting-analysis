@@ -34,7 +34,7 @@
             <section id="posts">
                 <details close>
                     <summary>
-                        <h3 class="home-page-heading">생두업체</h3>
+                        <h3 class="home-page-heading">생두구매기록</h3>
                     </summary>
                     <div class="parent" id="shopList">
                         <!-- 로스팅 데이터 목록이 여기에 렌더링됩니다 -->
@@ -55,36 +55,77 @@
     </footer>
 
     <script>
-        // 정적으로 관리되는 로스팅 데이터 폴더 목록
-        const roastingFolders = [
-            { id: '104', name: '2026-01-15 코빈즈 콜롬비아 후알라 EA 디카페인 170.75°C' },
-            { id: '106', name: '2026-01-17 코스타리카 SHB San Rafael 174.25°C' },
-            { id: '107', name: '2026-01-22 코빈즈 에디오피아 시다마 아르베고나 25 루무다모 G1 워시드 187.75°C' },
-            { id: '108', name: '2026-01-22 코빈즈 에디오피아 시다마 아르베고나 25 루무다모 G1 워시드 178.75°C' },
-            { id: '109', name: '2026-01-23 코빈즈 에디오피아 시다마 아르베고나 25 루무다모 G1 워시드 174.25°C' },
-            { id: '110', name: '2026-01-23 코빈즈 에디오피아 시다마 아르베고나 25 루무다모 G1 워시드 194.25°C' },
-            { id: '111', name: '2026-01-24 코빈즈 에디오피아 시다마 아르베고나 25 루무다모 G1 워시드 172.5°C' },
-            { id: '112', name: '2026-01-26 코빈즈 에디오피아 시다마 아르베고나 25 루무다모 G1 워시드 167.5°C' }
-        ];
-
         window.addEventListener('DOMContentLoaded', loadRoastingList);
+        window.addEventListener('DOMContentLoaded', loadBeanList);
 
-        function loadRoastingList() {
+        async function loadRoastingList() {
             const list = document.getElementById('roastingList');
             
-            if (roastingFolders.length === 0) {
+            try {
+                const response = await fetch('roastingData/index.json');
+                if (!response.ok) {
+                    throw new Error('로스팅 데이터를 불러올 수 없습니다.');
+                }
+                const roastingFolders = await response.json();
+                
+                if (roastingFolders.length === 0) {
+                    list.innerHTML = `
+                        <div style="text-align: center; padding: 2rem; color: #8b949e;">
+                            <div>📁</div>
+                            <div>저장된 데이터가 없습니다.</div>
+                        </div>
+                    `;
+                } else {
+                    list.innerHTML = roastingFolders.map(f => `
+                        <div class="post-wrapper">
+                            <a href="dashboard.html?id=${f.id}">${f.name}</a>
+                        </div>
+                    `).join('');
+                }
+            } catch (error) {
                 list.innerHTML = `
-                    <div style="text-align: center; padding: 2rem; color: #8b949e;">
-                        <div>📁</div>
-                        <div>저장된 데이터가 없습니다.</div>
+                    <div style="text-align: center; padding: 2rem; color: #ff6b6b;">
+                        <div>❌</div>
+                        <div>${error.message}</div>
                     </div>
                 `;
-            } else {
-                list.innerHTML = roastingFolders.map(f => `
-                    <div class="post-wrapper">
-                        <a href="dashboard.html?id=${f.id}">${f.name}</a>
+            }
+        }
+
+        async function loadBeanList() {
+            const list = document.getElementById('shopList');
+            
+            try {
+                const response = await fetch('beanData/index.json');
+                if (!response.ok) {
+                    throw new Error('생두 데이터를 불러올 수 없습니다.');
+                }
+                const beans = await response.json();
+                
+                if (beans.length === 0) {
+                    list.innerHTML = `
+                        <div style="text-align: center; padding: 2rem; color: #8b949e;">
+                            <div>📁</div>
+                            <div>저장된 데이터가 없습니다.</div>
+                        </div>
+                    `;
+                } else {
+                    list.innerHTML = beans.map(b => {
+                        const displayName = `${b.date || ''} ${b.distributor || ''} ${b.name || ''} ${b.price || 0}원`.trim();
+                        return `
+                            <div class="post-wrapper">
+                                <a href="bean.html?file=${b.file}">${displayName}</a>
+                            </div>
+                        `;
+                    }).join('');
+                }
+            } catch (error) {
+                list.innerHTML = `
+                    <div style="text-align: center; padding: 2rem; color: #ff6b6b;">
+                        <div>❌</div>
+                        <div>${error.message}</div>
                     </div>
-                `).join('');
+                `;
             }
         }
     </script>

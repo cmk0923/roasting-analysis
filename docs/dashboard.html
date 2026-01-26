@@ -208,7 +208,7 @@
 
     <div id="dashHeader" class="dashboard-header hidden">
         <div class="bean-row">
-            <div class="stat-row"><span class="label">Bean</span><span id="dashBean" class="value">-</span></div>
+            <div class="stat-row"><span class="label">Bean</span><span id="dashBean" class="value clickable" style="cursor: pointer; text-decoration: underline;">-</span></div>
         </div>
         <div class="stat-group">
             <div class="stat-row"><span id="dashDate" class="value" style="font-size: 1rem;">-</span></div>
@@ -309,7 +309,12 @@
             // 1. 헤더 데이터 매핑
             const creationDate = entry.creationDate ? new Date(parseInt(entry.creationDate) * 1000) : new Date();
             document.getElementById('dashDate').textContent = creationDate.toISOString().slice(0, 10).replace(/-/g, '.');
-            document.getElementById('dashBean').textContent = entry.name || `로스팅 #${folderId}`;
+            const beanName = entry.name || `로스팅 #${folderId}`;
+            const dashBean = document.getElementById('dashBean');
+            dashBean.textContent = beanName;
+            dashBean.onclick = () => {
+                window.open(`bean.html?name=${encodeURIComponent(beanName)}`, '_blank');
+            };
             document.getElementById('dashGreen').textContent = (entry.fillWeight * 1000).toFixed(1) + 'g';
             document.getElementById('dashRoasted').textContent = (entry.endWeight * 1000).toFixed(1) + 'g';
             

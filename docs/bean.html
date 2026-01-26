@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>생두 정보 - Coffee Roasting Analysis</title>
+    <link rel="stylesheet" href="css/elementary.css">
+    <style>
+        :root {
+            --color__gray--light: rgb(191, 191, 191);
+            --color__gray--dark: rgb(26, 26, 26);
+            --color__accent: #ff4d6d;
+            --color__border: rgba(191, 191, 191, 0.2);
+        }
+
+        body.dark {
+            background-color: var(--color__gray--dark);
+            color: var(--color__gray--light);
+            padding: 1rem;
+            max-width: 100%;
+        }
+
+        .top-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-bottom: 1rem;
+            margin-bottom: 1rem;
+            border-bottom: 1px solid var(--color__border);
+        }
+
+        .back-btn {
+            background: transparent;
+            border: 1px solid var(--color__border);
+            color: var(--color__gray--light);
+            padding: 0.4rem 0.8rem;
+            border-radius: 2px;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-size: 0.9rem;
+        }
+
+        .back-btn:hover {
+            background: var(--color__gray--light);
+            color: var(--color__gray--dark);
+        }
+
+        .bean-header {
+            margin-bottom: 2rem;
+        }
+
+        .bean-title {
+            font-size: 2rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .bean-subtitle {
+            color: var(--color__gray--light);
+            opacity: 0.7;
+        }
+
+        .section {
+            margin-bottom: 2rem;
+        }
+
+        .section-title {
+            font-size: 1.3rem;
+            font-weight: 500;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid var(--color__border);
+        }
+
+        .overview-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .overview-list li {
+            padding: 0.5rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .overview-list li:before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: var(--color__accent);
+        }
+
+        .spec-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .spec-table th, .spec-table td {
+            padding: 0.75rem;
+            text-align: left;
+            border-bottom: 1px solid var(--color__border);
+        }
+
+        .spec-table th {
+            background: rgba(191, 191, 191, 0.1);
+            font-weight: 500;
+            width: 30%;
+        }
+
+        .flavor-section, .story-section {
+            line-height: 1.8;
+        }
+
+        .flavor-section strong, .story-section strong {
+            color: var(--color__accent);
+        }
+
+        .market-grade {
+            display: inline-block;
+            padding: 0.3rem 0.8rem;
+            border-radius: 4px;
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+        }
+
+        .grade-specialty {
+            background: rgba(79, 209, 197, 0.2);
+            color: #4fd1c5;
+        }
+
+        .grade-premium {
+            background: rgba(99, 179, 237, 0.2);
+            color: #63b3ed;
+        }
+
+        .grade-common {
+            background: rgba(191, 191, 191, 0.2);
+            color: var(--color__gray--light);
+        }
+
+        .grade-highend {
+            background: rgba(255, 159, 67, 0.2);
+            color: #ff9f43;
+        }
+
+        #loading {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 100;
+            background: var(--color__gray--dark);
+            padding: 1.5rem 2rem;
+            border-radius: 4px;
+            border: 1px solid var(--color__border);
+        }
+
+        #error {
+            text-align: center;
+            padding: 2rem;
+            color: var(--color__accent);
+        }
+
+        #content {
+            display: none;
+        }
+
+        .hidden {
+            display: none !important;
+        }
+
+        @media (max-width: 600px) {
+            body.dark {
+                padding: 0.5rem;
+            }
+
+            .bean-title {
+                font-size: 1.5rem;
+            }
+
+            .spec-table th, .spec-table td {
+                padding: 0.5rem;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body class="dark">
+    <div id="loading">⌛ 생두 정보를 불러오는 중...</div>
+    <div id="error" class="hidden"></div>
+
+    <div id="content">
+        <div class="top-nav">
+            <button class="back-btn" onclick="window.close()">← 닫기</button>
+        </div>
+
+        <div class="bean-header">
+            <h1 id="beanName" class="bean-title">-</h1>
+            <div id="beanOrigin" class="bean-subtitle">-</div>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">개괄 요약</h2>
+            <ul id="overviewList" class="overview-list">
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">상세 제원</h2>
+            <table class="spec-table">
+                <tbody id="specTableBody">
+                </tbody>
+            </table>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">향미 및 히스토리</h2>
+            <div id="flavorSection" class="flavor-section"></div>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">시장 가치 및 가격</h2>
+            <div id="marketSection"></div>
+        </div>
+    </div>
+
+    <script>
+        window.addEventListener('DOMContentLoaded', init);
+
+        async function init() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const beanFile = urlParams.get('file');
+
+            if (!beanFile) {
+                showError('생두 파일이 지정되지 않았습니다.');
+                return;
+            }
+
+            await loadBeanData(beanFile);
+        }
+
+        async function loadBeanData(beanFile) {
+            try {
+                // 생두 데이터 로드
+                const response = await fetch(`beanData/${beanFile}`);
+                if (!response.ok) {
+                    throw new Error('생두 데이터를 불러올 수 없습니다.');
+                }
+
+                const beanData = await response.json();
+                displayBeanData(beanData);
+
+            } catch (error) {
+                showError(error.message);
+            }
+        }
+
+        function displayBeanData(data) {
+            document.getElementById('loading').classList.add('hidden');
+            document.getElementById('content').style.display = 'block';
+
+            // 헤더
+            document.getElementById('beanName').textContent = data.name || '-';
+            document.getElementById('beanOrigin').textContent = 
+                `${data.origin || ''}${data.region ? ', ' + data.region : ''}`;
+
+            // 개괄 요약
+            const overviewList = document.getElementById('overviewList');
+            if (data.overview && Array.isArray(data.overview)) {
+                overviewList.innerHTML = data.overview.map(item => `<li>${item}</li>`).join('');
+            } else {
+                overviewList.innerHTML = '<li>정보 없음</li>';
+            }
+
+            // 상세 제원
+            const specTableBody = document.getElementById('specTableBody');
+            const specs = [
+                { label: '유통회사', value: data.origin },
+                { label: '국가', value: data.origin },
+                { label: '지역', value: data.region },
+                { label: '농장/조합', value: data.farm },
+                { label: '재배 고도', value: data.altitude },
+                { label: '품종', value: data.variety },
+                { label: '가공 방식', value: data.process },
+                { label: '수확 시기', value: data.harvestSeason },
+                { label: '등급', value: data.grade }
+            ];
+
+            specTableBody.innerHTML = specs
+                .filter(spec => spec.value)
+                .map(spec => `
+                    <tr>
+                        <th>${spec.label}</th>
+                        <td>${spec.value}</td>
+                    </tr>
+                `).join('');
+
+            // 향미 및 히스토리
+            const flavorSection = document.getElementById('flavorSection');
+            let flavorHtml = '';
+
+            if (data.cupNotes) {
+                flavorHtml += `<p><strong>컵 노트:</strong> ${data.cupNotes}</p>`;
+            }
+
+            if (data.farmInfo) {
+                flavorHtml += `<p><strong>농장 정보:</strong> ${data.farmInfo}</p>`;
+            }
+
+            if (data.awards && data.awards.length > 0) {
+                flavorHtml += `<p><strong>수상 경력:</strong></p><ul>`;
+                data.awards.forEach(award => {
+                    flavorHtml += `<li>${award}</li>`;
+                });
+                flavorHtml += `</ul>`;
+            }
+
+            if (!flavorHtml) {
+                flavorHtml = '<p>정보 없음</p>';
+            }
+
+            flavorSection.innerHTML = flavorHtml;
+
+            // 시장 가치 및 가격
+            const marketSection = document.getElementById('marketSection');
+            let marketHtml = '';
+
+            if (data.marketGrade) {
+                const gradeClass = `grade-${data.marketGrade.toLowerCase().replace(' ', '-')}`;
+                marketHtml += `<span class="market-grade ${gradeClass}">${data.marketGrade}</span><br>`;
+            }
+
+            if (data.priceRangeKrw) {
+                marketHtml += `<p><strong>예상 가격:</strong> ${data.priceRangeKrw}</p>`;
+            }
+
+            if (data.priceFactors) {
+                marketHtml += `<p><strong>가격 형성 요인:</strong> ${data.priceFactors}</p>`;
+            }
+
+            if (!marketHtml) {
+                marketHtml = '<p>정보 없음</p>';
+            }
+
+            marketSection.innerHTML = marketHtml;
+        }
+
+        function showError(message) {
+            document.getElementById('loading').classList.add('hidden');
+            document.getElementById('error').classList.remove('hidden');
+            document.getElementById('error').innerHTML = `<p>❌ ${message}</p>`;
+        }
+    </script>
+</body>
+</html>
