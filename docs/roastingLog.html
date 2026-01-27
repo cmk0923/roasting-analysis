@@ -31,6 +31,21 @@
             border-bottom: 1px solid var(--color__border);
         }
 
+        .price-info {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            gap: 0.3rem;
+        }
+
+        .price-item {
+            font-size: 0.9rem;
+        }
+
+        .price-item strong {
+            color: var(--color__accent);
+        }
+
         .back-btn {
             background: transparent;
             border: 1px solid var(--color__border);
@@ -169,13 +184,20 @@
             }
             .bean-row { grid-column: 1 / -1; }
             .top-nav {
-                flex-direction: column;
+                flex-direction: row;
                 gap: 0.5rem;
-                align-items: flex-start;
+                align-items: center;
             }
             .back-btn {
-                width: 100%;
-                text-align: center;
+                padding: 0.3rem 0.6rem;
+                font-size: 0.75rem;
+                flex-shrink: 0;
+            }
+            .price-info {
+                gap: 0.1rem;
+            }
+            .price-item {
+                font-size: 0.75rem;
             }
             .chart-wrapper {
                 min-height: 250px;
@@ -203,7 +225,10 @@
 
     <div class="top-nav">
         <button class="back-btn" onclick="location.href='index.html'">← 목록으로</button>
-        <!-- <div id="folderTitle" class="folder-title">-</div> -->
+        <div class="price-info">
+            <div class="price-item">생두 구입가격(kg): <strong id="beanPrice">-</strong></div>
+            <div class="price-item">로스팅 후 1잔(15g): <strong id="cupPrice">-</strong></div>
+        </div>
     </div>
 
     <div id="dashHeader" class="dashboard-header hidden">
@@ -354,6 +379,9 @@
                     dashBean.style.textDecoration = 'none';
                     dashBean.onclick = null;
                 }
+
+                // 가격 정보 계산 및 표시
+                calculateAndDisplayPrice(beanData, entry);
             });
             document.getElementById('dashGreen').textContent = (entry.fillWeight * 1000).toFixed(1) + 'g';
             document.getElementById('dashRoasted').textContent = (entry.endWeight * 1000).toFixed(1) + 'g';
@@ -760,6 +788,41 @@
                     }
                 }
             });
+        }
+
+        // 가격 계산 및 표시 함수
+        function calculateAndDisplayPrice(beanData, entry) {
+            // 원두 가격 표시
+            if (beanData && beanData.price) {
+                document.getElementById('beanPrice').textContent = `${beanData.price.toLocaleString()}원`;
+            } else {
+                document.getElementById('beanPrice').textContent = '-';
+            }
+
+            // 잔당 가격 계산
+            if (beanData && beanData.price && entry.fillWeight && entry.endWeight) {
+                // weightLoss 계산: (fillWeight - endWeight) / fillWeight
+                const weightLoss = (entry.fillWeight - entry.endWeight) / entry.fillWeight;
+
+                // 로스팅 수율 계산: 1 - weightLoss
+                const roastingYield = 1 - weightLoss;
+
+                // 원두 kg당 가격
+                const pricePerKg = beanData.price;
+
+                // 로스팅 후 kg당 가격: pricePerKg / roastingYield
+                const roastedPricePerKg = pricePerKg / roastingYield;
+
+                // 15g(한잔)당 가격: roastedPricePerKg * 0.015
+                const cupPrice = roastedPricePerKg * 0.015;
+
+                // 소수점 제거하고 정수로 변환
+                const cupPriceInt = Math.floor(cupPrice);
+
+                document.getElementById('cupPrice').textContent = `${cupPriceInt.toLocaleString()}원`;
+            } else {
+                document.getElementById('cupPrice').textContent = '-';
+            }
         }
 
         // Giscus 동적 로드 함수

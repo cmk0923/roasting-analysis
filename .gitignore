@@ -1,6 +1,9 @@
 # 로컬 서버용 파일 (GitHub Pages에 배포하지 않음)
 local-server/
 
+# 환경 변수 파일
+.env
+
 # Python
 __pycache__/
 *.py[cod]
