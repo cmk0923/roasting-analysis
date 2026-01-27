@@ -221,7 +221,7 @@
 </head>
 <body class="dark">
 
-    <div id="loading" class="hidden">⌛ 데이터를 불러오는 중...</div>
+    <div id="loading" class="hidden">데이터를 불러오는 중...</div>
 
     <div class="top-nav">
         <button class="back-btn" onclick="location.href='index.html'">← 목록으로</button>
@@ -292,7 +292,7 @@
             const urlParams = new URLSearchParams(window.location.search);
             const folderId = urlParams.get('id');
             if (folderId) {
-                // document.getElementById('folderTitle').textContent = `📁 ${folderId}`;
+                // document.getElementById('folderTitle').textContent = `${folderId}`;
                 loadChartData(folderId);
             }
         }
@@ -344,7 +344,7 @@
                 updateUI(chartData, entryData, folderId);
             } catch (e) {
                 console.error("데이터 로드 실패", e);
-                document.getElementById('loading').innerHTML = `<div style="color: #ff4d6d;">❌ 데이터를 불러올 수 없습니다.<br>${e.message}</div>`;
+                document.getElementById('loading').innerHTML = `<div style="color: #ff4d6d;">데이터를 불러올 수 없습니다.<br>${e.message}</div>`;
             }
         }
 

@@ -41,6 +41,18 @@
                     </div>
                 </details>
             </section>
+            <section id="posts">
+                <details close>
+                    <summary>
+                        <h3 class="home-page-heading">카페 스페셜티 리뷰</h3>
+                    </summary>
+                    <div class="parent">
+                        <div class="post-wrapper">
+                            <a href="specialty-review.html">스페셜티 원두 테이스팅 노트</a>
+                        </div>
+                    </div>
+                </details>
+            </section>
         </main>
     </div>
 
@@ -71,7 +83,6 @@
                 if (roastingFolders.length === 0) {
                     list.innerHTML = `
                         <div style="text-align: center; padding: 2rem; color: #8b949e;">
-                            <div>📁</div>
                             <div>저장된 데이터가 없습니다.</div>
                         </div>
                     `;
@@ -85,7 +96,6 @@
             } catch (error) {
                 list.innerHTML = `
                     <div style="text-align: center; padding: 2rem; color: #ff6b6b;">
-                        <div>❌</div>
                         <div>${error.message}</div>
                     </div>
                 `;
@@ -105,7 +115,6 @@
                 if (beans.length === 0) {
                     list.innerHTML = `
                         <div style="text-align: center; padding: 2rem; color: #8b949e;">
-                            <div>📁</div>
                             <div>저장된 데이터가 없습니다.</div>
                         </div>
                     `;
@@ -124,7 +133,6 @@
             } catch (error) {
                 list.innerHTML = `
                     <div style="text-align: center; padding: 2rem; color: #ff6b6b;">
-                        <div>❌</div>
                         <div>${error.message}</div>
                     </div>
                 `;

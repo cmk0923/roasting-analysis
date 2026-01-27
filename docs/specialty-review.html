@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>카페 스페셜티 리뷰 - Coffee Roasting Analysis</title>
+    <link rel="stylesheet" href="css/elementary.css">
+    <style>
+        :root {
+            --color__gray--light: rgb(191, 191, 191);
+            --color__gray--dark: rgb(26, 26, 26);
+            --color__accent: #ff4d6d;
+            --color__border: rgba(191, 191, 191, 0.2);
+            --color__specialty: #4fd1c5;
+        }
+
+        body.dark {
+            background-color: var(--color__gray--dark);
+            color: var(--color__gray--light);
+            padding: 1rem;
+            max-width: 100%;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .top-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-bottom: 1rem;
+            margin-bottom: 1.5rem;
+            border-bottom: 1px solid var(--color__border);
+        }
+
+        .back-btn {
+            background: transparent;
+            border: 1px solid var(--color__border);
+            color: var(--color__gray--light);
+            padding: 0.4rem 0.8rem;
+            border-radius: 2px;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-size: 0.9rem;
+            text-decoration: none;
+        }
+
+        .back-btn:hover {
+            background: var(--color__gray--light);
+            color: var(--color__gray--dark);
+        }
+
+        .page-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .page-title {
+            font-size: 2rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--color__specialty);
+        }
+
+        .page-subtitle {
+            color: var(--color__gray--light);
+            opacity: 0.7;
+            font-size: 1rem;
+        }
+
+        .section {
+            margin-bottom: 2rem;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 500;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid var(--color__border);
+            color: var(--color__specialty);
+        }
+
+        .review-intro {
+            background: rgba(79, 209, 197, 0.1);
+            border-left: 4px solid var(--color__specialty);
+            padding: 1.5rem;
+            border-radius: 0 4px 4px 0;
+            margin-bottom: 2rem;
+            line-height: 1.8;
+        }
+
+        .review-intro strong {
+            color: var(--color__specialty);
+        }
+
+        .review-list {
+            display: grid;
+            gap: 1rem;
+        }
+
+        .review-item {
+            background: rgba(191, 191, 191, 0.05);
+            border: 1px solid var(--color__border);
+            padding: 1.5rem;
+            border-radius: 4px;
+            transition: all 0.2s;
+        }
+
+        .review-item:hover {
+            border-color: var(--color__specialty);
+            background: rgba(79, 209, 197, 0.05);
+        }
+
+        .review-item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.8rem;
+        }
+
+        .review-item-title {
+            font-size: 1.2rem;
+            font-weight: 500;
+            color: var(--color__gray--light);
+        }
+
+        .review-item-date {
+            font-size: 0.85rem;
+            color: var(--color__gray--light);
+            opacity: 0.6;
+        }
+
+        .review-item-origin {
+            font-size: 0.9rem;
+            color: var(--color__specialty);
+            margin-bottom: 0.5rem;
+        }
+
+        .review-item-notes {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            color: var(--color__gray--light);
+            opacity: 0.9;
+        }
+
+        .giscus-section {
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--color__border);
+        }
+
+        .giscus-title {
+            font-size: 1.3rem;
+            font-weight: 500;
+            margin-bottom: 1rem;
+            color: var(--color__specialty);
+        }
+
+        @media (max-width: 600px) {
+            body.dark {
+                padding: 0.5rem;
+            }
+
+            .page-title {
+                font-size: 1.5rem;
+            }
+
+            .section-title {
+                font-size: 1.2rem;
+            }
+
+            .review-item {
+                padding: 1rem;
+            }
+
+            .review-item-title {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body class="dark">
+    <div class="container">
+        <div class="top-nav">
+            <a href="index.html" class="back-btn">← 목록으로</a>
+        </div>
+
+        <div class="page-header">
+            <h1 class="page-title">카페 스페셜티 리뷰</h1>
+        </div>
+
+        <div class="section">
+            <div class="review-intro">
+                <p>
+                    카페를 다니며 마신 <strong>스페셜티 커피</strong> 원두들의 테이스팅 노트 기록들...
+                </p>
+            </div>
+        </div>
+
+        <div class="giscus-section">
+            <h2 class="section-title">리뷰</h2>
+            <div id="giscusContainer"></div>
+        </div>
+    </div>
+
+    <script>
+        // Giscus 동적 로드 함수
+        function loadGiscus() {
+            const giscusContainer = document.getElementById('giscusContainer');
+            if (!giscusContainer) return;
+
+            // 기존 giscus 요소 제거
+            giscusContainer.innerHTML = '';
+
+            // giscus 스크립트 생성
+            const script = document.createElement('script');
+            script.src = 'https://giscus.app/client.js';
+            script.setAttribute('data-repo', 'cmk0923/roasting-analysis');
+            script.setAttribute('data-repo-id', 'R_kgDOQ98FFQ');
+            script.setAttribute('data-category', 'General');
+            script.setAttribute('data-category-id', 'DIC_kwDOQ98FFc4C1N-_');
+            script.setAttribute('data-mapping', 'specific');
+            script.setAttribute('data-term', 'specialty-review');
+            script.setAttribute('data-strict', '0');
+            script.setAttribute('data-reactions-enabled', '0');
+            script.setAttribute('data-emit-metadata', '0');
+            script.setAttribute('data-input-position', 'bottom');
+            script.setAttribute('data-theme', 'dark_dimmed');
+            script.setAttribute('data-lang', 'ko');
+            script.setAttribute('crossorigin', 'anonymous');
+            script.setAttribute('async', '');
+
+            giscusContainer.appendChild(script);
+        }
+
+        // 페이지 로드 시 Giscus 초기화
+        window.addEventListener('DOMContentLoaded', loadGiscus);
+    </script>
+</body>
+</html>

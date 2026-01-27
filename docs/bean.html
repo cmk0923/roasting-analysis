@@ -169,6 +169,10 @@
             display: none !important;
         }
 
+        .giscus-section {
+            margin-top: 2rem;
+        }
+
         @media (max-width: 600px) {
             body.dark {
                 padding: 0.5rem;
@@ -186,12 +190,12 @@
     </style>
 </head>
 <body class="dark">
-    <div id="loading">⌛ 생두 정보를 불러오는 중...</div>
+    <div id="loading">생두 정보를 불러오는 중...</div>
     <div id="error" class="hidden"></div>
 
     <div id="content">
         <div class="top-nav">
-            <button class="back-btn" onclick="window.close()">✕ 창 닫기</button>
+            <button class="back-btn" onclick="window.close()">창 닫기</button>
         </div>
 
         <div class="bean-header">
@@ -206,6 +210,12 @@
                 </tbody>
             </table>
         </div>
+
+        <div class="section giscus-section">
+            <h2 class="section-title">리뷰</h2>
+            <div id="giscusContainer"></div>
+        </div>
+
 
         <div class="section">
             <h2 class="section-title">개괄 요약</h2>
@@ -256,16 +266,19 @@
                 }
 
                 const beanData = await response.json();
-                displayBeanData(beanData);
+                displayBeanData(beanData, beanId);
 
             } catch (error) {
                 showError(error.message);
             }
         }
 
-        function displayBeanData(data) {
+        function displayBeanData(data, beanId) {
             document.getElementById('loading').classList.add('hidden');
             document.getElementById('content').style.display = 'block';
+
+            // Giscus 로드
+            loadGiscus(beanId);
 
             // 헤더
             document.getElementById('beanName').textContent = data.name || '-';
@@ -371,7 +384,36 @@
         function showError(message) {
             document.getElementById('loading').classList.add('hidden');
             document.getElementById('error').classList.remove('hidden');
-            document.getElementById('error').innerHTML = `<p>❌ ${message}</p>`;
+            document.getElementById('error').innerHTML = `<p>${message}</p>`;
+        }
+
+        // Giscus 동적 로드 함수
+        function loadGiscus(beanId) {
+            const giscusContainer = document.getElementById('giscusContainer');
+            if (!giscusContainer) return;
+
+            // 기존 giscus 요소 제거
+            giscusContainer.innerHTML = '';
+
+            // giscus 스크립트 생성
+            const script = document.createElement('script');
+            script.src = 'https://giscus.app/client.js';
+            script.setAttribute('data-repo', 'cmk0923/roasting-analysis');
+            script.setAttribute('data-repo-id', 'R_kgDOQ98FFQ');
+            script.setAttribute('data-category', 'General');
+            script.setAttribute('data-category-id', 'DIC_kwDOQ98FFc4C1N-_');
+            script.setAttribute('data-mapping', 'specific');
+            script.setAttribute('data-term', `bean-${beanId}`);
+            script.setAttribute('data-strict', '0');
+            script.setAttribute('data-reactions-enabled', '0');
+            script.setAttribute('data-emit-metadata', '0');
+            script.setAttribute('data-input-position', 'bottom');
+            script.setAttribute('data-theme', 'dark_dimmed');
+            script.setAttribute('data-lang', 'ko');
+            script.setAttribute('crossorigin', 'anonymous');
+            script.setAttribute('async', '');
+
+            giscusContainer.appendChild(script);
         }
     </script>
 </body>
