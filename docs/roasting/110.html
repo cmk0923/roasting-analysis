@@ -3,8 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Professional Roast Analyzer</title>
-    <link rel="stylesheet" href="css/elementary.css">
+    <title>2026-01-23 25 에티오피아 시다마 아르베고나 루무다모 G1 워시드 194.25°C - 로스팅 분석</title>
+    <meta name="description" content="2026-01-23에 로스팅한 2026-01-23 25 에티오피아 시다마 아르베고나 루무다모 G1 워시드 194.25°C. 로스팅 프로필, 온도 그래프, 이벤트 로그를 확인하세요.">
+    <meta property="og:title" content="2026-01-23 25 에티오피아 시다마 아르베고나 루무다모 G1 워시드 194.25°C - 로스팅 분석">
+    <meta property="og:description" content="2026-01-23에 로스팅한 2026-01-23 25 에티오피아 시다마 아르베고나 루무다모 G1 워시드 194.25°C. 로스팅 프로필, 온도 그래프, 이벤트 로그를 확인하세요.">
+    <meta property="og:type" content="website">
+    <link rel="canonical" href="/roasting/110.html">
+    <link rel="stylesheet" href="../css/elementary.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
     <style>
         :root {
@@ -21,7 +26,6 @@
             max-width: 100%;
         }
 
-        /* 상단 네비게이션 바 */
         .top-nav {
             display: flex;
             justify-content: space-between;
@@ -62,13 +66,6 @@
             color: var(--color__gray--dark);
         }
 
-        .folder-title {
-            font-size: 1.1rem;
-            font-weight: 500;
-            color: var(--color__gray--light);
-        }
-
-        /* 대시보드 헤더 */
         .dashboard-header {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
@@ -86,7 +83,6 @@
         .value { font-weight: 500; }
         .highlight { color: var(--color__accent); }
 
-        /* 메인 레이아웃: 그래프(좌) + 로그(우) */
         .main-layout {
             display: grid;
             grid-template-columns: 1fr 280px;
@@ -109,6 +105,7 @@
             position: relative;
             margin-bottom: 1rem;
         }
+
         .control-chart-wrapper {
             min-height: 100px;
             border-top: 1px solid var(--color__border);
@@ -116,7 +113,6 @@
             flex-shrink: 0;
         }
 
-        /* 로그 테이블 (우측) */
         .log-section {
             background: transparent;
             border-radius: 0;
@@ -148,7 +144,6 @@
         .t-bt { color: var(--color__accent); font-weight: 500; width: 65px; }
         .t-event { color: var(--color__gray--light); font-weight: 400; }
 
-        /* 로딩/에러 표시 */
         #loading {
             position: fixed;
             top: 50%;
@@ -160,9 +155,9 @@
             border-radius: 4px;
             border: 1px solid var(--color__border);
         }
+
         .hidden { display: none !important; }
 
-        /* 반응형 디자인 */
         @media (max-width: 900px) {
             .main-layout {
                 grid-template-columns: 1fr;
@@ -213,7 +208,6 @@
             }
         }
 
-        /* Giscus 섹션 */
         .giscus-section {
             margin-top: 1rem;
         }
@@ -221,10 +215,10 @@
 </head>
 <body class="dark">
 
-    <div id="loading" class="hidden">데이터를 불러오는 중...</div>
+    <div id="loading">데이터를 불러오는 중...</div>
 
     <div class="top-nav">
-        <button class="back-btn" onclick="location.href='index.html'">← 목록으로</button>
+        <button class="back-btn" onclick="location.href='../index.html'">← 목록으로</button>
         <div class="price-info">
             <div class="price-item">생두 구입가격(kg): <strong id="beanPrice">-</strong></div>
             <div class="price-item">로스팅 후 1잔(15g): <strong id="cupPrice">-</strong></div>
@@ -257,7 +251,6 @@
             <div class="chart-wrapper">
                 <canvas id="mainChart"></canvas>
             </div>
-            
             <div class="control-chart-wrapper">
                 <canvas id="controlChart"></canvas>
             </div>
@@ -275,42 +268,29 @@
         </div>
     </div>
 
-    <!-- Giscus 댓글 섹션 -->
     <div id="giscusSection" class="giscus-section">
         <div id="giscusContainer"></div>
     </div>
 
     <script>
+        const FOLDER_ID = "110";
         let mainChart = null;
         let controlChart = null;
-        let beanDataCache = {}; // 생두 데이터 캐시
+        let beanDataCache = {};
 
-        // 초기 실행
         window.addEventListener('DOMContentLoaded', init);
 
         async function init() {
-            const urlParams = new URLSearchParams(window.location.search);
-            const folderId = urlParams.get('id');
-            if (folderId) {
-                // 새로운 정적 페이지 URL로 리다이렉트
-                window.location.href = `roasting/${folderId}.html`;
-                return;
-            }
-            // 쿼리 파라미터가 없으면 기존 방식대로 동작 (호환성 유지)
-            document.getElementById('loading').innerHTML = '<div style="color: #ff4d6d;">유효하지 않은 URL입니다. <a href="index.html" style="color: #ff4d6d;">목록으로 이동</a></div>';
+            loadChartData(FOLDER_ID);
         }
 
-        // 생두 데이터 로드
         async function loadBeanData(beanId) {
             if (!beanId || beanId === '0') return null;
-            
-            // 캐시 확인
             if (beanDataCache[beanId]) {
                 return beanDataCache[beanId];
             }
-            
             try {
-                const response = await fetch(`beanData/${beanId}.json`);
+                const response = await fetch(`../beanData/${beanId}.json`);
                 if (!response.ok) {
                     console.warn(`생두 데이터를 불러올 수 없습니다: beanData/${beanId}.json`);
                     return null;
@@ -327,23 +307,17 @@
         async function loadChartData(folderId) {
             document.getElementById('loading').classList.remove('hidden');
             try {
-                // JSON 파일 직접 로드
                 const [dataRes, entryRes] = await Promise.all([
-                    fetch(`roastingData/${folderId}/history_${folderId}_chart.json`),
-                    fetch(`roastingData/${folderId}/history_${folderId}_entry.json`)
+                    fetch(`../roastingData/${folderId}/history_${folderId}_chart.json`),
+                    fetch(`../roastingData/${folderId}/history_${folderId}_entry.json`)
                 ]);
-                
                 if (!dataRes.ok || !entryRes.ok) {
                     throw new Error('데이터 파일을 찾을 수 없습니다.');
                 }
-                
                 const dataResult = await dataRes.json();
                 const entryResult = await entryRes.json();
-
-                // JSON 구조: { data: [...] } 또는 { data: { data: ... } }
                 const chartData = dataResult.data || [];
                 const entryData = entryResult.data || {};
-
                 updateUI(chartData, entryData, folderId);
             } catch (e) {
                 console.error("데이터 로드 실패", e);
@@ -355,44 +329,35 @@
             document.getElementById('dashHeader').classList.remove('hidden');
             document.getElementById('mainContent').classList.remove('hidden');
             document.getElementById('loading').classList.add('hidden');
-
-            // Giscus 로드 (로스팅 배치별 댓글 분리)
             loadGiscus(folderId);
 
-            // 1. 헤더 데이터 매핑
             const creationDate = entry.creationDate ? new Date(parseInt(entry.creationDate) * 1000) : new Date();
             document.getElementById('dashDate').textContent = creationDate.toISOString().slice(0, 10).replace(/-/g, '.');
             
-            // 생두 ID로 생두 데이터 가져오기
             const greenCoffeeId = entry.greenCoffeeId || '0';
             loadBeanData(greenCoffeeId).then(beanData => {
                 const beanName = beanData ? beanData.name : (entry.name || `로스팅 #${folderId}`);
                 const dashBean = document.getElementById('dashBean');
                 dashBean.textContent = beanName;
-                
-                // 생두 ID가 있는 경우에만 클릭 가능
                 if (greenCoffeeId && greenCoffeeId !== '0') {
                     dashBean.style.cursor = 'pointer';
                     dashBean.style.textDecoration = 'underline';
                     dashBean.onclick = () => {
-                        window.open(`bean.html?id=${greenCoffeeId}`, '_blank');
+                        window.open(`../bean.html?id=${greenCoffeeId}`, '_blank');
                     };
                 } else {
                     dashBean.style.cursor = 'default';
                     dashBean.style.textDecoration = 'none';
                     dashBean.onclick = null;
                 }
-
-                // 가격 정보 계산 및 표시
                 calculateAndDisplayPrice(beanData, entry);
             });
+
             document.getElementById('dashGreen').textContent = (entry.fillWeight * 1000).toFixed(1) + 'g';
             document.getElementById('dashRoasted').textContent = (entry.endWeight * 1000).toFixed(1) + 'g';
-            
             const loss = ((entry.fillWeight - entry.endWeight) / entry.fillWeight * 100);
             document.getElementById('dashLoss').textContent = loss.toFixed(1) + '%';
             
-            // 무게 손실율 기준 roast level 계산
             let roastLevel = 'Medium';
             if (loss < 13) roastLevel = 'Light';
             else if (loss < 15) roastLevel = 'Medium';
@@ -404,7 +369,6 @@
             const totalSec = entry.roastingTime || 0;
             document.getElementById('dashTotalTime').textContent = Math.floor(totalSec/60) + ':' + (totalSec%60).toString().padStart(2, '0');
 
-            // 최고 빈온도 기록
             let maxBeanTempForHeader = null;
             for (let i = 0; i < data.length; i++) {
                 if (data[i].beanTemp !== undefined && data[i].beanTemp !== null) {
@@ -415,14 +379,11 @@
             }
             document.getElementById('dashAmbient').textContent = maxBeanTempForHeader !== null ? maxBeanTempForHeader.toFixed(1) + '°C' : '-';
 
-            // 2. 로그 테이블 및 페이즈 계산
             const logBody = document.getElementById('logBody');
             logBody.innerHTML = '';
             
             let deTime = 0, fcTime = 0;
             let lastBeanTemp = null;
-
-            // 데이터 전처리 (forward fill)
             let lastBeanTempForTP = null;
             const filledBeanTemps = data.map(d => {
                 if (d.beanTemp !== undefined && d.beanTemp !== null) {
@@ -439,12 +400,10 @@
                 return lastRateOfRise;
             });
 
-            // TP 시간 계산 (콩온도 최저점)
             const minBeanTemp = Math.min(...filledBeanTemps.filter(t => t !== null));
             const tpIndex = filledBeanTemps.findIndex(t => t === minBeanTemp);
             const tpTime = data[tpIndex] ? data[tpIndex].timestamp : 0;
 
-            // 최고 RoR 시간 계산 (1분 이후)
             const oneMinuteIndex = data.findIndex(d => d.timestamp >= 60);
             let maxRorAfterOneMin = 0;
             let maxRorIndex = 0;
@@ -454,7 +413,6 @@
                 maxRorIndex = filledRateOfRise.findIndex((r, i) => r === maxRorAfterOneMin && i >= oneMinuteIndex);
             }
 
-            // 최저 RoR 시간 계산 (최고 RoR 이후)
             let minRorAfterMax = 0;
             let minRorIndex = 0;
             if (maxRorIndex >= 0) {
@@ -463,11 +421,7 @@
                 minRorIndex = filledRateOfRise.findIndex((r, i) => r === minRorAfterMax && i >= maxRorIndex);
             }
 
-            // 이벤트 목록 생성
             const events = [];
-
-            // 화력 조절 시간 계산 - 화력 유지 시간 1분 이상 기준으로 그룹화
-            // 화력 forward fill (빈값을 이전 값으로 채우기)
             let burnerForEvents = null;
             const filledBurnersForEvents = data.map((d, i) => {
                 if (d.burner !== undefined && d.burner !== null) {
@@ -476,26 +430,22 @@
                 return { index: i, timestamp: d.timestamp, burner: burnerForEvents };
             });
             
-            // 화력이 변화하는 구간 감지 (30초 이상 유지되는 화력 수치 기준)
             const stableBurners = [];
             let currentStableStart = null;
             let currentStableIndex = null;
             let currentStableValue = null;
-            let lastChangeIndex = 0; // 마지막 화력 변화 인덱스 추적
+            let lastChangeIndex = 0;
             
             for (let i = 0; i < filledBurnersForEvents.length; i++) {
                 const item = filledBurnersForEvents[i];
-                
                 if (currentStableValue === null) {
                     currentStableValue = item.burner;
                     currentStableStart = item.timestamp;
                     currentStableIndex = i;
                     lastChangeIndex = i;
                 } else if (item.burner !== currentStableValue) {
-                    // 화력이 변화하면 유지 시간 확인
                     const duration = item.timestamp - currentStableStart;
                     if (duration >= 30) {
-                        // 30초 이상 유지되면 안정 상태로 기록
                         stableBurners.push({
                             value: currentStableValue,
                             startTime: currentStableStart,
@@ -505,14 +455,13 @@
                     }
                     currentStableValue = item.burner;
                     currentStableStart = item.timestamp;
+                    currentStableIndex = i;
                     lastChangeIndex = i;
                 }
             }
-            
-            // 마지막 안정 상태 처리
-            if (currentStableValue !== null) {
-                const lastItem = filledBurnersForEvents[filledBurnersForEvents.length - 1];
-                const duration = lastItem.timestamp - currentStableStart;
+
+            if (currentStableValue !== null && filledBurnersForEvents.length > 0) {
+                const duration = filledBurnersForEvents[filledBurnersForEvents.length - 1].timestamp - currentStableStart;
                 if (duration >= 30) {
                     stableBurners.push({
                         value: currentStableValue,
@@ -522,7 +471,7 @@
                     });
                 }
             }
-            
+
             // 안정 상태 사이의 화력 변화 그룹화
             for (let i = 0; i < stableBurners.length - 1; i++) {
                 const currentStable = stableBurners[i];
@@ -624,11 +573,7 @@
                 logBody.innerHTML += `<tr><td class="t-time">${endTimeStr}</td><td class="t-bt">${endBT}</td><td class="t-event">Last BT</td></tr>`;
             }
 
-            // 3. 차트 그리기
             renderCharts(data);
-
-            // 4. Giscus 섹션 표시
-            document.getElementById('giscusSection').classList.remove('hidden');
         }
 
         function renderCharts(data) {
@@ -793,50 +738,30 @@
             });
         }
 
-        // 가격 계산 및 표시 함수
         function calculateAndDisplayPrice(beanData, entry) {
-            // 원두 가격 표시
             if (beanData && beanData.price) {
                 document.getElementById('beanPrice').textContent = `${beanData.price.toLocaleString()}원`;
             } else {
                 document.getElementById('beanPrice').textContent = '-';
             }
 
-            // 잔당 가격 계산
             if (beanData && beanData.price && entry.fillWeight && entry.endWeight) {
-                // weightLoss 계산: (fillWeight - endWeight) / fillWeight
                 const weightLoss = (entry.fillWeight - entry.endWeight) / entry.fillWeight;
-
-                // 로스팅 수율 계산: 1 - weightLoss
                 const roastingYield = 1 - weightLoss;
-
-                // 원두 kg당 가격
                 const pricePerKg = beanData.price;
-
-                // 로스팅 후 kg당 가격: pricePerKg / roastingYield
                 const roastedPricePerKg = pricePerKg / roastingYield;
-
-                // 15g(한잔)당 가격: roastedPricePerKg * 0.015
                 const cupPrice = roastedPricePerKg * 0.015;
-
-                // 소수점 제거하고 정수로 변환
                 const cupPriceInt = Math.floor(cupPrice);
-
                 document.getElementById('cupPrice').textContent = `${cupPriceInt.toLocaleString()}원`;
             } else {
                 document.getElementById('cupPrice').textContent = '-';
             }
         }
 
-        // Giscus 동적 로드 함수
         function loadGiscus(folderId) {
             const giscusContainer = document.getElementById('giscusContainer');
             if (!giscusContainer) return;
-
-            // 기존 giscus 요소 제거
             giscusContainer.innerHTML = '';
-
-            // giscus 스크립트 생성
             const script = document.createElement('script');
             script.src = 'https://giscus.app/client.js';
             script.setAttribute('data-repo', 'cmk0923/roasting-analysis');
@@ -853,7 +778,6 @@
             script.setAttribute('data-lang', 'ko');
             script.setAttribute('crossorigin', 'anonymous');
             script.setAttribute('async', '');
-
             giscusContainer.appendChild(script);
             document.getElementById('giscusSection').classList.remove('hidden');
         }

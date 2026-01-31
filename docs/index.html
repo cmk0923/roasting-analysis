@@ -89,7 +89,7 @@
                 } else {
                     list.innerHTML = roastingFolders.map(f => `
                         <div class="post-wrapper">
-                            <a href="roastingLog.html?id=${f.id}">${f.name}</a>
+                            <a href="roasting/${f.id}.html">${f.name}</a>
                         </div>
                     `).join('');
                 }
