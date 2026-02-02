@@ -1,0 +1,18 @@
+{
+  "id": 1,
+  "roasterID": 0,
+  "status": "ok",
+  "data": {
+    "creationDate": "1770010879",
+    "endTemp": 160,
+    "endWeight": 0.164,
+    "fillTemp": 133.5,
+    "fillWeight": 0.18,
+    "greenCoffeeId": "4",
+    "isTestRoast": true,
+    "name": "에티오피아 예가체프 아리차 에이미 G1 워시드 마이크로랏",
+    "note": "",
+    "reference": false,
+    "roastingTime": 518
+  }
+}
