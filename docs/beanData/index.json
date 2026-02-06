@@ -33,5 +33,19 @@
     "distributor": "블레스빈",
     "price": 21000,
     "date": "2026-01-27"
+  },
+  {
+    "name": "과테말라 안티구아 디카페인 SHB",
+    "file": "6.json",
+    "distributor": "알마씨엘로",
+    "price": 29300,
+    "date": "2026-02-04"
+  },
+  {
+    "name": "콜롬비아 카보닉 디카페인 수프리모",
+    "file": "7.json",
+    "distributor": "알마씨엘로",
+    "price": 27200,
+    "date": "2026-02-04"
   }
 ]

@@ -1,0 +1,18 @@
+{
+  "id": 1,
+  "roasterID": 0,
+  "status": "ok",
+  "data": {
+    "creationDate": "1770343810",
+    "endTemp": 174.75,
+    "endWeight": 0.176,
+    "fillTemp": 135,
+    "fillWeight": 0.2,
+    "greenCoffeeId": "6",
+    "isTestRoast": true,
+    "name": "과테말라 안티구아 디카페인 SHB",
+    "note": "",
+    "reference": false,
+    "roastingTime": 825
+  }
+}
