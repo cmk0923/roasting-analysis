@@ -1,0 +1,13 @@
+User-agent: *
+Allow: /
+Allow: /css/
+Allow: /beanData/
+Allow: /roastingData/
+Allow: /roasting/
+
+Sitemap: https://cmk0923.github.io/roasting-analysis/sitemap.xml
+
+# Google specific
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 0

@@ -3,7 +3,60 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>생두 정보 - Coffee Roasting Analysis</title>
+    <title id="page-title">생두 정보 - Coffee Roasting Analysis</title>
+    <meta name="description" content="커피 생두 정보, 원산지, 로스팅 추천 온도, 풍미 노트를 확인하세요.">
+    <meta name="keywords" content="생두정보, 커피원산지, 스페셜티커피, 생두구매, 커피풍미">
+    <meta name="author" content="Roasting Analysis">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://yourdomain.com/bean.html">
+    <meta property="og:title" id="og-title" content="생두 정보 - Coffee Roasting Analysis">
+    <meta property="og:description" id="og-description" content="커피 생두 정보, 원산지, 로스팅 추천 온도, 풍미 노트를 확인하세요.">
+    <meta property="og:image" content="https://yourdomain.com/images/og-image.jpg">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://yourdomain.com/bean.html">
+    <meta property="twitter:title" id="twitter-title" content="생두 정보 - Coffee Roasting Analysis">
+    <meta property="twitter:description" id="twitter-description" content="커피 생두 정보, 원산지, 로스팅 추천 온도, 풍미 노트를 확인하세요.">
+    <meta property="twitter:image" content="https://yourdomain.com/images/og-image.jpg">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://yourdomain.com/bean.html">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    
+    <!-- Google Analytics (GA4) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-HRLZHE8M40"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-HRLZHE8M40');
+    </script>
+    
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json" id="bean-structured-data">
+    {
+      "@context": "https://schema.org",
+      "@type": "Product",
+      "name": "-",
+      "description": "-",
+      "brand": {
+        "@type": "Brand",
+        "name": "-"
+      },
+      "offers": {
+        "@type": "Offer",
+        "priceCurrency": "KRW",
+        "price": 0,
+        "availability": "https://schema.org/InStock"
+      }
+    }
+    </script>
+    
     <link rel="stylesheet" href="css/elementary.css">
     <style>
         :root {
@@ -191,13 +244,16 @@
         function displayBeanData(data, beanId) {
             document.getElementById('loading').classList.add('hidden');
             document.getElementById('content').style.display = 'block';
-
+            
+            // SEO 메타 태그 업데이트
+            updateMetaTags(data);
+            
             // Giscus 로드
             loadGiscus(beanId);
-
+            
             // 헤더
             document.getElementById('beanName').textContent = data.name || '-';
-
+            
             // 구매 정보
             const purchaseTableBody = document.getElementById('purchaseTableBody');
             const purchaseInfo = [
@@ -205,7 +261,7 @@
                 { label: '구입처', value: data.distributor || '-' },
                 { label: '구매 가격', value: data.price ? `${data.price.toLocaleString()}원` : '-' }
             ];
-
+            
             purchaseTableBody.innerHTML = purchaseInfo
                 .map(info => `
                     <tr>
@@ -213,6 +269,42 @@
                         <td>${info.value}</td>
                     </tr>
                 `).join('');
+        }
+        
+        function updateMetaTags(data) {
+            // Page Title
+            document.getElementById('page-title').textContent = `${data.name} - 생두 정보`;
+            
+            // Meta Description
+            const description = `${data.origin || ''} ${data.region || ''} 원산지의 ${data.name}. ${data.distributor || ''}에서 ${data.price ? data.price.toLocaleString() : '0'}원에 구매했습니다.`;
+            document.querySelector('meta[name="description"]').setAttribute('content', description);
+            
+            // OG Tags
+            document.getElementById('og-title').setAttribute('content', `${data.name} - 생두 정보`);
+            document.getElementById('og-description').setAttribute('content', description);
+            
+            // Twitter Tags
+            document.getElementById('twitter-title').setAttribute('content', `${data.name} - 생두 정보`);
+            document.getElementById('twitter-description').setAttribute('content', description);
+            
+            // Structured Data (JSON-LD)
+            const structuredData = {
+                "@context": "https://schema.org",
+                "@type": "Product",
+                "name": data.name || "-",
+                "description": `${data.origin} ${data.region}`.trim(),
+                "brand": {
+                    "@type": "Brand",
+                    "name": data.distributor || "-"
+                },
+                "offers": {
+                    "@type": "Offer",
+                    "priceCurrency": "KRW",
+                    "price": data.price || 0,
+                    "availability": "https://schema.org/InStock"
+                }
+            };
+            document.getElementById('bean-structured-data').textContent = JSON.stringify(structuredData, null, 2);
         }
 
         function showError(message) {
