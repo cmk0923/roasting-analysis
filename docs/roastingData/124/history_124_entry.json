@@ -1,0 +1,18 @@
+{
+  "id": 1,
+  "roasterID": 0,
+  "status": "ok",
+  "data": {
+    "creationDate": "1770449220",
+    "endTemp": 178.5,
+    "endWeight": 0.166,
+    "fillTemp": 140,
+    "fillWeight": 0.2,
+    "greenCoffeeId": "3",
+    "isTestRoast": true,
+    "name": "과테말라 안티구아 산 로렌조 엘 쿠보 핀카메디나 SHB 워시드",
+    "note": "",
+    "reference": false,
+    "roastingTime": 931
+  }
+}
