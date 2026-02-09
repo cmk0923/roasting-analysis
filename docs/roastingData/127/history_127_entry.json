@@ -1,0 +1,18 @@
+{
+  "id": 1,
+  "roasterID": 0,
+  "status": "ok",
+  "data": {
+    "creationDate": "1770615385",
+    "endTemp": 179.75,
+    "endWeight": 0.152,
+    "fillTemp": 125.5,
+    "fillWeight": 0.18,
+    "greenCoffeeId": "2",
+    "isTestRoast": true,
+    "name": "콜롬비아 후일라 EA 디카페인",
+    "note": "",
+    "reference": false,
+    "roastingTime": 848
+  }
+}

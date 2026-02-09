@@ -1,0 +1,4507 @@
+{
+  "id": 2,
+  "roasterID": 0,
+  "status": "ok",
+  "data": [
+    {
+      "airPressure": 0.0532389,
+      "beanTemp": 124.5,
+      "burner": 70,
+      "exhaustAirTemp": 156,
+      "rateOfRise": 19.6667,
+      "timestamp": 0
+    },
+    {
+      "airPressure": 0.0569161,
+      "beanTemp": 124.75,
+      "exhaustAirTemp": 156.25,
+      "rateOfRise": 19.3333,
+      "timestamp": 1
+    },
+    {
+      "airPressure": 0.059596,
+      "exhaustAirTemp": 155.75,
+      "rateOfRise": 19,
+      "timestamp": 3
+    },
+    {
+      "airPressure": 0.0583857,
+      "beanTemp": 124.25,
+      "exhaustAirTemp": 154.25,
+      "rateOfRise": 18,
+      "timestamp": 4
+    },
+    {
+      "airPressure": 0.0572763,
+      "beanTemp": 122.25,
+      "exhaustAirTemp": 152,
+      "rateOfRise": 15,
+      "timestamp": 5
+    },
+    {
+      "airPressure": 0.0515754,
+      "beanTemp": 119.75,
+      "exhaustAirTemp": 149,
+      "rateOfRise": 11,
+      "timestamp": 6
+    },
+    {
+      "airPressure": 0.046669,
+      "beanTemp": 116.5,
+      "exhaustAirTemp": 146.5,
+      "rateOfRise": 6.33333,
+      "timestamp": 7
+    },
+    {
+      "airPressure": 0.0453526,
+      "beanTemp": 113.75,
+      "exhaustAirTemp": 145,
+      "rateOfRise": 2.33333,
+      "timestamp": 8
+    },
+    {
+      "airPressure": 0.0459098,
+      "beanTemp": 111,
+      "exhaustAirTemp": 143.75,
+      "rateOfRise": -1.66667,
+      "timestamp": 9
+    },
+    {
+      "airPressure": 0.0487602,
+      "beanTemp": 108.5,
+      "exhaustAirTemp": 143,
+      "rateOfRise": -5.33333,
+      "timestamp": 10
+    },
+    {
+      "beanTemp": 106,
+      "exhaustAirTemp": 142.25,
+      "rateOfRise": -9.33333,
+      "timestamp": 11
+    },
+    {
+      "airPressure": 0.0501404,
+      "beanTemp": 103.75,
+      "exhaustAirTemp": 141.5,
+      "rateOfRise": -12.6667,
+      "timestamp": 12
+    },
+    {
+      "airPressure": 0.049874,
+      "beanTemp": 101.25,
+      "exhaustAirTemp": 140.75,
+      "rateOfRise": -16.3333,
+      "timestamp": 13
+    },
+    {
+      "airPressure": 0.0543945,
+      "beanTemp": 99.25,
+      "exhaustAirTemp": 140.25,
+      "rateOfRise": -19.3333,
+      "timestamp": 14
+    },
+    {
+      "airPressure": 0.0588886,
+      "beanTemp": 97.5,
+      "exhaustAirTemp": 139.75,
+      "rateOfRise": -22.3333,
+      "timestamp": 15
+    },
+    {
+      "airPressure": 0.0560589,
+      "beanTemp": 95.75,
+      "exhaustAirTemp": 139.5,
+      "rateOfRise": -25,
+      "timestamp": 16
+    },
+    {
+      "airPressure": 0.0557801,
+      "beanTemp": 94.25,
+      "exhaustAirTemp": 139,
+      "rateOfRise": -27.6667,
+      "timestamp": 17
+    },
+    {
+      "airPressure": 0.0513983,
+      "beanTemp": 92.75,
+      "exhaustAirTemp": 138.5,
+      "rateOfRise": -30,
+      "timestamp": 18
+    },
+    {
+      "airPressure": 0.0522361,
+      "beanTemp": 91.5,
+      "rateOfRise": -32,
+      "timestamp": 19
+    },
+    {
+      "airPressure": 0.0531094,
+      "beanTemp": 90,
+      "exhaustAirTemp": 138.25,
+      "rateOfRise": -34.3333,
+      "timestamp": 20
+    },
+    {
+      "airPressure": 0.0522352,
+      "beanTemp": 88.75,
+      "exhaustAirTemp": 137.75,
+      "rateOfRise": -36.6667,
+      "timestamp": 21
+    },
+    {
+      "airPressure": 0.0505621,
+      "beanTemp": 87.5,
+      "exhaustAirTemp": 137.5,
+      "rateOfRise": -38.6667,
+      "timestamp": 22
+    },
+    {
+      "airPressure": 0.051277,
+      "beanTemp": 86.75,
+      "exhaustAirTemp": 137.25,
+      "rateOfRise": -40.3333,
+      "timestamp": 23
+    },
+    {
+      "airPressure": 0.0478076,
+      "beanTemp": 85.5,
+      "rateOfRise": -42.3333,
+      "timestamp": 24
+    },
+    {
+      "airPressure": 0.0457515,
+      "beanTemp": 84.75,
+      "exhaustAirTemp": 137,
+      "rateOfRise": -43.6667,
+      "timestamp": 25
+    },
+    {
+      "airPressure": 0.0481384,
+      "beanTemp": 83.75,
+      "exhaustAirTemp": 136.75,
+      "rateOfRise": -45.6667,
+      "timestamp": 26
+    },
+    {
+      "airPressure": 0.0470408,
+      "beanTemp": 83,
+      "rateOfRise": -47,
+      "timestamp": 27
+    },
+    {
+      "airPressure": 0.0518888,
+      "beanTemp": 82.5,
+      "rateOfRise": -48.3333,
+      "timestamp": 28
+    },
+    {
+      "airPressure": 0.0532664,
+      "beanTemp": 81.5,
+      "rateOfRise": -50,
+      "timestamp": 29
+    },
+    {
+      "airPressure": 0.0534453,
+      "beanTemp": 81,
+      "exhaustAirTemp": 136.5,
+      "rateOfRise": -51,
+      "timestamp": 30
+    },
+    {
+      "airPressure": 0.0538466,
+      "beanTemp": 80.5,
+      "rateOfRise": -52.3333,
+      "timestamp": 31
+    },
+    {
+      "airPressure": 0.0541635,
+      "beanTemp": 80,
+      "rateOfRise": -53.3333,
+      "timestamp": 32
+    },
+    {
+      "airPressure": 0.0508636,
+      "beanTemp": 79.5,
+      "rateOfRise": -54.3333,
+      "timestamp": 33
+    },
+    {
+      "airPressure": 0.0473426,
+      "beanTemp": 79,
+      "rateOfRise": -55.3333,
+      "timestamp": 34
+    },
+    {
+      "airPressure": 0.0463369,
+      "beanTemp": 78.75,
+      "rateOfRise": -56.3333,
+      "timestamp": 35
+    },
+    {
+      "airPressure": 0.045502,
+      "beanTemp": 78.5,
+      "rateOfRise": -57,
+      "timestamp": 36
+    },
+    {
+      "airPressure": 0.0445014,
+      "beanTemp": 78,
+      "rateOfRise": -58,
+      "timestamp": 37
+    },
+    {
+      "airPressure": 0.0438722,
+      "beanTemp": 77.75,
+      "rateOfRise": -58.6667,
+      "timestamp": 38
+    },
+    {
+      "airPressure": 0.0429425,
+      "beanTemp": 77.5,
+      "exhaustAirTemp": 136.75,
+      "rateOfRise": -59.6667,
+      "timestamp": 39
+    },
+    {
+      "airPressure": 0.0455507,
+      "beanTemp": 77.25,
+      "rateOfRise": -60.3333,
+      "timestamp": 40
+    },
+    {
+      "airPressure": 0.0463266,
+      "beanTemp": 77,
+      "rateOfRise": -61,
+      "timestamp": 41
+    },
+    {
+      "airPressure": 0.0453506,
+      "rateOfRise": -61.6667,
+      "timestamp": 42
+    },
+    {
+      "airPressure": 0.0461615,
+      "beanTemp": 76.75,
+      "rateOfRise": -62.3333,
+      "timestamp": 43
+    },
+    {
+      "airPressure": 0.0424341,
+      "beanTemp": 76.5,
+      "exhaustAirTemp": 137,
+      "rateOfRise": -63,
+      "timestamp": 44
+    },
+    {
+      "airPressure": 0.0450604,
+      "rateOfRise": -63.3333,
+      "timestamp": 45
+    },
+    {
+      "airPressure": 0.0437161,
+      "rateOfRise": -64,
+      "timestamp": 46
+    },
+    {
+      "airPressure": 0.046489,
+      "exhaustAirTemp": 137.25,
+      "rateOfRise": -64.3333,
+      "timestamp": 47
+    },
+    {
+      "airPressure": 0.0486592,
+      "timestamp": 48
+    },
+    {
+      "airPressure": 0.0499533,
+      "exhaustAirTemp": 137.5,
+      "rateOfRise": -63.6667,
+      "timestamp": 49
+    },
+    {
+      "airPressure": 0.0471715,
+      "rateOfRise": -61,
+      "timestamp": 50
+    },
+    {
+      "airPressure": 0.048759,
+      "exhaustAirTemp": 137.75,
+      "rateOfRise": -57.6667,
+      "timestamp": 51
+    },
+    {
+      "exhaustAirTemp": 138,
+      "rateOfRise": -53.3333,
+      "timestamp": 52
+    },
+    {
+      "airPressure": 0.0466114,
+      "rateOfRise": -49.6667,
+      "timestamp": 53
+    },
+    {
+      "airPressure": 0.0457193,
+      "rateOfRise": -46,
+      "timestamp": 54
+    },
+    {
+      "airPressure": 0.0448521,
+      "exhaustAirTemp": 138.25,
+      "rateOfRise": -42.6667,
+      "timestamp": 55
+    },
+    {
+      "airPressure": 0.0486956,
+      "beanTemp": 76.75,
+      "rateOfRise": -39,
+      "timestamp": 56
+    },
+    {
+      "airPressure": 0.0479968,
+      "beanTemp": 76.5,
+      "exhaustAirTemp": 138.5,
+      "rateOfRise": -36.3333,
+      "timestamp": 57
+    },
+    {
+      "airPressure": 0.0437168,
+      "beanTemp": 76.75,
+      "exhaustAirTemp": 138.75,
+      "rateOfRise": -32.6667,
+      "timestamp": 58
+    },
+    {
+      "airPressure": 0.0421063,
+      "beanTemp": 77,
+      "rateOfRise": -29.6667,
+      "timestamp": 59
+    },
+    {
+      "airPressure": 0.0415827,
+      "exhaustAirTemp": 139,
+      "rateOfRise": -27.3333,
+      "timestamp": 60
+    },
+    {
+      "airPressure": 0.0453202,
+      "beanTemp": 77.5,
+      "exhaustAirTemp": 139.25,
+      "rateOfRise": -24.3333,
+      "timestamp": 61
+    },
+    {
+      "airPressure": 0.0483668,
+      "rateOfRise": -22.3333,
+      "timestamp": 62
+    },
+    {
+      "airPressure": 0.0473084,
+      "beanTemp": 77.75,
+      "rateOfRise": -20,
+      "timestamp": 63
+    },
+    {
+      "airPressure": 0.0511399,
+      "beanTemp": 78,
+      "exhaustAirTemp": 139.5,
+      "rateOfRise": -18,
+      "timestamp": 64
+    },
+    {
+      "airPressure": 0.049281,
+      "beanTemp": 78.25,
+      "exhaustAirTemp": 139.75,
+      "rateOfRise": -15.6667,
+      "timestamp": 65
+    },
+    {
+      "beanTemp": 78.5,
+      "exhaustAirTemp": 140,
+      "rateOfRise": -13.6667,
+      "timestamp": 66
+    },
+    {
+      "airPressure": 0.0458509,
+      "exhaustAirTemp": 139.75,
+      "rateOfRise": -12,
+      "timestamp": 67
+    },
+    {
+      "airPressure": 0.0445146,
+      "beanTemp": 78.75,
+      "exhaustAirTemp": 140.25,
+      "rateOfRise": -10.6667,
+      "timestamp": 68
+    },
+    {
+      "airPressure": 0.040571,
+      "beanTemp": 79,
+      "exhaustAirTemp": 140.5,
+      "rateOfRise": -8.66667,
+      "timestamp": 69
+    },
+    {
+      "airPressure": 0.0399559,
+      "rateOfRise": -7.66667,
+      "timestamp": 70
+    },
+    {
+      "airPressure": 0.0407861,
+      "beanTemp": 79.25,
+      "exhaustAirTemp": 140.75,
+      "rateOfRise": -6,
+      "timestamp": 71
+    },
+    {
+      "airPressure": 0.0418552,
+      "beanTemp": 79.5,
+      "rateOfRise": -4.66667,
+      "timestamp": 72
+    },
+    {
+      "airPressure": 0.0437014,
+      "exhaustAirTemp": 141,
+      "rateOfRise": -4,
+      "timestamp": 73
+    },
+    {
+      "airPressure": 0.0461082,
+      "beanTemp": 79.75,
+      "exhaustAirTemp": 141.25,
+      "rateOfRise": -2.33333,
+      "timestamp": 74
+    },
+    {
+      "airPressure": 0.0447165,
+      "beanTemp": 80,
+      "rateOfRise": -1.33333,
+      "timestamp": 75
+    },
+    {
+      "airPressure": 0.0453827,
+      "beanTemp": 80.25,
+      "exhaustAirTemp": 141.5,
+      "rateOfRise": -0.333333,
+      "timestamp": 76
+    },
+    {
+      "airPressure": 0.0430745,
+      "beanTemp": 80.5,
+      "exhaustAirTemp": 141.75,
+      "rateOfRise": 0.666667,
+      "timestamp": 77
+    },
+    {
+      "airPressure": 0.0458815,
+      "beanTemp": 80.75,
+      "rateOfRise": 1.66667,
+      "timestamp": 78
+    },
+    {
+      "airPressure": 0.0448702,
+      "beanTemp": 81,
+      "exhaustAirTemp": 142,
+      "rateOfRise": 2.66667,
+      "timestamp": 79
+    },
+    {
+      "airPressure": 0.0444436,
+      "beanTemp": 81.5,
+      "rateOfRise": 3.66667,
+      "timestamp": 80
+    },
+    {
+      "airPressure": 0.0500301,
+      "beanTemp": 81.75,
+      "exhaustAirTemp": 142.25,
+      "rateOfRise": 4.33333,
+      "timestamp": 81
+    },
+    {
+      "airPressure": 0.0465111,
+      "beanTemp": 82,
+      "exhaustAirTemp": 142.5,
+      "rateOfRise": 5.33333,
+      "timestamp": 82
+    },
+    {
+      "airPressure": 0.0491586,
+      "beanTemp": 82.25,
+      "rateOfRise": 6,
+      "timestamp": 83
+    },
+    {
+      "airPressure": 0.0478293,
+      "beanTemp": 82.5,
+      "exhaustAirTemp": 142.75,
+      "rateOfRise": 6.66667,
+      "timestamp": 84
+    },
+    {
+      "airPressure": 0.0483867,
+      "beanTemp": 82.75,
+      "exhaustAirTemp": 143,
+      "rateOfRise": 7.33333,
+      "timestamp": 85
+    },
+    {
+      "airPressure": 0.0467027,
+      "beanTemp": 83,
+      "rateOfRise": 8,
+      "timestamp": 86
+    },
+    {
+      "airPressure": 0.0485384,
+      "beanTemp": 83.25,
+      "exhaustAirTemp": 143.25,
+      "rateOfRise": 8.33333,
+      "timestamp": 87
+    },
+    {
+      "airPressure": 0.0467722,
+      "beanTemp": 83.75,
+      "exhaustAirTemp": 143.5,
+      "rateOfRise": 9.33333,
+      "timestamp": 88
+    },
+    {
+      "airPressure": 0.0406067,
+      "exhaustAirTemp": 143.75,
+      "rateOfRise": 9.66667,
+      "timestamp": 89
+    },
+    {
+      "airPressure": 0.04436,
+      "beanTemp": 84.25,
+      "rateOfRise": 10.3333,
+      "timestamp": 90
+    },
+    {
+      "airPressure": 0.041989,
+      "beanTemp": 84.5,
+      "exhaustAirTemp": 144,
+      "rateOfRise": 10.6667,
+      "timestamp": 91
+    },
+    {
+      "airPressure": 0.0463887,
+      "beanTemp": 84.75,
+      "rateOfRise": 11,
+      "timestamp": 92
+    },
+    {
+      "airPressure": 0.045649,
+      "beanTemp": 85,
+      "exhaustAirTemp": 144.25,
+      "rateOfRise": 11.3333,
+      "timestamp": 93
+    },
+    {
+      "airPressure": 0.0432391,
+      "beanTemp": 85.5,
+      "exhaustAirTemp": 144.5,
+      "rateOfRise": 12,
+      "timestamp": 94
+    },
+    {
+      "airPressure": 0.0416589,
+      "exhaustAirTemp": 144.75,
+      "timestamp": 95
+    },
+    {
+      "airPressure": 0.0412712,
+      "beanTemp": 85.75,
+      "rateOfRise": 12.3333,
+      "timestamp": 96
+    },
+    {
+      "airPressure": 0.0420828,
+      "beanTemp": 86,
+      "rateOfRise": 12.6667,
+      "timestamp": 97
+    },
+    {
+      "airPressure": 0.0419347,
+      "beanTemp": 86.5,
+      "exhaustAirTemp": 145.25,
+      "rateOfRise": 13.3333,
+      "timestamp": 98
+    },
+    {
+      "airPressure": 0.0427015,
+      "beanTemp": 86.75,
+      "rateOfRise": 13.6667,
+      "timestamp": 99
+    },
+    {
+      "airPressure": 0.0437863,
+      "beanTemp": 87,
+      "exhaustAirTemp": 145.5,
+      "rateOfRise": 14,
+      "timestamp": 100
+    },
+    {
+      "airPressure": 0.043413,
+      "beanTemp": 87.25,
+      "exhaustAirTemp": 145.75,
+      "timestamp": 101
+    },
+    {
+      "airPressure": 0.0411729,
+      "beanTemp": 87.5,
+      "rateOfRise": 14.6667,
+      "timestamp": 102
+    },
+    {
+      "airPressure": 0.0420241,
+      "beanTemp": 87.75,
+      "exhaustAirTemp": 146,
+      "timestamp": 103
+    },
+    {
+      "airPressure": 0.0423633,
+      "beanTemp": 88,
+      "timestamp": 104
+    },
+    {
+      "airPressure": 0.0451283,
+      "beanTemp": 88.5,
+      "exhaustAirTemp": 146.25,
+      "rateOfRise": 15.3333,
+      "timestamp": 105
+    },
+    {
+      "beanTemp": 88.75,
+      "rateOfRise": 15,
+      "timestamp": 106
+    },
+    {
+      "airPressure": 0.0472901,
+      "beanTemp": 89,
+      "exhaustAirTemp": 146.5,
+      "rateOfRise": 15.3333,
+      "timestamp": 107
+    },
+    {
+      "airPressure": 0.0475163,
+      "beanTemp": 89.25,
+      "exhaustAirTemp": 146.75,
+      "timestamp": 108
+    },
+    {
+      "beanTemp": 89.5,
+      "timestamp": 109
+    },
+    {
+      "airPressure": 0.044855,
+      "beanTemp": 89.75,
+      "exhaustAirTemp": 147,
+      "timestamp": 110
+    },
+    {
+      "airPressure": 0.0443464,
+      "beanTemp": 90,
+      "timestamp": 111
+    },
+    {
+      "airPressure": 0.0469095,
+      "beanTemp": 90.5,
+      "exhaustAirTemp": 147.25,
+      "rateOfRise": 16,
+      "timestamp": 112
+    },
+    {
+      "airPressure": 0.0462678,
+      "beanTemp": 90.75,
+      "timestamp": 113
+    },
+    {
+      "airPressure": 0.0476231,
+      "beanTemp": 91,
+      "exhaustAirTemp": 147.5,
+      "timestamp": 114
+    },
+    {
+      "airPressure": 0.0456583,
+      "beanTemp": 91.5,
+      "exhaustAirTemp": 147.75,
+      "rateOfRise": 16.6667,
+      "timestamp": 115
+    },
+    {
+      "airPressure": 0.0460956,
+      "beanTemp": 91.75,
+      "exhaustAirTemp": 148,
+      "timestamp": 116
+    },
+    {
+      "airPressure": 0.0455828,
+      "beanTemp": 92,
+      "timestamp": 117
+    },
+    {
+      "airPressure": 0.0433742,
+      "beanTemp": 92.25,
+      "rateOfRise": 17,
+      "timestamp": 118
+    },
+    {
+      "airPressure": 0.0424272,
+      "beanTemp": 92.5,
+      "exhaustAirTemp": 148.25,
+      "timestamp": 119
+    },
+    {
+      "airPressure": 0.0420125,
+      "beanTemp": 92.75,
+      "timestamp": 120
+    },
+    {
+      "airPressure": 0.0410241,
+      "beanTemp": 93,
+      "exhaustAirTemp": 148.75,
+      "timestamp": 121
+    },
+    {
+      "airPressure": 0.0416149,
+      "beanTemp": 93.25,
+      "timestamp": 122
+    },
+    {
+      "airPressure": 0.0403572,
+      "beanTemp": 93.75,
+      "exhaustAirTemp": 149,
+      "rateOfRise": 17.3333,
+      "timestamp": 123
+    },
+    {
+      "airPressure": 0.0453539,
+      "beanTemp": 94,
+      "timestamp": 124
+    },
+    {
+      "airPressure": 0.0472318,
+      "beanTemp": 94.25,
+      "exhaustAirTemp": 149.25,
+      "rateOfRise": 17,
+      "timestamp": 125
+    },
+    {
+      "airPressure": 0.0476497,
+      "beanTemp": 94.5,
+      "exhaustAirTemp": 149.5,
+      "timestamp": 126
+    },
+    {
+      "airPressure": 0.0454071,
+      "beanTemp": 94.75,
+      "timestamp": 127
+    },
+    {
+      "airPressure": 0.0382663,
+      "beanTemp": 95.25,
+      "exhaustAirTemp": 149.75,
+      "rateOfRise": 17.3333,
+      "timestamp": 128
+    },
+    {
+      "airPressure": 0.037883,
+      "beanTemp": 95.5,
+      "timestamp": 129
+    },
+    {
+      "airPressure": 0.0376599,
+      "beanTemp": 95.75,
+      "exhaustAirTemp": 150,
+      "timestamp": 130
+    },
+    {
+      "airPressure": 0.0395494,
+      "beanTemp": 96,
+      "exhaustAirTemp": 150.25,
+      "timestamp": 131
+    },
+    {
+      "airPressure": 0.0414485,
+      "beanTemp": 96.25,
+      "timestamp": 132
+    },
+    {
+      "airPressure": 0.0405419,
+      "beanTemp": 96.75,
+      "exhaustAirTemp": 150.5,
+      "timestamp": 133
+    },
+    {
+      "airPressure": 0.0438528,
+      "beanTemp": 97,
+      "exhaustAirTemp": 150.75,
+      "rateOfRise": 17.6667,
+      "timestamp": 134
+    },
+    {
+      "airPressure": 0.0478181,
+      "beanTemp": 97.25,
+      "exhaustAirTemp": 151,
+      "rateOfRise": 17.3333,
+      "timestamp": 135
+    },
+    {
+      "airPressure": 0.0461577,
+      "beanTemp": 97.5,
+      "exhaustAirTemp": 150.75,
+      "timestamp": 136
+    },
+    {
+      "airPressure": 0.0483463,
+      "beanTemp": 98,
+      "exhaustAirTemp": 151.25,
+      "rateOfRise": 17.6667,
+      "timestamp": 137
+    },
+    {
+      "airPressure": 0.0494304,
+      "beanTemp": 98.25,
+      "exhaustAirTemp": 151.5,
+      "timestamp": 138
+    },
+    {
+      "airPressure": 0.0449566,
+      "beanTemp": 98.5,
+      "rateOfRise": 17.3333,
+      "timestamp": 139
+    },
+    {
+      "airPressure": 0.0418389,
+      "beanTemp": 99,
+      "rateOfRise": 18,
+      "timestamp": 140
+    },
+    {
+      "airPressure": 0.0402574,
+      "beanTemp": 99.25,
+      "exhaustAirTemp": 151.75,
+      "timestamp": 141
+    },
+    {
+      "airPressure": 0.0388166,
+      "beanTemp": 99.5,
+      "exhaustAirTemp": 152,
+      "timestamp": 142
+    },
+    {
+      "airPressure": 0.0438023,
+      "beanTemp": 99.75,
+      "exhaustAirTemp": 152.25,
+      "rateOfRise": 17.6667,
+      "timestamp": 143
+    },
+    {
+      "airPressure": 0.044528,
+      "beanTemp": 100,
+      "timestamp": 144
+    },
+    {
+      "airPressure": 0.0440143,
+      "beanTemp": 100.25,
+      "exhaustAirTemp": 152.5,
+      "timestamp": 145
+    },
+    {
+      "airPressure": 0.0453727,
+      "beanTemp": 100.75,
+      "exhaustAirTemp": 152.75,
+      "rateOfRise": 18,
+      "timestamp": 146
+    },
+    {
+      "airPressure": 0.0399461,
+      "rateOfRise": 17.6667,
+      "timestamp": 147
+    },
+    {
+      "airPressure": 0.0418601,
+      "beanTemp": 101.25,
+      "exhaustAirTemp": 153,
+      "rateOfRise": 18,
+      "timestamp": 148
+    },
+    {
+      "airPressure": 0.0375511,
+      "exhaustAirTemp": 153.25,
+      "rateOfRise": 17.6667,
+      "timestamp": 149
+    },
+    {
+      "airPressure": 0.0358892,
+      "beanTemp": 101.75,
+      "timestamp": 150
+    },
+    {
+      "airPressure": 0.0401147,
+      "exhaustAirTemp": 153.5,
+      "rateOfRise": 17.3333,
+      "timestamp": 151
+    },
+    {
+      "airPressure": 0.0412839,
+      "beanTemp": 102.25,
+      "exhaustAirTemp": 153.75,
+      "rateOfRise": 17.6667,
+      "timestamp": 152
+    },
+    {
+      "airPressure": 0.0465508,
+      "beanTemp": 102.5,
+      "timestamp": 153
+    },
+    {
+      "airPressure": 0.0458212,
+      "beanTemp": 102.75,
+      "exhaustAirTemp": 154,
+      "timestamp": 154
+    },
+    {
+      "airPressure": 0.0449302,
+      "beanTemp": 103,
+      "timestamp": 155
+    },
+    {
+      "airPressure": 0.043717,
+      "beanTemp": 103.25,
+      "exhaustAirTemp": 154.25,
+      "timestamp": 156
+    },
+    {
+      "airPressure": 0.0434921,
+      "beanTemp": 103.75,
+      "exhaustAirTemp": 154.5,
+      "timestamp": 157
+    },
+    {
+      "airPressure": 0.044765,
+      "beanTemp": 104,
+      "timestamp": 158
+    },
+    {
+      "airPressure": 0.045927,
+      "beanTemp": 104.25,
+      "exhaustAirTemp": 154.75,
+      "timestamp": 159
+    },
+    {
+      "airPressure": 0.0476772,
+      "beanTemp": 104.5,
+      "exhaustAirTemp": 155,
+      "rateOfRise": 17.3333,
+      "timestamp": 160
+    },
+    {
+      "airPressure": 0.0480405,
+      "beanTemp": 104.75,
+      "timestamp": 161
+    },
+    {
+      "airPressure": 0.0493371,
+      "beanTemp": 105,
+      "exhaustAirTemp": 155.25,
+      "timestamp": 162
+    },
+    {
+      "airPressure": 0.0515761,
+      "rateOfRise": 17,
+      "timestamp": 163
+    },
+    {
+      "airPressure": 0.0430718,
+      "beanTemp": 105.25,
+      "exhaustAirTemp": 155.5,
+      "timestamp": 164
+    },
+    {
+      "airPressure": 0.0407016,
+      "beanTemp": 105.5,
+      "exhaustAirTemp": 155.75,
+      "timestamp": 165
+    },
+    {
+      "airPressure": 0.0365803,
+      "beanTemp": 106,
+      "rateOfRise": 17.3333,
+      "timestamp": 166
+    },
+    {
+      "airPressure": 0.0404776,
+      "beanTemp": 106.25,
+      "exhaustAirTemp": 156,
+      "timestamp": 167
+    },
+    {
+      "airPressure": 0.0465171,
+      "beanTemp": 106.5,
+      "exhaustAirTemp": 156.25,
+      "rateOfRise": 17,
+      "timestamp": 168
+    },
+    {
+      "airPressure": 0.0450694,
+      "beanTemp": 106.75,
+      "timestamp": 169
+    },
+    {
+      "airPressure": 0.0460952,
+      "beanTemp": 107.25,
+      "exhaustAirTemp": 156.5,
+      "rateOfRise": 17.3333,
+      "timestamp": 170
+    },
+    {
+      "airPressure": 0.0445088,
+      "rateOfRise": 17,
+      "timestamp": 171
+    },
+    {
+      "airPressure": 0.0429344,
+      "beanTemp": 107.5,
+      "exhaustAirTemp": 156.75,
+      "timestamp": 172
+    },
+    {
+      "airPressure": 0.0433934,
+      "beanTemp": 108,
+      "exhaustAirTemp": 157,
+      "timestamp": 173
+    },
+    {
+      "airPressure": 0.039649,
+      "rateOfRise": 16.6667,
+      "timestamp": 174
+    },
+    {
+      "airPressure": 0.0418905,
+      "beanTemp": 108.5,
+      "exhaustAirTemp": 157.25,
+      "rateOfRise": 17,
+      "timestamp": 175
+    },
+    {
+      "airPressure": 0.0432301,
+      "beanTemp": 108.75,
+      "exhaustAirTemp": 157.5,
+      "timestamp": 176
+    },
+    {
+      "airPressure": 0.0441231,
+      "beanTemp": 109,
+      "timestamp": 177
+    },
+    {
+      "airPressure": 0.0430231,
+      "beanTemp": 109.25,
+      "exhaustAirTemp": 157.75,
+      "rateOfRise": 16.6667,
+      "timestamp": 178
+    },
+    {
+      "airPressure": 0.0466833,
+      "beanTemp": 109.75,
+      "exhaustAirTemp": 158,
+      "rateOfRise": 17,
+      "timestamp": 179
+    },
+    {
+      "airPressure": 0.0473732,
+      "rateOfRise": 16.6667,
+      "timestamp": 180
+    },
+    {
+      "airPressure": 0.0465988,
+      "beanTemp": 110.25,
+      "rateOfRise": 17,
+      "timestamp": 181
+    },
+    {
+      "airPressure": 0.0447024,
+      "exhaustAirTemp": 158.25,
+      "rateOfRise": 16.3333,
+      "timestamp": 182
+    },
+    {
+      "airPressure": 0.0398226,
+      "beanTemp": 110.5,
+      "exhaustAirTemp": 158.5,
+      "timestamp": 183
+    },
+    {
+      "airPressure": 0.0426246,
+      "beanTemp": 111,
+      "rateOfRise": 16.6667,
+      "timestamp": 184
+    },
+    {
+      "airPressure": 0.0456429,
+      "exhaustAirTemp": 158.75,
+      "rateOfRise": 16,
+      "timestamp": 185
+    },
+    {
+      "airPressure": 0.0487595,
+      "beanTemp": 111.5,
+      "rateOfRise": 16.3333,
+      "timestamp": 186
+    },
+    {
+      "airPressure": 0.0482713,
+      "exhaustAirTemp": 159,
+      "rateOfRise": 16,
+      "timestamp": 187
+    },
+    {
+      "airPressure": 0.047406,
+      "beanTemp": 111.75,
+      "timestamp": 188
+    },
+    {
+      "airPressure": 0.0468912,
+      "beanTemp": 112,
+      "exhaustAirTemp": 159.25,
+      "timestamp": 189
+    },
+    {
+      "airPressure": 0.0488473,
+      "beanTemp": 112.25,
+      "timestamp": 190
+    },
+    {
+      "airPressure": 0.047689,
+      "beanTemp": 112.5,
+      "exhaustAirTemp": 159.5,
+      "rateOfRise": 15.6667,
+      "timestamp": 191
+    },
+    {
+      "airPressure": 0.0467217,
+      "beanTemp": 112.75,
+      "exhaustAirTemp": 159.75,
+      "rateOfRise": 16,
+      "timestamp": 192
+    },
+    {
+      "airPressure": 0.0449383,
+      "beanTemp": 113,
+      "rateOfRise": 15.6667,
+      "timestamp": 193
+    },
+    {
+      "airPressure": 0.0406934,
+      "beanTemp": 113.25,
+      "exhaustAirTemp": 160,
+      "rateOfRise": 16,
+      "timestamp": 194
+    },
+    {
+      "airPressure": 0.0378196,
+      "beanTemp": 113.5,
+      "rateOfRise": 15.6667,
+      "timestamp": 195
+    },
+    {
+      "airPressure": 0.040793,
+      "beanTemp": 114,
+      "exhaustAirTemp": 160.25,
+      "rateOfRise": 16.3333,
+      "timestamp": 196
+    },
+    {
+      "airPressure": 0.0411454,
+      "exhaustAirTemp": 160.5,
+      "rateOfRise": 15.6667,
+      "timestamp": 197
+    },
+    {
+      "rateOfRise": 15.3333,
+      "timestamp": 198
+    },
+    {
+      "airPressure": 0.0436062,
+      "beanTemp": 114.5,
+      "exhaustAirTemp": 160.75,
+      "rateOfRise": 15.6667,
+      "timestamp": 199
+    },
+    {
+      "airPressure": 0.0443163,
+      "beanTemp": 114.75,
+      "exhaustAirTemp": 161,
+      "timestamp": 200
+    },
+    {
+      "airPressure": 0.0471353,
+      "beanTemp": 115,
+      "timestamp": 201
+    },
+    {
+      "airPressure": 0.0443741,
+      "beanTemp": 115.25,
+      "exhaustAirTemp": 161.25,
+      "rateOfRise": 15.3333,
+      "timestamp": 202
+    },
+    {
+      "airPressure": 0.0402822,
+      "beanTemp": 115.5,
+      "exhaustAirTemp": 161.5,
+      "timestamp": 203
+    },
+    {
+      "airPressure": 0.0425657,
+      "beanTemp": 116,
+      "exhaustAirTemp": 161.75,
+      "rateOfRise": 15.6667,
+      "timestamp": 204
+    },
+    {
+      "airPressure": 0.0453113,
+      "beanTemp": 116.25,
+      "timestamp": 205
+    },
+    {
+      "airPressure": 0.0495861,
+      "rateOfRise": 15.3333,
+      "timestamp": 206
+    },
+    {
+      "airPressure": 0.0499515,
+      "beanTemp": 116.75,
+      "exhaustAirTemp": 162,
+      "rateOfRise": 15.6667,
+      "timestamp": 207
+    },
+    {
+      "airPressure": 0.047643,
+      "beanTemp": 117,
+      "exhaustAirTemp": 162.25,
+      "rateOfRise": 16,
+      "timestamp": 208
+    },
+    {
+      "airPressure": 0.0447723,
+      "exhaustAirTemp": 162.5,
+      "rateOfRise": 15.6667,
+      "timestamp": 209
+    },
+    {
+      "airPressure": 0.0436896,
+      "beanTemp": 117.25,
+      "timestamp": 210
+    },
+    {
+      "airPressure": 0.0472247,
+      "beanTemp": 117.75,
+      "exhaustAirTemp": 162.75,
+      "timestamp": 211
+    },
+    {
+      "airPressure": 0.0518524,
+      "rateOfRise": 15.3333,
+      "timestamp": 212
+    },
+    {
+      "airPressure": 0.0571932,
+      "beanTemp": 118,
+      "exhaustAirTemp": 163,
+      "timestamp": 213
+    },
+    {
+      "airPressure": 0.0536523,
+      "beanTemp": 118.5,
+      "exhaustAirTemp": 163.25,
+      "rateOfRise": 15.6667,
+      "timestamp": 214
+    },
+    {
+      "airPressure": 0.0515109,
+      "beanTemp": 118.75,
+      "rateOfRise": 15.3333,
+      "timestamp": 215
+    },
+    {
+      "airPressure": 0.0465477,
+      "beanTemp": 119,
+      "exhaustAirTemp": 163.5,
+      "rateOfRise": 15.6667,
+      "timestamp": 216
+    },
+    {
+      "airPressure": 0.0446703,
+      "exhaustAirTemp": 163.75,
+      "rateOfRise": 15.3333,
+      "timestamp": 217
+    },
+    {
+      "beanTemp": 119.25,
+      "rateOfRise": 15,
+      "timestamp": 218
+    },
+    {
+      "airPressure": 0.0470024,
+      "beanTemp": 119.5,
+      "rateOfRise": 15.3333,
+      "timestamp": 219
+    },
+    {
+      "airPressure": 0.045642,
+      "beanTemp": 119.75,
+      "exhaustAirTemp": 164,
+      "rateOfRise": 15,
+      "timestamp": 220
+    },
+    {
+      "airPressure": 0.0435531,
+      "beanTemp": 120,
+      "timestamp": 221
+    },
+    {
+      "airPressure": 0.0447047,
+      "beanTemp": 120.25,
+      "exhaustAirTemp": 164.25,
+      "timestamp": 222
+    },
+    {
+      "airPressure": 0.0431848,
+      "beanTemp": 120.5,
+      "exhaustAirTemp": 164.5,
+      "timestamp": 223
+    },
+    {
+      "airPressure": 0.0469482,
+      "beanTemp": 120.75,
+      "exhaustAirTemp": 164.75,
+      "rateOfRise": 14.6667,
+      "timestamp": 224
+    },
+    {
+      "airPressure": 0.0439281,
+      "beanTemp": 121,
+      "rateOfRise": 15,
+      "timestamp": 225
+    },
+    {
+      "airPressure": 0.0462926,
+      "exhaustAirTemp": 165,
+      "rateOfRise": 14.3333,
+      "timestamp": 226
+    },
+    {
+      "airPressure": 0.0460215,
+      "beanTemp": 121.5,
+      "rateOfRise": 15,
+      "timestamp": 227
+    },
+    {
+      "airPressure": 0.0441782,
+      "beanTemp": 121.75,
+      "exhaustAirTemp": 165.25,
+      "timestamp": 228
+    },
+    {
+      "airPressure": 0.0440592,
+      "beanTemp": 122,
+      "exhaustAirTemp": 165.5,
+      "rateOfRise": 14.6667,
+      "timestamp": 229
+    },
+    {
+      "airPressure": 0.0482223,
+      "beanTemp": 122.25,
+      "rateOfRise": 15,
+      "timestamp": 230
+    },
+    {
+      "airPressure": 0.0518756,
+      "beanTemp": 122.5,
+      "exhaustAirTemp": 165.75,
+      "rateOfRise": 14.6667,
+      "timestamp": 231
+    },
+    {
+      "airPressure": 0.0538203,
+      "beanTemp": 122.75,
+      "rateOfRise": 15,
+      "timestamp": 232
+    },
+    {
+      "airPressure": 0.0479059,
+      "beanTemp": 123,
+      "exhaustAirTemp": 166,
+      "timestamp": 233
+    },
+    {
+      "airPressure": 0.0448655,
+      "beanTemp": 123.25,
+      "exhaustAirTemp": 166.25,
+      "timestamp": 234
+    },
+    {
+      "airPressure": 0.0426423,
+      "beanTemp": 123.5,
+      "exhaustAirTemp": 166.5,
+      "timestamp": 235
+    },
+    {
+      "airPressure": 0.043656,
+      "rateOfRise": 14.6667,
+      "timestamp": 236
+    },
+    {
+      "airPressure": 0.045697,
+      "beanTemp": 123.75,
+      "exhaustAirTemp": 166.75,
+      "timestamp": 237
+    },
+    {
+      "airPressure": 0.0443665,
+      "beanTemp": 124,
+      "timestamp": 238
+    },
+    {
+      "airPressure": 0.0488551,
+      "beanTemp": 124.25,
+      "exhaustAirTemp": 167,
+      "timestamp": 239
+    },
+    {
+      "airPressure": 0.04802,
+      "beanTemp": 124.5,
+      "exhaustAirTemp": 167.25,
+      "timestamp": 240
+    },
+    {
+      "airPressure": 0.050693,
+      "beanTemp": 124.75,
+      "rateOfRise": 14.3333,
+      "timestamp": 241
+    },
+    {
+      "airPressure": 0.0455866,
+      "timestamp": 242
+    },
+    {
+      "airPressure": 0.0468879,
+      "beanTemp": 125.25,
+      "exhaustAirTemp": 167.5,
+      "rateOfRise": 15,
+      "timestamp": 243
+    },
+    {
+      "airPressure": 0.0447721,
+      "exhaustAirTemp": 167.75,
+      "rateOfRise": 14.3333,
+      "timestamp": 244
+    },
+    {
+      "airPressure": 0.0465513,
+      "beanTemp": 125.5,
+      "timestamp": 245
+    },
+    {
+      "airPressure": 0.0426188,
+      "beanTemp": 125.75,
+      "exhaustAirTemp": 168,
+      "timestamp": 246
+    },
+    {
+      "airPressure": 0.0421576,
+      "beanTemp": 126,
+      "timestamp": 247
+    },
+    {
+      "airPressure": 0.0449488,
+      "beanTemp": 126.25,
+      "exhaustAirTemp": 168.25,
+      "timestamp": 248
+    },
+    {
+      "airPressure": 0.042031,
+      "beanTemp": 126.5,
+      "rateOfRise": 14,
+      "timestamp": 249
+    },
+    {
+      "airPressure": 0.0421619,
+      "beanTemp": 126.75,
+      "exhaustAirTemp": 168.5,
+      "timestamp": 250
+    },
+    {
+      "airPressure": 0.0414691,
+      "beanTemp": 127,
+      "exhaustAirTemp": 168.75,
+      "rateOfRise": 14.3333,
+      "timestamp": 251
+    },
+    {
+      "airPressure": 0.0422798,
+      "beanTemp": 127.25,
+      "rateOfRise": 14,
+      "timestamp": 252
+    },
+    {
+      "airPressure": 0.0460613,
+      "beanTemp": 127.5,
+      "exhaustAirTemp": 169,
+      "timestamp": 253
+    },
+    {
+      "airPressure": 0.0483543,
+      "timestamp": 254
+    },
+    {
+      "airPressure": 0.0514119,
+      "beanTemp": 128,
+      "exhaustAirTemp": 169.25,
+      "rateOfRise": 14.3333,
+      "timestamp": 255
+    },
+    {
+      "airPressure": 0.0498621,
+      "rateOfRise": 13.6667,
+      "timestamp": 256
+    },
+    {
+      "airPressure": 0.0449063,
+      "beanTemp": 128.25,
+      "exhaustAirTemp": 169.5,
+      "rateOfRise": 14,
+      "timestamp": 257
+    },
+    {
+      "airPressure": 0.045288,
+      "beanTemp": 128.75,
+      "rateOfRise": 14.3333,
+      "timestamp": 258
+    },
+    {
+      "airPressure": 0.0443247,
+      "exhaustAirTemp": 169.75,
+      "rateOfRise": 13.6667,
+      "timestamp": 259
+    },
+    {
+      "airPressure": 0.0455679,
+      "beanTemp": 129,
+      "exhaustAirTemp": 170,
+      "timestamp": 260
+    },
+    {
+      "airPressure": 0.0405891,
+      "beanTemp": 129.5,
+      "rateOfRise": 14,
+      "timestamp": 261
+    },
+    {
+      "exhaustAirTemp": 170.25,
+      "timestamp": 262
+    },
+    {
+      "airPressure": 0.0396189,
+      "beanTemp": 129.75,
+      "timestamp": 263
+    },
+    {
+      "airPressure": 0.0428688,
+      "beanTemp": 130,
+      "exhaustAirTemp": 170.5,
+      "timestamp": 264
+    },
+    {
+      "airPressure": 0.0449807,
+      "beanTemp": 130.25,
+      "timestamp": 265
+    },
+    {
+      "airPressure": 0.0470393,
+      "beanTemp": 130.5,
+      "exhaustAirTemp": 170.75,
+      "timestamp": 266
+    },
+    {
+      "airPressure": 0.0456834,
+      "beanTemp": 130.75,
+      "timestamp": 267
+    },
+    {
+      "airPressure": 0.0446745,
+      "beanTemp": 131,
+      "exhaustAirTemp": 171,
+      "timestamp": 268
+    },
+    {
+      "airPressure": 0.0431276,
+      "beanTemp": 131.25,
+      "exhaustAirTemp": 171.25,
+      "timestamp": 269
+    },
+    {
+      "airPressure": 0.0390241,
+      "beanTemp": 131.5,
+      "timestamp": 270
+    },
+    {
+      "airPressure": 0.0418123,
+      "beanTemp": 131.75,
+      "rateOfRise": 14.3333,
+      "timestamp": 271
+    },
+    {
+      "airPressure": 0.0440755,
+      "beanTemp": 132,
+      "exhaustAirTemp": 171.5,
+      "rateOfRise": 14,
+      "timestamp": 272
+    },
+    {
+      "airPressure": 0.0461562,
+      "beanTemp": 132.25,
+      "timestamp": 273
+    },
+    {
+      "airPressure": 0.0426539,
+      "beanTemp": 132,
+      "exhaustAirTemp": 171.75,
+      "rateOfRise": 13.3333,
+      "timestamp": 274
+    },
+    {
+      "airPressure": 0.0409513,
+      "beanTemp": 132.5,
+      "rateOfRise": 13.6667,
+      "timestamp": 275
+    },
+    {
+      "airPressure": 0.0394887,
+      "beanTemp": 132.75,
+      "exhaustAirTemp": 172,
+      "timestamp": 276
+    },
+    {
+      "airPressure": 0.0421127,
+      "exhaustAirTemp": 172.25,
+      "rateOfRise": 13.3333,
+      "timestamp": 277
+    },
+    {
+      "airPressure": 0.042423,
+      "beanTemp": 133,
+      "timestamp": 278
+    },
+    {
+      "airPressure": 0.044455,
+      "beanTemp": 133.25,
+      "exhaustAirTemp": 172.5,
+      "timestamp": 279
+    },
+    {
+      "beanTemp": 133.5,
+      "exhaustAirTemp": 172.75,
+      "timestamp": 280
+    },
+    {
+      "airPressure": 0.0454904,
+      "beanTemp": 133.75,
+      "rateOfRise": 13.6667,
+      "timestamp": 281
+    },
+    {
+      "airPressure": 0.0457845,
+      "beanTemp": 134,
+      "exhaustAirTemp": 173,
+      "timestamp": 282
+    },
+    {
+      "airPressure": 0.0453356,
+      "beanTemp": 134.25,
+      "timestamp": 283
+    },
+    {
+      "airPressure": 0.0439008,
+      "exhaustAirTemp": 173.25,
+      "rateOfRise": 13.3333,
+      "timestamp": 284
+    },
+    {
+      "airPressure": 0.0436826,
+      "beanTemp": 134.5,
+      "exhaustAirTemp": 173.5,
+      "timestamp": 285
+    },
+    {
+      "airPressure": 0.0413589,
+      "beanTemp": 134.75,
+      "timestamp": 286
+    },
+    {
+      "airPressure": 0.0396296,
+      "timestamp": 287
+    },
+    {
+      "airPressure": 0.0398103,
+      "beanTemp": 135,
+      "exhaustAirTemp": 173.75,
+      "rateOfRise": 13,
+      "timestamp": 288
+    },
+    {
+      "airPressure": 0.045251,
+      "beanTemp": 135.25,
+      "rateOfRise": 13.3333,
+      "timestamp": 289
+    },
+    {
+      "airPressure": 0.0502807,
+      "exhaustAirTemp": 174,
+      "rateOfRise": 13,
+      "timestamp": 290
+    },
+    {
+      "airPressure": 0.0529121,
+      "beanTemp": 135.75,
+      "rateOfRise": 13.3333,
+      "timestamp": 291
+    },
+    {
+      "airPressure": 0.0506981,
+      "exhaustAirTemp": 174.5,
+      "rateOfRise": 13,
+      "timestamp": 292
+    },
+    {
+      "airPressure": 0.0488888,
+      "beanTemp": 136,
+      "timestamp": 293
+    },
+    {
+      "airPressure": 0.0439899,
+      "beanTemp": 136.25,
+      "timestamp": 294
+    },
+    {
+      "airPressure": 0.0455304,
+      "exhaustAirTemp": 174.75,
+      "rateOfRise": 12.6667,
+      "timestamp": 295
+    },
+    {
+      "airPressure": 0.0496064,
+      "beanTemp": 136.5,
+      "exhaustAirTemp": 175,
+      "timestamp": 296
+    },
+    {
+      "airPressure": 0.0482766,
+      "beanTemp": 136.75,
+      "exhaustAirTemp": 174.75,
+      "timestamp": 297
+    },
+    {
+      "airPressure": 0.0486661,
+      "beanTemp": 137,
+      "exhaustAirTemp": 175,
+      "timestamp": 298
+    },
+    {
+      "airPressure": 0.047456,
+      "timestamp": 299
+    },
+    {
+      "airPressure": 0.0438571,
+      "beanTemp": 137.5,
+      "exhaustAirTemp": 175.25,
+      "timestamp": 300
+    },
+    {
+      "airPressure": 0.0469837,
+      "beanTemp": 137.75,
+      "rateOfRise": 13,
+      "timestamp": 301
+    },
+    {
+      "airPressure": 0.0489759,
+      "beanTemp": 138,
+      "timestamp": 302
+    },
+    {
+      "airPressure": 0.0486652,
+      "exhaustAirTemp": 175.5,
+      "rateOfRise": 12.3333,
+      "timestamp": 303
+    },
+    {
+      "airPressure": 0.048418,
+      "beanTemp": 138.25,
+      "rateOfRise": 12.6667,
+      "timestamp": 304
+    },
+    {
+      "airPressure": 0.0490545,
+      "exhaustAirTemp": 175.75,
+      "rateOfRise": 12.3333,
+      "timestamp": 305
+    },
+    {
+      "airPressure": 0.0472258,
+      "beanTemp": 138.75,
+      "exhaustAirTemp": 176,
+      "timestamp": 306
+    },
+    {
+      "airPressure": 0.0454667,
+      "timestamp": 307
+    },
+    {
+      "airPressure": 0.0428364,
+      "beanTemp": 139.25,
+      "exhaustAirTemp": 176.25,
+      "rateOfRise": 12.6667,
+      "timestamp": 308
+    },
+    {
+      "airPressure": 0.0391563,
+      "rateOfRise": 12.3333,
+      "timestamp": 309
+    },
+    {
+      "airPressure": 0.0411293,
+      "beanTemp": 139.5,
+      "timestamp": 310
+    },
+    {
+      "airPressure": 0.0424011,
+      "beanTemp": 139.75,
+      "exhaustAirTemp": 176.5,
+      "timestamp": 311
+    },
+    {
+      "airPressure": 0.0449128,
+      "exhaustAirTemp": 176.75,
+      "rateOfRise": 12,
+      "timestamp": 312
+    },
+    {
+      "airPressure": 0.0450922,
+      "beanTemp": 140,
+      "timestamp": 313
+    },
+    {
+      "airPressure": 0.0439435,
+      "beanTemp": 140.25,
+      "timestamp": 314
+    },
+    {
+      "airPressure": 0.0474902,
+      "burner": 55,
+      "exhaustAirTemp": 177,
+      "rateOfRise": 11.6667,
+      "timestamp": 315
+    },
+    {
+      "airPressure": 0.0449736,
+      "beanTemp": 140.5,
+      "burner": 44,
+      "exhaustAirTemp": 177.25,
+      "timestamp": 316
+    },
+    {
+      "airPressure": 0.0432065,
+      "beanTemp": 140.75,
+      "burner": 43,
+      "timestamp": 317
+    },
+    {
+      "airPressure": 0.0437257,
+      "beanTemp": 141,
+      "exhaustAirTemp": 177.5,
+      "timestamp": 318
+    },
+    {
+      "airPressure": 0.0462982,
+      "beanTemp": 141.25,
+      "rateOfRise": 12.3333,
+      "timestamp": 319
+    },
+    {
+      "airPressure": 0.0455554,
+      "beanTemp": 141.5,
+      "exhaustAirTemp": 177.75,
+      "rateOfRise": 12,
+      "timestamp": 320
+    },
+    {
+      "airPressure": 0.0477987,
+      "rateOfRise": 11.6667,
+      "timestamp": 321
+    },
+    {
+      "airPressure": 0.048592,
+      "beanTemp": 141.75,
+      "rateOfRise": 12,
+      "timestamp": 322
+    },
+    {
+      "airPressure": 0.0479005,
+      "exhaustAirTemp": 178,
+      "rateOfRise": 11.6667,
+      "timestamp": 323
+    },
+    {
+      "airPressure": 0.0474136,
+      "beanTemp": 142,
+      "timestamp": 324
+    },
+    {
+      "airPressure": 0.0442635,
+      "beanTemp": 142.25,
+      "timestamp": 325
+    },
+    {
+      "airPressure": 0.0379974,
+      "beanTemp": 142.5,
+      "timestamp": 326
+    },
+    {
+      "airPressure": 0.0393138,
+      "beanTemp": 142.75,
+      "timestamp": 327
+    },
+    {
+      "airPressure": 0.0419316,
+      "beanTemp": 143,
+      "timestamp": 328
+    },
+    {
+      "airPressure": 0.0456735,
+      "timestamp": 329
+    },
+    {
+      "airPressure": 0.0475166,
+      "beanTemp": 143.25,
+      "timestamp": 330
+    },
+    {
+      "airPressure": 0.0456662,
+      "beanTemp": 143.75,
+      "rateOfRise": 12,
+      "timestamp": 331
+    },
+    {
+      "airPressure": 0.0490974,
+      "timestamp": 332
+    },
+    {
+      "airPressure": 0.047163,
+      "beanTemp": 144,
+      "exhaustAirTemp": 177.75,
+      "timestamp": 333
+    },
+    {
+      "airPressure": 0.0473886,
+      "rateOfRise": 11.6667,
+      "timestamp": 334
+    },
+    {
+      "airPressure": 0.04988,
+      "beanTemp": 144.25,
+      "rateOfRise": 12,
+      "timestamp": 335
+    },
+    {
+      "airPressure": 0.0504075,
+      "beanTemp": 144.5,
+      "rateOfRise": 11.6667,
+      "timestamp": 336
+    },
+    {
+      "airPressure": 0.0519759,
+      "beanTemp": 144.75,
+      "exhaustAirTemp": 177.5,
+      "rateOfRise": 12,
+      "timestamp": 337
+    },
+    {
+      "airPressure": 0.0507104,
+      "rateOfRise": 11.6667,
+      "timestamp": 338
+    },
+    {
+      "airPressure": 0.0483503,
+      "beanTemp": 145,
+      "timestamp": 339
+    },
+    {
+      "airPressure": 0.0471052,
+      "beanTemp": 145.25,
+      "rateOfRise": 12,
+      "timestamp": 340
+    },
+    {
+      "airPressure": 0.0474156,
+      "beanTemp": 145.5,
+      "timestamp": 341
+    },
+    {
+      "airPressure": 0.0461868,
+      "rateOfRise": 11.6667,
+      "timestamp": 342
+    },
+    {
+      "airPressure": 0.0482331,
+      "beanTemp": 145.75,
+      "exhaustAirTemp": 177.25,
+      "timestamp": 343
+    },
+    {
+      "airPressure": 0.047264,
+      "exhaustAirTemp": 177.5,
+      "timestamp": 344
+    },
+    {
+      "airPressure": 0.0467943,
+      "beanTemp": 146,
+      "exhaustAirTemp": 177.25,
+      "rateOfRise": 11.3333,
+      "timestamp": 345
+    },
+    {
+      "airPressure": 0.0443176,
+      "rateOfRise": 11,
+      "timestamp": 346
+    },
+    {
+      "rateOfRise": 10.6667,
+      "timestamp": 347
+    },
+    {
+      "airPressure": 0.0463092,
+      "beanTemp": 146.25,
+      "rateOfRise": 11,
+      "timestamp": 348
+    },
+    {
+      "airPressure": 0.0474228,
+      "rateOfRise": 10.6667,
+      "timestamp": 349
+    },
+    {
+      "airPressure": 0.0442099,
+      "beanTemp": 146.5,
+      "rateOfRise": 11,
+      "timestamp": 350
+    },
+    {
+      "airPressure": 0.0423334,
+      "beanTemp": 146.75,
+      "exhaustAirTemp": 177,
+      "rateOfRise": 10.6667,
+      "timestamp": 351
+    },
+    {
+      "airPressure": 0.038822,
+      "timestamp": 352
+    },
+    {
+      "airPressure": 0.0394342,
+      "beanTemp": 147,
+      "rateOfRise": 10.3333,
+      "timestamp": 353
+    },
+    {
+      "airPressure": 0.0402876,
+      "beanTemp": 147.25,
+      "exhaustAirTemp": 176.75,
+      "rateOfRise": 10.6667,
+      "timestamp": 354
+    },
+    {
+      "airPressure": 0.0413741,
+      "beanTemp": 147.5,
+      "timestamp": 355
+    },
+    {
+      "airPressure": 0.0410822,
+      "exhaustAirTemp": 176.5,
+      "rateOfRise": 10.3333,
+      "timestamp": 356
+    },
+    {
+      "airPressure": 0.0441659,
+      "exhaustAirTemp": 176.75,
+      "timestamp": 357
+    },
+    {
+      "airPressure": 0.0468316,
+      "beanTemp": 147.75,
+      "timestamp": 358
+    },
+    {
+      "airPressure": 0.0472988,
+      "rateOfRise": 10,
+      "timestamp": 359
+    },
+    {
+      "airPressure": 0.0462301,
+      "beanTemp": 148,
+      "rateOfRise": 10.3333,
+      "timestamp": 360
+    },
+    {
+      "airPressure": 0.0495778,
+      "beanTemp": 148.25,
+      "timestamp": 361
+    },
+    {
+      "airPressure": 0.0485947,
+      "rateOfRise": 10,
+      "timestamp": 362
+    },
+    {
+      "airPressure": 0.0442783,
+      "beanTemp": 148.5,
+      "timestamp": 363
+    },
+    {
+      "airPressure": 0.0440279,
+      "rateOfRise": 9.66667,
+      "timestamp": 364
+    },
+    {
+      "airPressure": 0.0445182,
+      "beanTemp": 148.75,
+      "exhaustAirTemp": 177,
+      "timestamp": 365
+    },
+    {
+      "airPressure": 0.0479233,
+      "timestamp": 366
+    },
+    {
+      "airPressure": 0.0494579,
+      "beanTemp": 149,
+      "timestamp": 367
+    },
+    {
+      "airPressure": 0.0472653,
+      "timestamp": 368
+    },
+    {
+      "airPressure": 0.0492861,
+      "rateOfRise": 9.33333,
+      "timestamp": 369
+    },
+    {
+      "airPressure": 0.0498465,
+      "beanTemp": 149.25,
+      "timestamp": 370
+    },
+    {
+      "airPressure": 0.048242,
+      "beanTemp": 149.5,
+      "timestamp": 371
+    },
+    {
+      "beanTemp": 149.75,
+      "timestamp": 372
+    },
+    {
+      "airPressure": 0.0479918,
+      "exhaustAirTemp": 177.25,
+      "rateOfRise": 9,
+      "timestamp": 373
+    },
+    {
+      "airPressure": 0.0497596,
+      "beanTemp": 150,
+      "rateOfRise": 9.33333,
+      "timestamp": 374
+    },
+    {
+      "airPressure": 0.0493549,
+      "rateOfRise": 9,
+      "timestamp": 375
+    },
+    {
+      "airPressure": 0.0477013,
+      "beanTemp": 150.25,
+      "rateOfRise": 8.66667,
+      "timestamp": 376
+    },
+    {
+      "airPressure": 0.0464896,
+      "timestamp": 377
+    },
+    {
+      "airPressure": 0.0460329,
+      "exhaustAirTemp": 177.5,
+      "rateOfRise": 8.33333,
+      "timestamp": 378
+    },
+    {
+      "airPressure": 0.0483007,
+      "beanTemp": 150.5,
+      "exhaustAirTemp": 177.25,
+      "rateOfRise": 8.66667,
+      "timestamp": 379
+    },
+    {
+      "airPressure": 0.0499403,
+      "beanTemp": 150.75,
+      "exhaustAirTemp": 177.5,
+      "timestamp": 380
+    },
+    {
+      "airPressure": 0.0510336,
+      "rateOfRise": 8.33333,
+      "timestamp": 381
+    },
+    {
+      "airPressure": 0.051952,
+      "exhaustAirTemp": 177.75,
+      "rateOfRise": 8,
+      "timestamp": 382
+    },
+    {
+      "airPressure": 0.0454084,
+      "beanTemp": 151,
+      "exhaustAirTemp": 177.5,
+      "rateOfRise": 8.33333,
+      "timestamp": 383
+    },
+    {
+      "airPressure": 0.0461283,
+      "exhaustAirTemp": 177.75,
+      "rateOfRise": 8,
+      "timestamp": 384
+    },
+    {
+      "airPressure": 0.0504964,
+      "rateOfRise": 7.66667,
+      "timestamp": 385
+    },
+    {
+      "airPressure": 0.0492294,
+      "beanTemp": 151.25,
+      "timestamp": 386
+    },
+    {
+      "airPressure": 0.0522434,
+      "timestamp": 387
+    },
+    {
+      "airPressure": 0.0503486,
+      "beanTemp": 151.5,
+      "exhaustAirTemp": 178,
+      "timestamp": 388
+    },
+    {
+      "airPressure": 0.0481828,
+      "beanTemp": 151.75,
+      "exhaustAirTemp": 177.75,
+      "rateOfRise": 8,
+      "timestamp": 389
+    },
+    {
+      "airPressure": 0.0487707,
+      "beanTemp": 151.5,
+      "exhaustAirTemp": 178,
+      "rateOfRise": 7.33333,
+      "timestamp": 390
+    },
+    {
+      "airPressure": 0.0444965,
+      "beanTemp": 152,
+      "rateOfRise": 8,
+      "timestamp": 391
+    },
+    {
+      "airPressure": 0.0417121,
+      "timestamp": 392
+    },
+    {
+      "airPressure": 0.0383981,
+      "rateOfRise": 7.66667,
+      "timestamp": 393
+    },
+    {
+      "airPressure": 0.0401243,
+      "exhaustAirTemp": 178.25,
+      "timestamp": 394
+    },
+    {
+      "airPressure": 0.0416716,
+      "rateOfRise": 7.33333,
+      "timestamp": 395
+    },
+    {
+      "airPressure": 0.0432393,
+      "rateOfRise": 7,
+      "timestamp": 396
+    },
+    {
+      "airPressure": 0.0445744,
+      "beanTemp": 152.25,
+      "rateOfRise": 7.33333,
+      "timestamp": 397
+    },
+    {
+      "airPressure": 0.042733,
+      "beanTemp": 152.5,
+      "timestamp": 398
+    },
+    {
+      "airPressure": 0.0388329,
+      "rateOfRise": 7,
+      "timestamp": 399
+    },
+    {
+      "airPressure": 0.0429967,
+      "exhaustAirTemp": 178.5,
+      "rateOfRise": 6.66667,
+      "timestamp": 400
+    },
+    {
+      "airPressure": 0.0445561,
+      "beanTemp": 152.75,
+      "rateOfRise": 7,
+      "timestamp": 401
+    },
+    {
+      "airPressure": 0.0470804,
+      "timestamp": 402
+    },
+    {
+      "airPressure": 0.0478422,
+      "exhaustAirTemp": 178.75,
+      "rateOfRise": 6.66667,
+      "timestamp": 403
+    },
+    {
+      "airPressure": 0.0452608,
+      "beanTemp": 153,
+      "rateOfRise": 7,
+      "timestamp": 404
+    },
+    {
+      "airPressure": 0.0463793,
+      "rateOfRise": 6.66667,
+      "timestamp": 405
+    },
+    {
+      "airPressure": 0.0496674,
+      "rateOfRise": 6.33333,
+      "timestamp": 406
+    },
+    {
+      "airPressure": 0.0499747,
+      "beanTemp": 153.25,
+      "rateOfRise": 6.66667,
+      "timestamp": 407
+    },
+    {
+      "airPressure": 0.0530446,
+      "rateOfRise": 6.33333,
+      "timestamp": 408
+    },
+    {
+      "airPressure": 0.0496823,
+      "exhaustAirTemp": 179,
+      "timestamp": 409
+    },
+    {
+      "airPressure": 0.0517313,
+      "beanTemp": 153.5,
+      "timestamp": 410
+    },
+    {
+      "airPressure": 0.0519795,
+      "beanTemp": 153.75,
+      "rateOfRise": 6.66667,
+      "timestamp": 411
+    },
+    {
+      "airPressure": 0.0523808,
+      "rateOfRise": 6.33333,
+      "timestamp": 412
+    },
+    {
+      "airPressure": 0.0490592,
+      "exhaustAirTemp": 179.25,
+      "timestamp": 413
+    },
+    {
+      "airPressure": 0.0449097,
+      "beanTemp": 154,
+      "rateOfRise": 6.66667,
+      "timestamp": 414
+    },
+    {
+      "airPressure": 0.0461718,
+      "rateOfRise": 6.33333,
+      "timestamp": 415
+    },
+    {
+      "airPressure": 0.0416127,
+      "beanTemp": 154.25,
+      "timestamp": 416
+    },
+    {
+      "airPressure": 0.0423216,
+      "beanTemp": 154.5,
+      "exhaustAirTemp": 179.5,
+      "timestamp": 417
+    },
+    {
+      "airPressure": 0.0407459,
+      "exhaustAirTemp": 179.25,
+      "timestamp": 418
+    },
+    {
+      "airPressure": 0.042655,
+      "rateOfRise": 6,
+      "timestamp": 419
+    },
+    {
+      "beanTemp": 154.75,
+      "exhaustAirTemp": 179.5,
+      "rateOfRise": 6.33333,
+      "timestamp": 420
+    },
+    {
+      "airPressure": 0.038034,
+      "rateOfRise": 6,
+      "timestamp": 421
+    },
+    {
+      "airPressure": 0.0358575,
+      "timestamp": 422
+    },
+    {
+      "airPressure": 0.0383581,
+      "beanTemp": 155,
+      "rateOfRise": 6.33333,
+      "timestamp": 423
+    },
+    {
+      "airPressure": 0.0451391,
+      "exhaustAirTemp": 179.75,
+      "rateOfRise": 6,
+      "timestamp": 424
+    },
+    {
+      "airPressure": 0.0468278,
+      "rateOfRise": 5.66667,
+      "timestamp": 425
+    },
+    {
+      "airPressure": 0.0440838,
+      "beanTemp": 155.25,
+      "rateOfRise": 6,
+      "timestamp": 426
+    },
+    {
+      "airPressure": 0.0451096,
+      "timestamp": 427
+    },
+    {
+      "airPressure": 0.0442209,
+      "rateOfRise": 5.66667,
+      "timestamp": 428
+    },
+    {
+      "airPressure": 0.0446935,
+      "timestamp": 429
+    },
+    {
+      "airPressure": 0.0395235,
+      "beanTemp": 155.5,
+      "exhaustAirTemp": 180,
+      "rateOfRise": 6,
+      "timestamp": 430
+    },
+    {
+      "exhaustAirTemp": 179.75,
+      "rateOfRise": 5.66667,
+      "timestamp": 431
+    },
+    {
+      "airPressure": 0.047322,
+      "exhaustAirTemp": 180,
+      "timestamp": 432
+    },
+    {
+      "airPressure": 0.0472059,
+      "rateOfRise": 5.33333,
+      "timestamp": 433
+    },
+    {
+      "airPressure": 0.0507073,
+      "beanTemp": 155.75,
+      "timestamp": 434
+    },
+    {
+      "airPressure": 0.0480606,
+      "exhaustAirTemp": 180.25,
+      "rateOfRise": 5.66667,
+      "timestamp": 435
+    },
+    {
+      "airPressure": 0.0458794,
+      "beanTemp": 156,
+      "rateOfRise": 5.33333,
+      "timestamp": 436
+    },
+    {
+      "airPressure": 0.0477551,
+      "timestamp": 437
+    },
+    {
+      "airPressure": 0.0459911,
+      "beanTemp": 156.25,
+      "rateOfRise": 5.66667,
+      "timestamp": 438
+    },
+    {
+      "airPressure": 0.0434787,
+      "timestamp": 439
+    },
+    {
+      "airPressure": 0.0445702,
+      "timestamp": 440
+    },
+    {
+      "airPressure": 0.0486328,
+      "beanTemp": 156.5,
+      "rateOfRise": 6,
+      "timestamp": 441
+    },
+    {
+      "airPressure": 0.0541189,
+      "exhaustAirTemp": 180.5,
+      "rateOfRise": 5.66667,
+      "timestamp": 442
+    },
+    {
+      "airPressure": 0.0532005,
+      "rateOfRise": 5.33333,
+      "timestamp": 443
+    },
+    {
+      "airPressure": 0.0505022,
+      "beanTemp": 156.75,
+      "rateOfRise": 5.66667,
+      "timestamp": 444
+    },
+    {
+      "airPressure": 0.0456311,
+      "exhaustAirTemp": 180.25,
+      "timestamp": 445
+    },
+    {
+      "airPressure": 0.0449519,
+      "beanTemp": 157,
+      "exhaustAirTemp": 180.5,
+      "timestamp": 446
+    },
+    {
+      "airPressure": 0.043933,
+      "timestamp": 447
+    },
+    {
+      "airPressure": 0.0443629,
+      "timestamp": 448
+    },
+    {
+      "airPressure": 0.0427975,
+      "beanTemp": 157.25,
+      "timestamp": 449
+    },
+    {
+      "airPressure": 0.0437217,
+      "timestamp": 450
+    },
+    {
+      "airPressure": 0.0444914,
+      "beanTemp": 157.5,
+      "exhaustAirTemp": 180.75,
+      "rateOfRise": 6,
+      "timestamp": 451
+    },
+    {
+      "airPressure": 0.0483769,
+      "rateOfRise": 5.66667,
+      "timestamp": 452
+    },
+    {
+      "airPressure": 0.0517659,
+      "beanTemp": 157.75,
+      "rateOfRise": 6,
+      "timestamp": 453
+    },
+    {
+      "airPressure": 0.0471896,
+      "timestamp": 454
+    },
+    {
+      "airPressure": 0.0467275,
+      "rateOfRise": 5.66667,
+      "timestamp": 455
+    },
+    {
+      "airPressure": 0.0420288,
+      "beanTemp": 158,
+      "timestamp": 456
+    },
+    {
+      "airPressure": 0.0436808,
+      "timestamp": 457
+    },
+    {
+      "airPressure": 0.0492886,
+      "timestamp": 458
+    },
+    {
+      "airPressure": 0.0502398,
+      "beanTemp": 158.25,
+      "timestamp": 459
+    },
+    {
+      "airPressure": 0.0482958,
+      "exhaustAirTemp": 181,
+      "timestamp": 460
+    },
+    {
+      "airPressure": 0.0476468,
+      "beanTemp": 158.5,
+      "exhaustAirTemp": 180.75,
+      "timestamp": 461
+    },
+    {
+      "airPressure": 0.044882,
+      "rateOfRise": 5.33333,
+      "timestamp": 462
+    },
+    {
+      "airPressure": 0.042835,
+      "exhaustAirTemp": 181,
+      "timestamp": 463
+    },
+    {
+      "beanTemp": 158.75,
+      "rateOfRise": 5.66667,
+      "timestamp": 464
+    },
+    {
+      "airPressure": 0.0437291,
+      "rateOfRise": 5.33333,
+      "timestamp": 465
+    },
+    {
+      "airPressure": 0.0449626,
+      "timestamp": 466
+    },
+    {
+      "airPressure": 0.0473006,
+      "beanTemp": 159,
+      "rateOfRise": 5.66667,
+      "timestamp": 467
+    },
+    {
+      "airPressure": 0.041882,
+      "exhaustAirTemp": 181.25,
+      "rateOfRise": 5.33333,
+      "timestamp": 468
+    },
+    {
+      "airPressure": 0.0440232,
+      "exhaustAirTemp": 181,
+      "timestamp": 469
+    },
+    {
+      "airPressure": 0.0431908,
+      "beanTemp": 159.25,
+      "exhaustAirTemp": 181.25,
+      "rateOfRise": 5.66667,
+      "timestamp": 470
+    },
+    {
+      "airPressure": 0.043772,
+      "exhaustAirTemp": 181.5,
+      "rateOfRise": 5.33333,
+      "timestamp": 471
+    },
+    {
+      "exhaustAirTemp": 181.25,
+      "timestamp": 472
+    },
+    {
+      "airPressure": 0.0407747,
+      "exhaustAirTemp": 181.5,
+      "timestamp": 473
+    },
+    {
+      "airPressure": 0.0402813,
+      "beanTemp": 159.5,
+      "rateOfRise": 5.66667,
+      "timestamp": 474
+    },
+    {
+      "airPressure": 0.0421829,
+      "rateOfRise": 5.33333,
+      "timestamp": 475
+    },
+    {
+      "airPressure": 0.0449356,
+      "timestamp": 476
+    },
+    {
+      "airPressure": 0.0483999,
+      "timestamp": 477
+    },
+    {
+      "airPressure": 0.0519236,
+      "timestamp": 478
+    },
+    {
+      "airPressure": 0.0465301,
+      "beanTemp": 159.75,
+      "timestamp": 479
+    },
+    {
+      "airPressure": 0.042957,
+      "exhaustAirTemp": 181.75,
+      "timestamp": 480
+    },
+    {
+      "airPressure": 0.041811,
+      "rateOfRise": 5,
+      "timestamp": 481
+    },
+    {
+      "airPressure": 0.0435779,
+      "exhaustAirTemp": 181.5,
+      "timestamp": 482
+    },
+    {
+      "airPressure": 0.04701,
+      "beanTemp": 160,
+      "exhaustAirTemp": 181.75,
+      "timestamp": 483
+    },
+    {
+      "airPressure": 0.0380561,
+      "timestamp": 484
+    },
+    {
+      "airPressure": 0.036505,
+      "timestamp": 485
+    },
+    {
+      "airPressure": 0.0333476,
+      "rateOfRise": 4.66667,
+      "timestamp": 486
+    },
+    {
+      "airPressure": 0.0411276,
+      "timestamp": 487
+    },
+    {
+      "airPressure": 0.0437566,
+      "beanTemp": 160.25,
+      "exhaustAirTemp": 182,
+      "rateOfRise": 5,
+      "timestamp": 488
+    },
+    {
+      "airPressure": 0.0448666,
+      "rateOfRise": 4.66667,
+      "timestamp": 489
+    },
+    {
+      "airPressure": 0.0424982,
+      "beanTemp": 160.5,
+      "rateOfRise": 5,
+      "timestamp": 490
+    },
+    {
+      "airPressure": 0.0415472,
+      "exhaustAirTemp": 182.25,
+      "rateOfRise": 4.66667,
+      "timestamp": 491
+    },
+    {
+      "airPressure": 0.0430807,
+      "timestamp": 492
+    },
+    {
+      "airPressure": 0.0459963,
+      "beanTemp": 160.75,
+      "rateOfRise": 5,
+      "timestamp": 493
+    },
+    {
+      "airPressure": 0.0461711,
+      "rateOfRise": 4.66667,
+      "timestamp": 494
+    },
+    {
+      "airPressure": 0.0456559,
+      "timestamp": 495
+    },
+    {
+      "airPressure": 0.044595,
+      "beanTemp": 161,
+      "timestamp": 496
+    },
+    {
+      "airPressure": 0.0457727,
+      "timestamp": 497
+    },
+    {
+      "airPressure": 0.0475333,
+      "rateOfRise": 4.33333,
+      "timestamp": 498
+    },
+    {
+      "airPressure": 0.048269,
+      "beanTemp": 161.25,
+      "rateOfRise": 4.66667,
+      "timestamp": 499
+    },
+    {
+      "airPressure": 0.048269,
+      "beanTemp": 161.25,
+      "burner": 43,
+      "exhaustAirTemp": 182.25,
+      "rateOfRise": 4.66667,
+      "timestamp": 499
+    },
+    {
+      "airPressure": 0.0435138,
+      "beanTemp": 161.25,
+      "burner": 43,
+      "exhaustAirTemp": 182.5,
+      "rateOfRise": 4.66667,
+      "timestamp": 500
+    },
+    {
+      "airPressure": 0.0427265,
+      "exhaustAirTemp": 182.25,
+      "rateOfRise": 4.33333,
+      "timestamp": 501
+    },
+    {
+      "airPressure": 0.0421273,
+      "beanTemp": 161.5,
+      "exhaustAirTemp": 182.5,
+      "rateOfRise": 4.66667,
+      "timestamp": 502
+    },
+    {
+      "airPressure": 0.0430599,
+      "timestamp": 503
+    },
+    {
+      "airPressure": 0.048531,
+      "beanTemp": 161.75,
+      "timestamp": 504
+    },
+    {
+      "airPressure": 0.0464175,
+      "timestamp": 505
+    },
+    {
+      "airPressure": 0.047991,
+      "rateOfRise": 4.33333,
+      "timestamp": 506
+    },
+    {
+      "airPressure": 0.0448581,
+      "beanTemp": 162,
+      "rateOfRise": 4.66667,
+      "timestamp": 507
+    },
+    {
+      "airPressure": 0.0417721,
+      "beanTemp": 161.75,
+      "exhaustAirTemp": 182.75,
+      "rateOfRise": 4.33333,
+      "timestamp": 508
+    },
+    {
+      "airPressure": 0.0446622,
+      "beanTemp": 162,
+      "timestamp": 509
+    },
+    {
+      "airPressure": 0.0480088,
+      "timestamp": 510
+    },
+    {
+      "airPressure": 0.0484866,
+      "beanTemp": 162.25,
+      "rateOfRise": 4.66667,
+      "timestamp": 511
+    },
+    {
+      "airPressure": 0.0501074,
+      "beanTemp": 162,
+      "rateOfRise": 4,
+      "timestamp": 512
+    },
+    {
+      "airPressure": 0.0462004,
+      "timestamp": 513
+    },
+    {
+      "airPressure": 0.0426423,
+      "beanTemp": 162.25,
+      "rateOfRise": 4.33333,
+      "timestamp": 514
+    },
+    {
+      "airPressure": 0.0391728,
+      "exhaustAirTemp": 183,
+      "rateOfRise": 4,
+      "timestamp": 515
+    },
+    {
+      "airPressure": 0.0381334,
+      "beanTemp": 162.5,
+      "rateOfRise": 4.33333,
+      "timestamp": 516
+    },
+    {
+      "airPressure": 0.0407709,
+      "beanTemp": 162.25,
+      "rateOfRise": 4,
+      "timestamp": 517
+    },
+    {
+      "airPressure": 0.0445389,
+      "beanTemp": 162.5,
+      "rateOfRise": 4.33333,
+      "timestamp": 518
+    },
+    {
+      "airPressure": 0.0456592,
+      "rateOfRise": 4,
+      "timestamp": 519
+    },
+    {
+      "airPressure": 0.046589,
+      "timestamp": 520
+    },
+    {
+      "airPressure": 0.0455382,
+      "exhaustAirTemp": 183.25,
+      "timestamp": 521
+    },
+    {
+      "beanTemp": 162.75,
+      "rateOfRise": 4.33333,
+      "timestamp": 522
+    },
+    {
+      "airPressure": 0.04697,
+      "timestamp": 523
+    },
+    {
+      "airPressure": 0.0476358,
+      "beanTemp": 163,
+      "timestamp": 524
+    },
+    {
+      "airPressure": 0.0496902,
+      "timestamp": 525
+    },
+    {
+      "airPressure": 0.0499752,
+      "timestamp": 526
+    },
+    {
+      "airPressure": 0.0510829,
+      "exhaustAirTemp": 183.5,
+      "timestamp": 527
+    },
+    {
+      "airPressure": 0.0535337,
+      "rateOfRise": 4,
+      "timestamp": 528
+    },
+    {
+      "airPressure": 0.0539221,
+      "timestamp": 529
+    },
+    {
+      "airPressure": 0.0503338,
+      "exhaustAirTemp": 183.75,
+      "timestamp": 530
+    },
+    {
+      "airPressure": 0.0493484,
+      "beanTemp": 163.25,
+      "rateOfRise": 4.33333,
+      "timestamp": 531
+    },
+    {
+      "airPressure": 0.0457575,
+      "exhaustAirTemp": 183.5,
+      "timestamp": 532
+    },
+    {
+      "airPressure": 0.0438752,
+      "exhaustAirTemp": 183.75,
+      "rateOfRise": 4,
+      "timestamp": 533
+    },
+    {
+      "airPressure": 0.0417201,
+      "timestamp": 534
+    },
+    {
+      "airPressure": 0.0462708,
+      "beanTemp": 163.5,
+      "timestamp": 535
+    },
+    {
+      "airPressure": 0.0500844,
+      "timestamp": 536
+    },
+    {
+      "airPressure": 0.0510423,
+      "beanTemp": 163.75,
+      "rateOfRise": 4.33333,
+      "timestamp": 537
+    },
+    {
+      "airPressure": 0.0471204,
+      "exhaustAirTemp": 184,
+      "rateOfRise": 4,
+      "timestamp": 538
+    },
+    {
+      "airPressure": 0.0494154,
+      "beanTemp": 164,
+      "rateOfRise": 4.33333,
+      "timestamp": 539
+    },
+    {
+      "airPressure": 0.0464168,
+      "beanTemp": 164.25,
+      "exhaustAirTemp": 183.75,
+      "rateOfRise": 4.66667,
+      "timestamp": 540
+    },
+    {
+      "airPressure": 0.0494487,
+      "exhaustAirTemp": 184,
+      "rateOfRise": 4.33333,
+      "timestamp": 541
+    },
+    {
+      "airPressure": 0.0517195,
+      "beanTemp": 164,
+      "rateOfRise": 4,
+      "timestamp": 542
+    },
+    {
+      "airPressure": 0.0509025,
+      "beanTemp": 164.25,
+      "rateOfRise": 4.33333,
+      "timestamp": 543
+    },
+    {
+      "airPressure": 0.0568727,
+      "beanTemp": 164,
+      "rateOfRise": 3.66667,
+      "timestamp": 544
+    },
+    {
+      "airPressure": 0.0529695,
+      "beanTemp": 164.25,
+      "rateOfRise": 4,
+      "timestamp": 545
+    },
+    {
+      "airPressure": 0.0496368,
+      "beanTemp": 164.5,
+      "rateOfRise": 4.33333,
+      "timestamp": 546
+    },
+    {
+      "airPressure": 0.0460941,
+      "rateOfRise": 4,
+      "timestamp": 547
+    },
+    {
+      "airPressure": 0.0413442,
+      "exhaustAirTemp": 184.25,
+      "timestamp": 548
+    },
+    {
+      "airPressure": 0.0458857,
+      "rateOfRise": 3.66667,
+      "timestamp": 549
+    },
+    {
+      "airPressure": 0.0447529,
+      "timestamp": 550
+    },
+    {
+      "airPressure": 0.0456262,
+      "beanTemp": 164.75,
+      "rateOfRise": 4,
+      "timestamp": 551
+    },
+    {
+      "airPressure": 0.0441068,
+      "beanTemp": 164.5,
+      "rateOfRise": 3.33333,
+      "timestamp": 552
+    },
+    {
+      "airPressure": 0.0453649,
+      "beanTemp": 164.75,
+      "rateOfRise": 4,
+      "timestamp": 553
+    },
+    {
+      "airPressure": 0.046979,
+      "exhaustAirTemp": 184.5,
+      "rateOfRise": 3.66667,
+      "timestamp": 554
+    },
+    {
+      "airPressure": 0.0463315,
+      "beanTemp": 165,
+      "rateOfRise": 4,
+      "timestamp": 555
+    },
+    {
+      "airPressure": 0.0451145,
+      "rateOfRise": 3.66667,
+      "timestamp": 556
+    },
+    {
+      "airPressure": 0.0462364,
+      "rateOfRise": 4,
+      "timestamp": 557
+    },
+    {
+      "airPressure": 0.0436147,
+      "beanTemp": 165.25,
+      "rateOfRise": 4.33333,
+      "timestamp": 558
+    },
+    {
+      "airPressure": 0.0442102,
+      "exhaustAirTemp": 184.25,
+      "rateOfRise": 4,
+      "timestamp": 559
+    },
+    {
+      "airPressure": 0.0457557,
+      "beanTemp": 165,
+      "exhaustAirTemp": 183.75,
+      "rateOfRise": 3.66667,
+      "timestamp": 560
+    },
+    {
+      "airPressure": 0.0477853,
+      "beanTemp": 165.25,
+      "exhaustAirTemp": 183.25,
+      "timestamp": 561
+    },
+    {
+      "airPressure": 0.0476099,
+      "beanTemp": 165.5,
+      "exhaustAirTemp": 182.75,
+      "rateOfRise": 4.33333,
+      "timestamp": 562
+    },
+    {
+      "airPressure": 0.0438012,
+      "beanTemp": 165.25,
+      "exhaustAirTemp": 182.5,
+      "rateOfRise": 3.66667,
+      "timestamp": 563
+    },
+    {
+      "airPressure": 0.038698,
+      "beanTemp": 165.5,
+      "exhaustAirTemp": 182,
+      "rateOfRise": 4,
+      "timestamp": 564
+    },
+    {
+      "airPressure": 0.041597,
+      "timestamp": 565
+    },
+    {
+      "airPressure": 0.039073,
+      "exhaustAirTemp": 182.25,
+      "timestamp": 566
+    },
+    {
+      "airPressure": 0.0453468,
+      "beanTemp": 165.75,
+      "exhaustAirTemp": 182.5,
+      "timestamp": 567
+    },
+    {
+      "airPressure": 0.0489636,
+      "beanTemp": 165.5,
+      "rateOfRise": 3.66667,
+      "timestamp": 568
+    },
+    {
+      "airPressure": 0.0458506,
+      "beanTemp": 165.75,
+      "exhaustAirTemp": 182.75,
+      "timestamp": 569
+    },
+    {
+      "airPressure": 0.0464271,
+      "exhaustAirTemp": 183,
+      "timestamp": 570
+    },
+    {
+      "airPressure": 0.0475751,
+      "exhaustAirTemp": 183.25,
+      "timestamp": 571
+    },
+    {
+      "airPressure": 0.0428053,
+      "beanTemp": 166,
+      "exhaustAirTemp": 183.5,
+      "rateOfRise": 4,
+      "timestamp": 572
+    },
+    {
+      "airPressure": 0.0509894,
+      "timestamp": 573
+    },
+    {
+      "airPressure": 0.0499602,
+      "exhaustAirTemp": 183.75,
+      "timestamp": 574
+    },
+    {
+      "airPressure": 0.0493178,
+      "beanTemp": 166.25,
+      "rateOfRise": 4.33333,
+      "timestamp": 575
+    },
+    {
+      "airPressure": 0.0472836,
+      "beanTemp": 166,
+      "exhaustAirTemp": 184,
+      "rateOfRise": 3.66667,
+      "timestamp": 576
+    },
+    {
+      "airPressure": 0.0459431,
+      "beanTemp": 166.25,
+      "rateOfRise": 4,
+      "timestamp": 577
+    },
+    {
+      "airPressure": 0.0464333,
+      "beanTemp": 166,
+      "exhaustAirTemp": 184.25,
+      "rateOfRise": 3.66667,
+      "timestamp": 578
+    },
+    {
+      "airPressure": 0.0476997,
+      "beanTemp": 166.25,
+      "rateOfRise": 4,
+      "timestamp": 579
+    },
+    {
+      "airPressure": 0.0485096,
+      "rateOfRise": 3.66667,
+      "timestamp": 580
+    },
+    {
+      "airPressure": 0.0464427,
+      "beanTemp": 166.5,
+      "exhaustAirTemp": 184.5,
+      "rateOfRise": 4,
+      "timestamp": 581
+    },
+    {
+      "airPressure": 0.0442711,
+      "beanTemp": 166.75,
+      "timestamp": 582
+    },
+    {
+      "airPressure": 0.0420587,
+      "beanTemp": 166.5,
+      "exhaustAirTemp": 184.75,
+      "rateOfRise": 3.66667,
+      "timestamp": 583
+    },
+    {
+      "airPressure": 0.0423345,
+      "beanTemp": 166.75,
+      "timestamp": 584
+    },
+    {
+      "airPressure": 0.0430477,
+      "beanTemp": 167,
+      "timestamp": 585
+    },
+    {
+      "airPressure": 0.046652,
+      "beanTemp": 166.75,
+      "rateOfRise": 3.33333,
+      "timestamp": 586
+    },
+    {
+      "airPressure": 0.0483905,
+      "beanTemp": 166.5,
+      "exhaustAirTemp": 185,
+      "timestamp": 587
+    },
+    {
+      "airPressure": 0.0469866,
+      "beanTemp": 167,
+      "rateOfRise": 3.66667,
+      "timestamp": 588
+    },
+    {
+      "airPressure": 0.046399,
+      "beanTemp": 166.75,
+      "timestamp": 589
+    },
+    {
+      "airPressure": 0.0408133,
+      "beanTemp": 167,
+      "exhaustAirTemp": 185.25,
+      "timestamp": 590
+    },
+    {
+      "airPressure": 0.0448181,
+      "rateOfRise": 3.33333,
+      "timestamp": 591
+    },
+    {
+      "airPressure": 0.0434209,
+      "timestamp": 592
+    },
+    {
+      "airPressure": 0.0424641,
+      "beanTemp": 167.25,
+      "rateOfRise": 3.66667,
+      "timestamp": 593
+    },
+    {
+      "airPressure": 0.0440036,
+      "timestamp": 594
+    },
+    {
+      "airPressure": 0.0434005,
+      "beanTemp": 167.5,
+      "exhaustAirTemp": 185.5,
+      "rateOfRise": 4,
+      "timestamp": 595
+    },
+    {
+      "airPressure": 0.0442321,
+      "rateOfRise": 3.66667,
+      "timestamp": 596
+    },
+    {
+      "airPressure": 0.0421054,
+      "rateOfRise": 4,
+      "timestamp": 597
+    },
+    {
+      "exhaustAirTemp": 185.75,
+      "rateOfRise": 3.66667,
+      "timestamp": 598
+    },
+    {
+      "airPressure": 0.0432974,
+      "beanTemp": 167.75,
+      "rateOfRise": 4,
+      "timestamp": 599
+    },
+    {
+      "airPressure": 0.0438354,
+      "rateOfRise": 3.66667,
+      "timestamp": 600
+    },
+    {
+      "airPressure": 0.042791,
+      "exhaustAirTemp": 186,
+      "timestamp": 601
+    },
+    {
+      "airPressure": 0.0397904,
+      "beanTemp": 168,
+      "exhaustAirTemp": 185.75,
+      "rateOfRise": 4,
+      "timestamp": 602
+    },
+    {
+      "airPressure": 0.0412989,
+      "rateOfRise": 3.66667,
+      "timestamp": 603
+    },
+    {
+      "airPressure": 0.0403939,
+      "exhaustAirTemp": 186,
+      "timestamp": 604
+    },
+    {
+      "airPressure": 0.0429233,
+      "rateOfRise": 4,
+      "timestamp": 605
+    },
+    {
+      "airPressure": 0.0445115,
+      "rateOfRise": 3.66667,
+      "timestamp": 606
+    },
+    {
+      "airPressure": 0.0463561,
+      "rateOfRise": 3.33333,
+      "timestamp": 607
+    },
+    {
+      "airPressure": 0.0486027,
+      "beanTemp": 168.25,
+      "exhaustAirTemp": 186.25,
+      "rateOfRise": 4,
+      "timestamp": 608
+    },
+    {
+      "airPressure": 0.0495454,
+      "beanTemp": 168.5,
+      "timestamp": 609
+    },
+    {
+      "airPressure": 0.0466929,
+      "timestamp": 610
+    },
+    {
+      "airPressure": 0.0480781,
+      "timestamp": 611
+    },
+    {
+      "airPressure": 0.0453059,
+      "rateOfRise": 3.66667,
+      "timestamp": 612
+    },
+    {
+      "beanTemp": 168.75,
+      "rateOfRise": 4.33333,
+      "timestamp": 613
+    },
+    {
+      "airPressure": 0.0446975,
+      "rateOfRise": 4,
+      "timestamp": 614
+    },
+    {
+      "airPressure": 0.0430963,
+      "exhaustAirTemp": 186.5,
+      "timestamp": 615
+    },
+    {
+      "airPressure": 0.0402817,
+      "timestamp": 616
+    },
+    {
+      "airPressure": 0.038922,
+      "beanTemp": 169,
+      "timestamp": 617
+    },
+    {
+      "airPressure": 0.0421007,
+      "timestamp": 618
+    },
+    {
+      "airPressure": 0.0430823,
+      "beanTemp": 169.25,
+      "timestamp": 620
+    },
+    {
+      "airPressure": 0.0464186,
+      "exhaustAirTemp": 186.75,
+      "rateOfRise": 4.33333,
+      "timestamp": 621
+    },
+    {
+      "airPressure": 0.0491731,
+      "rateOfRise": 4,
+      "timestamp": 622
+    },
+    {
+      "airPressure": 0.0514879,
+      "rateOfRise": 4.33333,
+      "timestamp": 623
+    },
+    {
+      "airPressure": 0.0520784,
+      "beanTemp": 169.5,
+      "timestamp": 624
+    },
+    {
+      "airPressure": 0.0531904,
+      "timestamp": 625
+    },
+    {
+      "airPressure": 0.0499597,
+      "beanTemp": 169.75,
+      "timestamp": 626
+    },
+    {
+      "airPressure": 0.0467833,
+      "beanTemp": 169.5,
+      "exhaustAirTemp": 187,
+      "rateOfRise": 3.66667,
+      "timestamp": 627
+    },
+    {
+      "airPressure": 0.0462649,
+      "beanTemp": 169.75,
+      "rateOfRise": 4.33333,
+      "timestamp": 628
+    },
+    {
+      "airPressure": 0.04299,
+      "exhaustAirTemp": 186.75,
+      "rateOfRise": 4,
+      "timestamp": 629
+    },
+    {
+      "airPressure": 0.0439167,
+      "exhaustAirTemp": 187,
+      "rateOfRise": 3.66667,
+      "timestamp": 630
+    },
+    {
+      "airPressure": 0.0444507,
+      "beanTemp": 170,
+      "rateOfRise": 4.33333,
+      "timestamp": 631
+    },
+    {
+      "airPressure": 0.042726,
+      "rateOfRise": 4.66667,
+      "timestamp": 632
+    },
+    {
+      "airPressure": 0.0413837,
+      "beanTemp": 170.25,
+      "rateOfRise": 4.33333,
+      "timestamp": 633
+    },
+    {
+      "airPressure": 0.0425445,
+      "rateOfRise": 4.66667,
+      "timestamp": 634
+    },
+    {
+      "airPressure": 0.0381399,
+      "rateOfRise": 4.33333,
+      "timestamp": 635
+    },
+    {
+      "airPressure": 0.038352,
+      "exhaustAirTemp": 186.75,
+      "timestamp": 636
+    },
+    {
+      "airPressure": 0.036212,
+      "exhaustAirTemp": 186.5,
+      "timestamp": 637
+    },
+    {
+      "airPressure": 0.0393265,
+      "exhaustAirTemp": 186,
+      "rateOfRise": 4,
+      "timestamp": 638
+    },
+    {
+      "airPressure": 0.0419171,
+      "beanTemp": 170.5,
+      "rateOfRise": 4.33333,
+      "timestamp": 639
+    },
+    {
+      "airPressure": 0.0454817,
+      "rateOfRise": 4,
+      "timestamp": 640
+    },
+    {
+      "airPressure": 0.0453218,
+      "timestamp": 641
+    },
+    {
+      "airPressure": 0.0465441,
+      "exhaustAirTemp": 186.25,
+      "timestamp": 642
+    },
+    {
+      "airPressure": 0.0449555,
+      "exhaustAirTemp": 186.5,
+      "timestamp": 643
+    },
+    {
+      "airPressure": 0.0438638,
+      "beanTemp": 170.75,
+      "timestamp": 644
+    },
+    {
+      "airPressure": 0.0476008,
+      "exhaustAirTemp": 186.75,
+      "timestamp": 645
+    },
+    {
+      "airPressure": 0.0484057,
+      "beanTemp": 170.5,
+      "rateOfRise": 3.66667,
+      "timestamp": 646
+    },
+    {
+      "airPressure": 0.0477614,
+      "beanTemp": 170.75,
+      "timestamp": 647
+    },
+    {
+      "airPressure": 0.0474761,
+      "exhaustAirTemp": 187,
+      "timestamp": 648
+    },
+    {
+      "airPressure": 0.0482232,
+      "timestamp": 649
+    },
+    {
+      "airPressure": 0.0460532,
+      "beanTemp": 170.5,
+      "rateOfRise": 3.33333,
+      "timestamp": 650
+    },
+    {
+      "beanTemp": 170.75,
+      "rateOfRise": 3.66667,
+      "timestamp": 651
+    },
+    {
+      "airPressure": 0.041394,
+      "timestamp": 652
+    },
+    {
+      "airPressure": 0.0405156,
+      "exhaustAirTemp": 187.25,
+      "rateOfRise": 3.33333,
+      "timestamp": 653
+    },
+    {
+      "airPressure": 0.0426023,
+      "beanTemp": 171,
+      "timestamp": 654
+    },
+    {
+      "airPressure": 0.043552,
+      "exhaustAirTemp": 187.5,
+      "timestamp": 655
+    },
+    {
+      "airPressure": 0.0460948,
+      "timestamp": 656
+    },
+    {
+      "airPressure": 0.0471099,
+      "beanTemp": 171.25,
+      "exhaustAirTemp": 187.75,
+      "rateOfRise": 3.66667,
+      "timestamp": 657
+    },
+    {
+      "airPressure": 0.0459152,
+      "beanTemp": 171,
+      "rateOfRise": 3,
+      "timestamp": 658
+    },
+    {
+      "airPressure": 0.0500801,
+      "beanTemp": 171.25,
+      "rateOfRise": 3.33333,
+      "timestamp": 659
+    },
+    {
+      "airPressure": 0.051493,
+      "timestamp": 660
+    },
+    {
+      "airPressure": 0.0524862,
+      "beanTemp": 171.5,
+      "rateOfRise": 3.66667,
+      "timestamp": 661
+    },
+    {
+      "airPressure": 0.0498704,
+      "exhaustAirTemp": 188,
+      "rateOfRise": 3.33333,
+      "timestamp": 662
+    },
+    {
+      "airPressure": 0.0466107,
+      "beanTemp": 171.75,
+      "rateOfRise": 3.66667,
+      "timestamp": 663
+    },
+    {
+      "airPressure": 0.0442455,
+      "beanTemp": 171.5,
+      "rateOfRise": 3.33333,
+      "timestamp": 664
+    },
+    {
+      "airPressure": 0.0424017,
+      "beanTemp": 171.75,
+      "timestamp": 665
+    },
+    {
+      "airPressure": 0.0455826,
+      "exhaustAirTemp": 188.25,
+      "timestamp": 666
+    },
+    {
+      "airPressure": 0.0470518,
+      "exhaustAirTemp": 188,
+      "timestamp": 667
+    },
+    {
+      "airPressure": 0.0506103,
+      "timestamp": 668
+    },
+    {
+      "airPressure": 0.047482,
+      "beanTemp": 172,
+      "exhaustAirTemp": 188.25,
+      "timestamp": 669
+    },
+    {
+      "airPressure": 0.0393689,
+      "timestamp": 670
+    },
+    {
+      "airPressure": 0.03658,
+      "rateOfRise": 3,
+      "timestamp": 671
+    },
+    {
+      "airPressure": 0.0348864,
+      "beanTemp": 171.75,
+      "timestamp": 672
+    },
+    {
+      "airPressure": 0.0340127,
+      "rateOfRise": 2.66667,
+      "timestamp": 673
+    },
+    {
+      "airPressure": 0.0362468,
+      "beanTemp": 172,
+      "exhaustAirTemp": 187.75,
+      "rateOfRise": 3,
+      "timestamp": 674
+    },
+    {
+      "airPressure": 0.0333174,
+      "exhaustAirTemp": 187,
+      "timestamp": 675
+    },
+    {
+      "airPressure": 0.0349436,
+      "beanTemp": 172.25,
+      "timestamp": 676
+    },
+    {
+      "airPressure": 0.0372807,
+      "beanTemp": 172,
+      "rateOfRise": 2.66667,
+      "timestamp": 677
+    },
+    {
+      "airPressure": 0.0376282,
+      "beanTemp": 172.25,
+      "timestamp": 678
+    },
+    {
+      "airPressure": 0.0423251,
+      "beanTemp": 172,
+      "exhaustAirTemp": 187.25,
+      "rateOfRise": 2.33333,
+      "timestamp": 679
+    },
+    {
+      "airPressure": 0.0441811,
+      "beanTemp": 172.25,
+      "rateOfRise": 2.66667,
+      "timestamp": 680
+    },
+    {
+      "beanTemp": 172,
+      "exhaustAirTemp": 187.5,
+      "rateOfRise": 2.33333,
+      "timestamp": 681
+    },
+    {
+      "airPressure": 0.0452637,
+      "beanTemp": 172.25,
+      "rateOfRise": 2.66667,
+      "timestamp": 682
+    },
+    {
+      "airPressure": 0.0476072,
+      "exhaustAirTemp": 187.75,
+      "timestamp": 683
+    },
+    {
+      "airPressure": 0.0466067,
+      "beanTemp": 172.5,
+      "exhaustAirTemp": 188,
+      "timestamp": 684
+    },
+    {
+      "airPressure": 0.0445347,
+      "timestamp": 685
+    },
+    {
+      "airPressure": 0.044714,
+      "beanTemp": 172.75,
+      "rateOfRise": 3,
+      "timestamp": 686
+    },
+    {
+      "airPressure": 0.0434229,
+      "exhaustAirTemp": 188.25,
+      "timestamp": 687
+    },
+    {
+      "airPressure": 0.0472019,
+      "exhaustAirTemp": 188.5,
+      "timestamp": 688
+    },
+    {
+      "airPressure": 0.0467449,
+      "beanTemp": 173,
+      "timestamp": 689
+    },
+    {
+      "airPressure": 0.046392,
+      "timestamp": 690
+    },
+    {
+      "airPressure": 0.044897,
+      "exhaustAirTemp": 188.75,
+      "rateOfRise": 3.33333,
+      "timestamp": 691
+    },
+    {
+      "airPressure": 0.0477656,
+      "rateOfRise": 3,
+      "timestamp": 692
+    },
+    {
+      "airPressure": 0.0480122,
+      "beanTemp": 173.25,
+      "rateOfRise": 3.33333,
+      "timestamp": 693
+    },
+    {
+      "airPressure": 0.0518716,
+      "timestamp": 694
+    },
+    {
+      "rateOfRise": 3.66667,
+      "timestamp": 695
+    },
+    {
+      "airPressure": 0.0520011,
+      "exhaustAirTemp": 189,
+      "rateOfRise": 3.33333,
+      "timestamp": 696
+    },
+    {
+      "airPressure": 0.0542299,
+      "timestamp": 697
+    },
+    {
+      "airPressure": 0.046736,
+      "timestamp": 698
+    },
+    {
+      "airPressure": 0.0458705,
+      "beanTemp": 173.5,
+      "timestamp": 699
+    },
+    {
+      "airPressure": 0.0428712,
+      "exhaustAirTemp": 189.25,
+      "timestamp": 700
+    },
+    {
+      "airPressure": 0.0443527,
+      "timestamp": 701
+    },
+    {
+      "airPressure": 0.0431736,
+      "beanTemp": 173.75,
+      "timestamp": 702
+    },
+    {
+      "airPressure": 0.0446678,
+      "rateOfRise": 3.66667,
+      "timestamp": 703
+    },
+    {
+      "airPressure": 0.0434564,
+      "exhaustAirTemp": 189.5,
+      "rateOfRise": 3.33333,
+      "timestamp": 704
+    },
+    {
+      "airPressure": 0.0458933,
+      "exhaustAirTemp": 189.25,
+      "timestamp": 705
+    },
+    {
+      "airPressure": 0.0522845,
+      "exhaustAirTemp": 189.5,
+      "rateOfRise": 3,
+      "timestamp": 706
+    },
+    {
+      "airPressure": 0.050052,
+      "beanTemp": 174,
+      "rateOfRise": 3.33333,
+      "timestamp": 707
+    },
+    {
+      "airPressure": 0.0511294,
+      "rateOfRise": 3,
+      "timestamp": 708
+    },
+    {
+      "airPressure": 0.0487597,
+      "exhaustAirTemp": 189.75,
+      "rateOfRise": 3.33333,
+      "timestamp": 709
+    },
+    {
+      "airPressure": 0.0469439,
+      "exhaustAirTemp": 189.5,
+      "rateOfRise": 3,
+      "timestamp": 710
+    },
+    {
+      "airPressure": 0.052193,
+      "exhaustAirTemp": 189.75,
+      "timestamp": 711
+    },
+    {
+      "airPressure": 0.0512744,
+      "timestamp": 712
+    },
+    {
+      "airPressure": 0.0486697,
+      "beanTemp": 174.25,
+      "rateOfRise": 3.33333,
+      "timestamp": 713
+    },
+    {
+      "airPressure": 0.0495119,
+      "rateOfRise": 3,
+      "timestamp": 714
+    },
+    {
+      "airPressure": 0.0500993,
+      "beanTemp": 174.5,
+      "rateOfRise": 3.33333,
+      "timestamp": 715
+    },
+    {
+      "airPressure": 0.0490784,
+      "beanTemp": 174.25,
+      "exhaustAirTemp": 189.25,
+      "rateOfRise": 3,
+      "timestamp": 716
+    },
+    {
+      "airPressure": 0.0452204,
+      "exhaustAirTemp": 188.75,
+      "rateOfRise": 3.33333,
+      "timestamp": 717
+    },
+    {
+      "exhaustAirTemp": 188.5,
+      "timestamp": 718
+    },
+    {
+      "airPressure": 0.0455795,
+      "rateOfRise": 3,
+      "timestamp": 719
+    },
+    {
+      "airPressure": 0.0490635,
+      "timestamp": 720
+    },
+    {
+      "airPressure": 0.0498588,
+      "exhaustAirTemp": 188.75,
+      "rateOfRise": 2.66667,
+      "timestamp": 721
+    },
+    {
+      "airPressure": 0.0463965,
+      "rateOfRise": 3,
+      "timestamp": 722
+    },
+    {
+      "airPressure": 0.0417123,
+      "beanTemp": 174.5,
+      "exhaustAirTemp": 189,
+      "timestamp": 723
+    },
+    {
+      "airPressure": 0.0470717,
+      "beanTemp": 174.25,
+      "exhaustAirTemp": 189.25,
+      "timestamp": 724
+    },
+    {
+      "airPressure": 0.0492075,
+      "beanTemp": 174.5,
+      "timestamp": 725
+    },
+    {
+      "airPressure": 0.0486255,
+      "exhaustAirTemp": 189.5,
+      "rateOfRise": 3.33333,
+      "timestamp": 726
+    },
+    {
+      "airPressure": 0.0498905,
+      "rateOfRise": 3,
+      "timestamp": 727
+    },
+    {
+      "airPressure": 0.0466993,
+      "timestamp": 728
+    },
+    {
+      "airPressure": 0.04682,
+      "exhaustAirTemp": 189.75,
+      "rateOfRise": 2.66667,
+      "timestamp": 729
+    },
+    {
+      "airPressure": 0.0407983,
+      "beanTemp": 174.75,
+      "rateOfRise": 3,
+      "timestamp": 730
+    },
+    {
+      "airPressure": 0.0425637,
+      "rateOfRise": 2.66667,
+      "timestamp": 731
+    },
+    {
+      "airPressure": 0.0413759,
+      "timestamp": 732
+    },
+    {
+      "airPressure": 0.044823,
+      "beanTemp": 174.5,
+      "exhaustAirTemp": 190,
+      "rateOfRise": 2.33333,
+      "timestamp": 733
+    },
+    {
+      "airPressure": 0.0460617,
+      "beanTemp": 174.75,
+      "timestamp": 734
+    },
+    {
+      "airPressure": 0.0405073,
+      "beanTemp": 175,
+      "rateOfRise": 2.66667,
+      "timestamp": 735
+    },
+    {
+      "airPressure": 0.0349132,
+      "exhaustAirTemp": 190.25,
+      "timestamp": 736
+    },
+    {
+      "airPressure": 0.0335452,
+      "timestamp": 737
+    },
+    {
+      "airPressure": 0.0378352,
+      "rateOfRise": 2.33333,
+      "timestamp": 738
+    },
+    {
+      "airPressure": 0.0449615,
+      "timestamp": 739
+    },
+    {
+      "airPressure": 0.0473388,
+      "exhaustAirTemp": 190.5,
+      "timestamp": 740
+    },
+    {
+      "airPressure": 0.0485795,
+      "timestamp": 741
+    },
+    {
+      "airPressure": 0.0453519,
+      "beanTemp": 175.25,
+      "rateOfRise": 2.66667,
+      "timestamp": 742
+    },
+    {
+      "airPressure": 0.0469187,
+      "timestamp": 743
+    },
+    {
+      "airPressure": 0.0439142,
+      "rateOfRise": 2.33333,
+      "timestamp": 744
+    },
+    {
+      "airPressure": 0.0427153,
+      "beanTemp": 175.5,
+      "rateOfRise": 2.66667,
+      "timestamp": 745
+    },
+    {
+      "airPressure": 0.0395961,
+      "exhaustAirTemp": 190.75,
+      "timestamp": 746
+    },
+    {
+      "airPressure": 0.0391927,
+      "beanTemp": 175.25,
+      "rateOfRise": 2,
+      "timestamp": 747
+    },
+    {
+      "airPressure": 0.0453606,
+      "beanTemp": 175.5,
+      "rateOfRise": 2.33333,
+      "timestamp": 748
+    },
+    {
+      "airPressure": 0.0482525,
+      "timestamp": 749
+    },
+    {
+      "airPressure": 0.0519993,
+      "timestamp": 750
+    },
+    {
+      "airPressure": 0.0530915,
+      "exhaustAirTemp": 191,
+      "timestamp": 751
+    },
+    {
+      "airPressure": 0.0481225,
+      "rateOfRise": 2,
+      "timestamp": 752
+    },
+    {
+      "airPressure": 0.0462011,
+      "timestamp": 753
+    },
+    {
+      "airPressure": 0.0479519,
+      "timestamp": 754
+    },
+    {
+      "airPressure": 0.0468577,
+      "beanTemp": 175.75,
+      "exhaustAirTemp": 190.5,
+      "rateOfRise": 2.33333,
+      "timestamp": 755
+    },
+    {
+      "airPressure": 0.0480173,
+      "exhaustAirTemp": 190,
+      "timestamp": 756
+    },
+    {
+      "airPressure": 0.0457341,
+      "exhaustAirTemp": 189.75,
+      "timestamp": 757
+    },
+    {
+      "airPressure": 0.0436978,
+      "rateOfRise": 2,
+      "timestamp": 758
+    },
+    {
+      "airPressure": 0.046543,
+      "beanTemp": 176,
+      "exhaustAirTemp": 190,
+      "rateOfRise": 2.33333,
+      "timestamp": 759
+    },
+    {
+      "airPressure": 0.0486639,
+      "beanTemp": 175.75,
+      "rateOfRise": 1.66667,
+      "timestamp": 760
+    },
+    {
+      "airPressure": 0.0409971,
+      "exhaustAirTemp": 190.25,
+      "rateOfRise": 2,
+      "timestamp": 761
+    },
+    {
+      "airPressure": 0.0420886,
+      "timestamp": 762
+    },
+    {
+      "airPressure": 0.0372838,
+      "beanTemp": 176,
+      "exhaustAirTemp": 190.5,
+      "rateOfRise": 2.33333,
+      "timestamp": 763
+    },
+    {
+      "airPressure": 0.042236,
+      "timestamp": 764
+    },
+    {
+      "airPressure": 0.0456204,
+      "timestamp": 765
+    },
+    {
+      "airPressure": 0.0460682,
+      "timestamp": 766
+    },
+    {
+      "airPressure": 0.0451853,
+      "exhaustAirTemp": 190.75,
+      "timestamp": 767
+    },
+    {
+      "airPressure": 0.0434021,
+      "exhaustAirTemp": 191,
+      "rateOfRise": 2,
+      "timestamp": 768
+    },
+    {
+      "airPressure": 0.0452708,
+      "beanTemp": 176.25,
+      "rateOfRise": 2.66667,
+      "timestamp": 769
+    },
+    {
+      "airPressure": 0.0490579,
+      "rateOfRise": 2.33333,
+      "timestamp": 770
+    },
+    {
+      "airPressure": 0.0499997,
+      "exhaustAirTemp": 191.25,
+      "timestamp": 771
+    },
+    {
+      "airPressure": 0.0505275,
+      "timestamp": 772
+    },
+    {
+      "airPressure": 0.0473721,
+      "timestamp": 773
+    },
+    {
+      "airPressure": 0.0453159,
+      "beanTemp": 176.5,
+      "rateOfRise": 2.66667,
+      "timestamp": 774
+    },
+    {
+      "airPressure": 0.0378616,
+      "exhaustAirTemp": 191.5,
+      "rateOfRise": 2.33333,
+      "timestamp": 775
+    },
+    {
+      "airPressure": 0.0358452,
+      "beanTemp": 176.75,
+      "rateOfRise": 2.66667,
+      "timestamp": 776
+    },
+    {
+      "airPressure": 0.0382712,
+      "beanTemp": 176.5,
+      "rateOfRise": 2.33333,
+      "timestamp": 777
+    },
+    {
+      "airPressure": 0.0410858,
+      "exhaustAirTemp": 191.75,
+      "rateOfRise": 2.66667,
+      "timestamp": 778
+    },
+    {
+      "airPressure": 0.0440672,
+      "beanTemp": 176.75,
+      "timestamp": 779
+    },
+    {
+      "airPressure": 0.042498,
+      "rateOfRise": 2.33333,
+      "timestamp": 780
+    },
+    {
+      "airPressure": 0.0467349,
+      "timestamp": 781
+    },
+    {
+      "airPressure": 0.0487932,
+      "beanTemp": 177,
+      "exhaustAirTemp": 192,
+      "rateOfRise": 2.66667,
+      "timestamp": 782
+    },
+    {
+      "airPressure": 0.0525157,
+      "beanTemp": 176.75,
+      "exhaustAirTemp": 191.75,
+      "rateOfRise": 2.33333,
+      "timestamp": 783
+    },
+    {
+      "airPressure": 0.0512522,
+      "exhaustAirTemp": 192,
+      "timestamp": 784
+    },
+    {
+      "airPressure": 0.0501022,
+      "beanTemp": 177,
+      "rateOfRise": 2.66667,
+      "timestamp": 785
+    },
+    {
+      "airPressure": 0.048018,
+      "timestamp": 786
+    },
+    {
+      "airPressure": 0.0459788,
+      "rateOfRise": 2.33333,
+      "timestamp": 787
+    },
+    {
+      "airPressure": 0.0482194,
+      "exhaustAirTemp": 192.25,
+      "timestamp": 788
+    },
+    {
+      "airPressure": 0.0463574,
+      "beanTemp": 177.25,
+      "rateOfRise": 2.66667,
+      "timestamp": 789
+    },
+    {
+      "airPressure": 0.0490824,
+      "rateOfRise": 2.33333,
+      "timestamp": 790
+    },
+    {
+      "airPressure": 0.047021,
+      "beanTemp": 177.5,
+      "rateOfRise": 3,
+      "timestamp": 791
+    },
+    {
+      "airPressure": 0.0478951,
+      "beanTemp": 177.25,
+      "exhaustAirTemp": 192.5,
+      "rateOfRise": 2.33333,
+      "timestamp": 793
+    },
+    {
+      "airPressure": 0.0501069,
+      "beanTemp": 177.5,
+      "rateOfRise": 2.66667,
+      "timestamp": 794
+    },
+    {
+      "airPressure": 0.0465283,
+      "beanTemp": 177.75,
+      "rateOfRise": 3,
+      "timestamp": 795
+    },
+    {
+      "airPressure": 0.0432913,
+      "timestamp": 797
+    },
+    {
+      "airPressure": 0.0431687,
+      "beanTemp": 177.5,
+      "rateOfRise": 2.66667,
+      "timestamp": 798
+    },
+    {
+      "airPressure": 0.048401,
+      "beanTemp": 177.75,
+      "rateOfRise": 3,
+      "timestamp": 799
+    },
+    {
+      "airPressure": 0.047632,
+      "rateOfRise": 2.66667,
+      "timestamp": 800
+    },
+    {
+      "airPressure": 0.0452927,
+      "exhaustAirTemp": 192.75,
+      "timestamp": 801
+    },
+    {
+      "airPressure": 0.0402929,
+      "beanTemp": 178,
+      "exhaustAirTemp": 192.5,
+      "rateOfRise": 3,
+      "timestamp": 802
+    },
+    {
+      "airPressure": 0.0394596,
+      "timestamp": 803
+    },
+    {
+      "rateOfRise": 2.66667,
+      "timestamp": 804
+    },
+    {
+      "airPressure": 0.0394596,
+      "beanTemp": 178,
+      "burner": 43,
+      "exhaustAirTemp": 192.5,
+      "rateOfRise": 2.66667,
+      "timestamp": 804
+    }
+  ]
+}

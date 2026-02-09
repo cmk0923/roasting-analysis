@@ -1,0 +1,18 @@
+{
+  "id": 1,
+  "roasterID": 0,
+  "status": "ok",
+  "data": {
+    "creationDate": "1770616627",
+    "endTemp": 178,
+    "endWeight": 0.173,
+    "fillTemp": 124.5,
+    "fillWeight": 0.2,
+    "greenCoffeeId": "7",
+    "isTestRoast": true,
+    "name": "콜롬비아 카보닉 디카페인 수프리모",
+    "note": "",
+    "reference": false,
+    "roastingTime": 804
+  }
+}
