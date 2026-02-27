@@ -1,0 +1,818 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2026-02-27 파나마 가리도 하이랜드 파넬라 둘세 게이샤 워시드 172°C - 로스팅 분석</title>
+    <meta name="description" content="2026-02-27에 로스팅한 2026-02-27 파나마 가리도 하이랜드 파넬라 둘세 게이샤 워시드 172°C. 로스팅 프로필, 온도 그래프, 이벤트 로그를 확인하세요.">
+    <meta property="og:title" content="2026-02-27 파나마 가리도 하이랜드 파넬라 둘세 게이샤 워시드 172°C - 로스팅 분석">
+    <meta property="og:description" content="2026-02-27에 로스팅한 2026-02-27 파나마 가리도 하이랜드 파넬라 둘세 게이샤 워시드 172°C. 로스팅 프로필, 온도 그래프, 이벤트 로그를 확인하세요.">
+    <meta property="og:type" content="website">
+    <link rel="canonical" href="https://cmk0923.github.io/roasting-analysis/roasting/148.html">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="../favicon.ico">
+    
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "CreativeWork",
+  "name": "2026-02-27 파나마 가리도 하이랜드 파넬라 둘세 게이샤 워시드 172°C",
+  "description": "2026-02-27에 로스팅한 2026-02-27 파나마 가리도 하이랜드 파넬라 둘세 게이샤 워시드 172°C. 로스팅 프로필, 온도 그래프, 이벤트 로그를 확인하세요.",
+  "dateCreated": "2026-02-27",
+  "author": {
+    "@type": "Person",
+    "name": "Roasting Analysis"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Roasting Analysis"
+  }
+}
+    </script>
+    
+    <!-- Google Analytics (GA4) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-HRLZHE8M40"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-HRLZHE8M40');
+    </script>
+    
+    <link rel="stylesheet" href="../css/elementary.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+    <style>
+        :root {
+            --color__gray--light: rgb(191, 191, 191);
+            --color__gray--dark: rgb(26, 26, 26);
+            --color__accent: #ff4d6d;
+            --color__border: rgba(191, 191, 191, 0.2);
+        }
+
+        body.dark {
+            background-color: var(--color__gray--dark);
+            color: var(--color__gray--light);
+            padding: 1rem;
+            max-width: 100%;
+        }
+
+        .top-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-bottom: 1rem;
+            margin-bottom: 1rem;
+            border-bottom: 1px solid var(--color__border);
+        }
+
+        .price-info {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            gap: 0.3rem;
+        }
+
+        .price-item {
+            font-size: 0.9rem;
+        }
+
+        .price-item strong {
+            color: var(--color__accent);
+        }
+
+        .back-btn {
+            background: transparent;
+            border: 1px solid var(--color__border);
+            color: var(--color__gray--light);
+            padding: 0.4rem 0.8rem;
+            border-radius: 2px;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-size: 0.9rem;
+        }
+
+        .back-btn:hover {
+            background: var(--color__gray--light);
+            color: var(--color__gray--dark);
+        }
+
+        .dashboard-header {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 1rem;
+            background: transparent;
+            padding: 0.5rem 0;
+            margin-bottom: 1rem;
+        }
+
+        .stat-group { display: flex; flex-direction: column; gap: 0.2rem; }
+        .bean-row { grid-column: 1 / -1; margin-bottom: 0.3rem; }
+        .bean-row .stat-row { font-size: 0.95rem; }
+        .stat-row { display: flex; justify-content: space-between; font-size: 0.85rem; }
+        .label { color: var(--color__gray--light); opacity: 0.7; }
+        .value { font-weight: 500; }
+        .highlight { color: var(--color__accent); }
+
+        .main-layout {
+            display: grid;
+            grid-template-columns: 1fr 280px;
+            gap: 1rem;
+        }
+
+        .visual-section {
+            display: flex;
+            flex-direction: column;
+            background: transparent;
+            border-radius: 0;
+            padding: 0;
+            border: none;
+            min-height: 500px;
+        }
+
+        .chart-wrapper {
+            flex: 1;
+            min-height: 400px;
+            position: relative;
+            margin-bottom: 1rem;
+        }
+
+        .control-chart-wrapper {
+            min-height: 100px;
+            border-top: 1px solid var(--color__border);
+            padding-top: 0.8rem;
+            flex-shrink: 0;
+        }
+
+        .log-section {
+            background: transparent;
+            border-radius: 0;
+            border: 1px solid var(--color__border);
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            max-height: 500px;
+        }
+
+        .log-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.8rem;
+        }
+
+        .log-table th {
+            background: rgba(191, 191, 191, 0.1);
+            color: var(--color__gray--light);
+            padding: 0.5rem;
+            text-align: left;
+            position: sticky;
+            top: 0;
+            font-weight: 500;
+        }
+
+        .log-table td { padding: 0.4rem 0.5rem; border-bottom: 1px solid var(--color__border); }
+        .t-time { color: var(--color__gray--light); opacity: 0.7; width: 55px; }
+        .t-bt { color: var(--color__accent); font-weight: 500; width: 65px; }
+        .t-event { color: var(--color__gray--light); font-weight: 400; }
+
+        #loading {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 100;
+            background: var(--color__gray--dark);
+            padding: 1.5rem 2rem;
+            border-radius: 4px;
+            border: 1px solid var(--color__border);
+        }
+
+        .hidden { display: none !important; }
+
+        @media (max-width: 900px) {
+            .main-layout {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            .log-section {
+                max-height: 350px;
+            }
+            .chart-wrapper {
+                min-height: 300px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            body.dark { padding: 0.5rem; }
+            .dashboard-header {
+                grid-template-columns: 1fr 1fr;
+                gap: 0.5rem;
+            }
+            .bean-row { grid-column: 1 / -1; }
+            .top-nav {
+                flex-direction: row;
+                gap: 0.5rem;
+                align-items: center;
+            }
+            .back-btn {
+                padding: 0.3rem 0.6rem;
+                font-size: 0.75rem;
+                flex-shrink: 0;
+            }
+            .price-info {
+                gap: 0.1rem;
+            }
+            .price-item {
+                font-size: 0.75rem;
+            }
+            .chart-wrapper {
+                min-height: 250px;
+            }
+            .control-chart-wrapper {
+                min-height: 80px;
+            }
+            .log-section {
+                max-height: 300px;
+            }
+            .log-table {
+                font-size: 0.75rem;
+            }
+        }
+
+        .giscus-section {
+            margin-top: 1rem;
+        }
+    </style>
+</head>
+<body class="dark">
+
+    <div id="loading">데이터를 불러오는 중...</div>
+
+    <div class="top-nav">
+        <button class="back-btn" onclick="location.href='../index.html'">← 목록으로</button>
+        <div class="price-info">
+            <div class="price-item">생두 구입가격(kg): <strong id="beanPrice">-</strong></div>
+            <div class="price-item">로스팅 후 1잔(15g): <strong id="cupPrice">-</strong></div>
+        </div>
+    </div>
+
+    <div id="dashHeader" class="dashboard-header hidden">
+        <div class="bean-row">
+            <div class="stat-row"><span class="label">Bean</span><span id="dashBean" class="value clickable" style="cursor: pointer; text-decoration: underline;">-</span></div>
+        </div>
+        <div class="stat-group">
+            <div class="stat-row"><span id="dashDate" class="value" style="font-size: 1rem;">-</span></div>
+        </div>
+        <div class="stat-group">
+            <div class="stat-row"><span class="label">Total Time</span><span id="dashTotalTime" class="value">-</span></div>
+        </div>
+        <div class="stat-group">
+            <div class="stat-row"><span class="label">Green Weight</span><span id="dashGreen" class="value">-</span></div>
+            <div class="stat-row"><span class="label">Roasted Weight</span><span id="dashRoasted" class="value">-</span></div>
+            <div class="stat-row"><span class="label">Weight Loss</span><span id="dashLoss" class="value">-</span></div>
+        </div>
+        <div class="stat-group">
+            <div class="stat-row"><span class="label">Roast Level</span><span id="dashLevel" class="value">Medium</span></div>
+            <div class="stat-row"><span class="label">Last BT</span><span id="dashAmbient" class="value">-</span></div>
+        </div>
+    </div>
+
+    <div id="mainContent" class="main-layout hidden">
+        <div class="visual-section">
+            <div class="chart-wrapper">
+                <canvas id="mainChart"></canvas>
+            </div>
+            <div class="control-chart-wrapper">
+                <canvas id="controlChart"></canvas>
+            </div>
+        </div>
+
+        <div class="log-section">
+            <div style="overflow-y: auto;">
+                <table class="log-table">
+                    <thead>
+                        <tr><th>Time</th><th>BT</th><th>Event</th></tr>
+                    </thead>
+                    <tbody id="logBody"></tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div id="giscusSection" class="giscus-section">
+        <div id="giscusContainer"></div>
+    </div>
+
+    <script>
+        const FOLDER_ID = "148";
+        let mainChart = null;
+        let controlChart = null;
+        let beanDataCache = {};
+
+        window.addEventListener('DOMContentLoaded', init);
+
+        async function init() {
+            loadChartData(FOLDER_ID);
+        }
+
+        async function loadBeanData(beanId) {
+            if (!beanId || beanId === '0') return null;
+            if (beanDataCache[beanId]) {
+                return beanDataCache[beanId];
+            }
+            try {
+                const response = await fetch(`../beanData/${beanId}.json`);
+                if (!response.ok) {
+                    console.warn(`생두 데이터를 불러올 수 없습니다: beanData/${beanId}.json`);
+                    return null;
+                }
+                const data = await response.json();
+                beanDataCache[beanId] = data;
+                return data;
+            } catch (e) {
+                console.warn(`생두 데이터 로드 실패: ${e}`);
+                return null;
+            }
+        }
+
+        async function loadChartData(folderId) {
+            document.getElementById('loading').classList.remove('hidden');
+            try {
+                const [dataRes, entryRes] = await Promise.all([
+                    fetch(`../roastingData/${folderId}/history_${folderId}_chart.json`),
+                    fetch(`../roastingData/${folderId}/history_${folderId}_entry.json`)
+                ]);
+                if (!dataRes.ok || !entryRes.ok) {
+                    throw new Error('데이터 파일을 찾을 수 없습니다.');
+                }
+                const dataResult = await dataRes.json();
+                const entryResult = await entryRes.json();
+                const chartData = dataResult.data || [];
+                const entryData = entryResult.data || {};
+                updateUI(chartData, entryData, folderId);
+            } catch (e) {
+                console.error("데이터 로드 실패", e);
+                document.getElementById('loading').innerHTML = `<div style="color: #ff4d6d;">데이터를 불러올 수 없습니다.<br>${e.message}</div>`;
+            }
+        }
+
+        function updateUI(data, entry, folderId) {
+            document.getElementById('dashHeader').classList.remove('hidden');
+            document.getElementById('mainContent').classList.remove('hidden');
+            document.getElementById('loading').classList.add('hidden');
+            loadGiscus(folderId);
+
+            const creationDate = entry.creationDate ? new Date(parseInt(entry.creationDate) * 1000) : new Date();
+            document.getElementById('dashDate').textContent = creationDate.toISOString().slice(0, 10).replace(/-/g, '.');
+            
+            const greenCoffeeId = entry.greenCoffeeId || '0';
+            loadBeanData(greenCoffeeId).then(beanData => {
+                const beanName = beanData ? beanData.name : (entry.name || `로스팅 #${folderId}`);
+                const dashBean = document.getElementById('dashBean');
+                dashBean.textContent = beanName;
+                if (greenCoffeeId && greenCoffeeId !== '0') {
+                    dashBean.style.cursor = 'pointer';
+                    dashBean.style.textDecoration = 'underline';
+                    dashBean.onclick = () => {
+                        window.open(`../bean.html?id=${greenCoffeeId}`, '_blank');
+                    };
+                } else {
+                    dashBean.style.cursor = 'default';
+                    dashBean.style.textDecoration = 'none';
+                    dashBean.onclick = null;
+                }
+                calculateAndDisplayPrice(beanData, entry);
+            });
+
+            document.getElementById('dashGreen').textContent = (entry.fillWeight * 1000).toFixed(1) + 'g';
+            document.getElementById('dashRoasted').textContent = (entry.endWeight * 1000).toFixed(1) + 'g';
+            const loss = ((entry.fillWeight - entry.endWeight) / entry.fillWeight * 100);
+            document.getElementById('dashLoss').textContent = loss.toFixed(1) + '%';
+            
+            let roastLevel = 'Medium';
+            if (loss < 13) roastLevel = 'Light';
+            else if (loss < 15) roastLevel = 'Medium';
+            else if (loss < 16.5) roastLevel = 'City';
+            else if (loss < 18) roastLevel = 'Full City';
+            else roastLevel = 'Dark';
+            document.getElementById('dashLevel').textContent = roastLevel;
+            
+            const totalSec = entry.roastingTime || 0;
+            document.getElementById('dashTotalTime').textContent = Math.floor(totalSec/60) + ':' + (totalSec%60).toString().padStart(2, '0');
+
+            let maxBeanTempForHeader = null;
+            for (let i = 0; i < data.length; i++) {
+                if (data[i].beanTemp !== undefined && data[i].beanTemp !== null) {
+                    if (maxBeanTempForHeader === null || data[i].beanTemp > maxBeanTempForHeader) {
+                        maxBeanTempForHeader = data[i].beanTemp;
+                    }
+                }
+            }
+            document.getElementById('dashAmbient').textContent = maxBeanTempForHeader !== null ? maxBeanTempForHeader.toFixed(1) + '°C' : '-';
+
+            const logBody = document.getElementById('logBody');
+            logBody.innerHTML = '';
+            
+            let deTime = 0, fcTime = 0;
+            let lastBeanTemp = null;
+            let lastBeanTempForTP = null;
+            const filledBeanTemps = data.map(d => {
+                if (d.beanTemp !== undefined && d.beanTemp !== null) {
+                    lastBeanTempForTP = d.beanTemp;
+                }
+                return lastBeanTempForTP;
+            });
+
+            let lastRateOfRise = null;
+            const filledRateOfRise = data.map(d => {
+                if (d.rateOfRise !== undefined && d.rateOfRise !== null) {
+                    lastRateOfRise = d.rateOfRise;
+                }
+                return lastRateOfRise;
+            });
+
+            const minBeanTemp = Math.min(...filledBeanTemps.filter(t => t !== null));
+            const tpIndex = filledBeanTemps.findIndex(t => t === minBeanTemp);
+            const tpTime = data[tpIndex] ? data[tpIndex].timestamp : 0;
+
+            const oneMinuteIndex = data.findIndex(d => d.timestamp >= 60);
+            let maxRorAfterOneMin = 0;
+            let maxRorIndex = 0;
+            if (oneMinuteIndex >= 0) {
+                const rorAfterOneMin = filledRateOfRise.slice(oneMinuteIndex);
+                maxRorAfterOneMin = Math.max(...rorAfterOneMin.filter(r => r !== null && r >= 0));
+                maxRorIndex = filledRateOfRise.findIndex((r, i) => r === maxRorAfterOneMin && i >= oneMinuteIndex);
+            }
+
+            let minRorAfterMax = 0;
+            let minRorIndex = 0;
+            if (maxRorIndex >= 0) {
+                const rorAfterMax = filledRateOfRise.slice(maxRorIndex);
+                minRorAfterMax = Math.min(...rorAfterMax.filter(r => r !== null && r >= 0));
+                minRorIndex = filledRateOfRise.findIndex((r, i) => r === minRorAfterMax && i >= maxRorIndex);
+            }
+
+            const events = [];
+            let burnerForEvents = null;
+            const filledBurnersForEvents = data.map((d, i) => {
+                if (d.burner !== undefined && d.burner !== null) {
+                    burnerForEvents = d.burner;
+                }
+                return { index: i, timestamp: d.timestamp, burner: burnerForEvents };
+            });
+            
+            const stableBurners = [];
+            let currentStableStart = null;
+            let currentStableIndex = null;
+            let currentStableValue = null;
+            let lastChangeIndex = 0;
+            
+            for (let i = 0; i < filledBurnersForEvents.length; i++) {
+                const item = filledBurnersForEvents[i];
+                if (currentStableValue === null) {
+                    currentStableValue = item.burner;
+                    currentStableStart = item.timestamp;
+                    currentStableIndex = i;
+                    lastChangeIndex = i;
+                } else if (item.burner !== currentStableValue) {
+                    const duration = item.timestamp - currentStableStart;
+                    if (duration >= 30) {
+                        stableBurners.push({
+                            value: currentStableValue,
+                            startTime: currentStableStart,
+                            endIndex: i - 1,
+                            index: lastChangeIndex
+                        });
+                    }
+                    currentStableValue = item.burner;
+                    currentStableStart = item.timestamp;
+                    currentStableIndex = i;
+                    lastChangeIndex = i;
+                }
+            }
+
+            if (currentStableValue !== null && filledBurnersForEvents.length > 0) {
+                const duration = filledBurnersForEvents[filledBurnersForEvents.length - 1].timestamp - currentStableStart;
+                if (duration >= 30) {
+                    stableBurners.push({
+                        value: currentStableValue,
+                        startTime: currentStableStart,
+                        endIndex: filledBurnersForEvents.length - 1,
+                        index: lastChangeIndex
+                    });
+                }
+            }
+
+            // 안정 상태 사이의 화력 변화 그룹화
+            for (let i = 0; i < stableBurners.length - 1; i++) {
+                const currentStable = stableBurners[i];
+                const nextStable = stableBurners[i + 1];
+                
+                // 두 안정 상태 사이의 화력 변화 추출
+                const changeStart = currentStable.endIndex + 1;
+                const changeEnd = nextStable.index - 1;
+                
+                if (changeStart <= changeEnd && changeStart < filledBurnersForEvents.length && changeEnd < filledBurnersForEvents.length) {
+                    // 안정 상태의 값과 다음 안정 상태의 값 비교
+                    if (currentStable.value !== null && nextStable.value !== null && currentStable.value !== nextStable.value) {
+                        const endItem = filledBurnersForEvents[changeEnd];
+                        const timeStr = Math.floor(endItem.timestamp/60) + ':' + (endItem.timestamp%60).toString().padStart(2, '0');
+                        const btDisplay = filledBeanTemps[endItem.index] !== null ? filledBeanTemps[endItem.index].toFixed(1) : '-';
+                        events.push({
+                            time: timeStr,
+                            bt: btDisplay,
+                            event: `화력 조절: ${currentStable.value}% → ${nextStable.value}%`
+                        });
+                    }
+                }
+            }
+            
+            // 첫 번째 안정 상태 이전의 초기 화력 변화 처리
+            if (stableBurners.length > 0) {
+                const firstStable = stableBurners[0];
+                if (firstStable.index > 0) {
+                    const changeStart = 0;
+                    const changeEnd = firstStable.index - 1;
+                    
+                    if (changeStart <= changeEnd && changeEnd < filledBurnersForEvents.length) {
+                        const startItem = filledBurnersForEvents[changeStart];
+                        const endItem = filledBurnersForEvents[changeEnd];
+                        
+                        // 초기 값과 첫 번째 안정 상태의 값 비교
+                        if (startItem.burner !== null && firstStable.value !== null && startItem.burner !== firstStable.value) {
+                            const timeStr = Math.floor(endItem.timestamp/60) + ':' + (endItem.timestamp%60).toString().padStart(2, '0');
+                            const btDisplay = filledBeanTemps[endItem.index] !== null ? filledBeanTemps[endItem.index].toFixed(1) : '-';
+                            events.push({
+                                time: timeStr,
+                                bt: btDisplay,
+                                event: `화력 조절: ${startItem.burner}% → ${firstStable.value}%`
+                            });
+                        }
+                    }
+                }
+            }
+            
+            // TP 이벤트
+            if (tpTime > 0) {
+                const tpTimeStr = Math.floor(tpTime/60) + ':' + (tpTime%60).toString().padStart(2, '0');
+                events.push({ time: tpTimeStr, bt: minBeanTemp.toFixed(1), event: 'TP (Turning Point)' });
+            }
+
+            // 최고 RoR 이벤트
+            if (maxRorIndex >= 0 && data[maxRorIndex]) {
+                const maxRorTime = data[maxRorIndex].timestamp;
+                const maxRorTimeStr = Math.floor(maxRorTime/60) + ':' + (maxRorTime%60).toString().padStart(2, '0');
+                events.push({ time: maxRorTimeStr, bt: filledBeanTemps[maxRorIndex]?.toFixed(1) || '-', event: `Max RoR: ${maxRorAfterOneMin.toFixed(2)}°C/min` });
+            }
+
+            // 최저 RoR 이벤트
+            if (minRorIndex >= 0 && data[minRorIndex]) {
+                const minRorTime = data[minRorIndex].timestamp;
+                const minRorTimeStr = Math.floor(minRorTime/60) + ':' + (minRorTime%60).toString().padStart(2, '0');
+                events.push({ time: minRorTimeStr, bt: filledBeanTemps[minRorIndex]?.toFixed(1) || '-', event: `Min RoR: ${minRorAfterMax.toFixed(2)}°C/min` });
+            }
+
+            // 기존 이벤트 추가
+            data.forEach(d => {
+                if (d.event) {
+                    const timeStr = Math.floor(d.timestamp/60) + ':' + (d.timestamp%60).toString().padStart(2, '0');
+                    const btDisplay = d.beanTemp !== null ? d.beanTemp.toFixed(1) : '-';
+                    events.push({ time: timeStr, bt: btDisplay, event: d.event });
+                    
+                    if (d.event.includes('DE')) deTime = d.timestamp;
+                    if (d.event.includes('FC')) fcTime = d.timestamp;
+                }
+            });
+
+            // 이벤트 시간순 정렬
+            events.sort((a, b) => {
+                const aTime = a.time.split(':').map(Number);
+                const bTime = b.time.split(':').map(Number);
+                return (aTime[0] * 60 + aTime[1]) - (bTime[0] * 60 + bTime[1]);
+            });
+
+            // 로그 테이블 렌더링
+            events.forEach(e => {
+                logBody.innerHTML += `<tr><td class="t-time">${e.time}</td><td class="t-bt">${e.bt}</td><td class="t-event">${e.event}</td></tr>`;
+            });
+
+            // 마지막 줄에 로스팅 끝난 시간과 최종 BT 온도 추가
+            const lastData = data[data.length - 1];
+            if (lastData) {
+                const endTimeStr = Math.floor(lastData.timestamp/60) + ':' + (lastData.timestamp%60).toString().padStart(2, '0');
+                const endBT = lastData.beanTemp !== null ? lastData.beanTemp.toFixed(1) : '-';
+                logBody.innerHTML += `<tr><td class="t-time">${endTimeStr}</td><td class="t-bt">${endBT}</td><td class="t-event">Last BT</td></tr>`;
+            }
+
+            renderCharts(data);
+        }
+
+        function renderCharts(data) {
+            if (mainChart) mainChart.destroy();
+            if (controlChart) controlChart.destroy();
+
+            // null값 이전 값으로 채우기 (forward fill)
+            let lastBeanTemp = null;
+            const filledBeanTemps = data.map(d => {
+                if (d.beanTemp !== undefined && d.beanTemp !== null) {
+                    lastBeanTemp = d.beanTemp;
+                }
+                return lastBeanTemp;
+            });
+
+            let lastExhaustTemp = null;
+            const filledExhaustTemps = data.map(d => {
+                if (d.exhaustAirTemp !== undefined && d.exhaustAirTemp !== null) {
+                    lastExhaustTemp = d.exhaustAirTemp;
+                }
+                return lastExhaustTemp;
+            });
+
+            let lastRateOfRise = null;
+            const filledRateOfRise = data.map(d => {
+                if (d.rateOfRise !== undefined && d.rateOfRise !== null) {
+                    lastRateOfRise = d.rateOfRise;
+                }
+                return lastRateOfRise;
+            });
+
+            let lastBurner = null;
+            const filledBurners = data.map(d => {
+                if (d.burner !== undefined && d.burner !== null) {
+                    lastBurner = d.burner;
+                }
+                return lastBurner;
+            });
+
+            let lastAirPressure = null;
+            const filledAirPressures = data.map(d => {
+                if (d.airPressure !== undefined && d.airPressure !== null) {
+                    lastAirPressure = d.airPressure;
+                }
+                return lastAirPressure;
+            });
+
+            const labels = data.map(d => Math.floor(d.timestamp/60) + ':' + (d.timestamp%60).toString().padStart(2, '0'));
+
+            // 메인 BT, ET & RoR 차트
+            mainChart = new Chart(document.getElementById('mainChart').getContext('2d'), {
+                type: 'line',
+                data: {
+                    labels: labels,
+                    datasets: [
+                        {
+                            label: 'BT',
+                            data: filledBeanTemps,
+                            borderColor: '#ff4d6d',
+                            borderWidth: 2.5,
+                            pointRadius: 0,
+                            tension: 0.3,
+                            yAxisID: 'y'
+                        },
+                        {
+                            label: 'ET',
+                            data: filledExhaustTemps,
+                            borderColor: '#8b5cf6',
+                            borderWidth: 2,
+                            pointRadius: 0,
+                            tension: 0.3,
+                            yAxisID: 'y'
+                        },
+                        {
+                            label: 'RoR',
+                            data: filledRateOfRise,
+                            borderColor: '#ffb142',
+                            borderWidth: 2,
+                            pointRadius: 0,
+                            tension: 0.4,
+                            yAxisID: 'y1'
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: { legend: { display: false } },
+                    scales: {
+                        x: {
+                            grid: { color: 'rgba(191, 191, 191, 0.1)' },
+                            ticks: { color: 'rgba(191, 191, 191, 0.6)', maxTicksLimit: 12 },
+                            title: { display: false, text: '시간 (mm:ss)', color: 'rgba(191, 191, 191, 0.7)', font: { size: 10 } }
+                        },
+                        y: {
+                            position: 'left',
+                            grid: { color: 'rgba(191, 191, 191, 0.1)' },
+                            ticks: { color: '#ff4d6d' },
+                            title: { display: true, text: '온도 (°C)', color: 'rgba(191, 191, 191, 0.7)', font: { size: 10 } }
+                        },
+                        y1: {
+                            position: 'right',
+                            grid: { display: false },
+                            ticks: { color: '#ffb142' },
+                            title: { display: true, text: '분당 상승률 (°C/min)', color: 'rgba(191, 191, 191, 0.7)', font: { size: 10 } },
+                            min: 0
+                        }
+                    }
+                }
+            });
+
+            // 하단 Heat & Fan 차트
+            controlChart = new Chart(document.getElementById('controlChart').getContext('2d'), {
+                type: 'line',
+                data: {
+                    labels: labels,
+                    datasets: [
+                        {
+                            label: 'Heat',
+                            data: filledBurners,
+                            borderColor: '#ff5252',
+                            borderWidth: 1.5,
+                            stepped: true,
+                            pointRadius: 0,
+                            yAxisID: 'y'
+                        },
+                        {
+                            label: 'Fan',
+                            data: filledAirPressures,
+                            borderColor: '#3498db',
+                            borderWidth: 1.5,
+                            stepped: true,
+                            pointRadius: 0,
+                            yAxisID: 'y1'
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: { legend: { display: false } },
+                    scales: {
+                        x: {
+                            display: true,
+                            grid: { color: '#1a1a1a' },
+                            ticks: { color: '#555', maxTicksLimit: 12 }
+                        },
+                        y: {
+                            position: 'left',
+                            grid: { color: '#1a1a1a' },
+                            ticks: { color: '#ff5252' },
+                            title: { display: true, text: '버너 용량 (%)', color: '#a0a0a0', font: { size: 11 } }
+                        },
+                        y1: {
+                            position: 'right',
+                            grid: { display: false },
+                            ticks: { color: '#3498db' },
+                            title: { display: true, text: '공기 압력', color: '#a0a0a0', font: { size: 11 } }
+                        }
+                    }
+                }
+            });
+        }
+
+        function calculateAndDisplayPrice(beanData, entry) {
+            if (beanData && beanData.price) {
+                document.getElementById('beanPrice').textContent = `${beanData.price.toLocaleString()}원`;
+            } else {
+                document.getElementById('beanPrice').textContent = '-';
+            }
+
+            if (beanData && beanData.price && entry.fillWeight && entry.endWeight) {
+                const weightLoss = (entry.fillWeight - entry.endWeight) / entry.fillWeight;
+                const roastingYield = 1 - weightLoss;
+                const pricePerKg = beanData.price;
+                const roastedPricePerKg = pricePerKg / roastingYield;
+                const cupPrice = roastedPricePerKg * 0.015;
+                const cupPriceInt = Math.floor(cupPrice);
+                document.getElementById('cupPrice').textContent = `${cupPriceInt.toLocaleString()}원`;
+            } else {
+                document.getElementById('cupPrice').textContent = '-';
+            }
+        }
+
+        function loadGiscus(folderId) {
+            const giscusContainer = document.getElementById('giscusContainer');
+            if (!giscusContainer) return;
+            giscusContainer.innerHTML = '';
+            const script = document.createElement('script');
+            script.src = 'https://giscus.app/client.js';
+            script.setAttribute('data-repo', 'cmk0923/roasting-analysis');
+            script.setAttribute('data-repo-id', 'R_kgDOQ98FFQ');
+            script.setAttribute('data-category', 'General');
+            script.setAttribute('data-category-id', 'DIC_kwDOQ98FFc4C1N-_');
+            script.setAttribute('data-mapping', 'specific');
+            script.setAttribute('data-term', `roasting-${folderId}`);
+            script.setAttribute('data-strict', '0');
+            script.setAttribute('data-reactions-enabled', '0');
+            script.setAttribute('data-emit-metadata', '0');
+            script.setAttribute('data-input-position', 'bottom');
+            script.setAttribute('data-theme', 'dark_dimmed');
+            script.setAttribute('data-lang', 'ko');
+            script.setAttribute('crossorigin', 'anonymous');
+            script.setAttribute('async', '');
+            giscusContainer.appendChild(script);
+            document.getElementById('giscusSection').classList.remove('hidden');
+        }
+    </script>
+</body>
+</html>

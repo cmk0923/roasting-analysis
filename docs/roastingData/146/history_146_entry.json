@@ -1,0 +1,18 @@
+{
+  "id": 1,
+  "roasterID": 0,
+  "status": "ok",
+  "data": {
+    "creationDate": "1772177694",
+    "endTemp": 170.5,
+    "endWeight": 0.178,
+    "fillTemp": 123.25,
+    "fillWeight": 0.2,
+    "greenCoffeeId": "9",
+    "isTestRoast": true,
+    "name": "파나마 가리도 하이랜드 파넬라 둘세 게이샤 워시드",
+    "note": "",
+    "reference": false,
+    "roastingTime": 601
+  }
+}

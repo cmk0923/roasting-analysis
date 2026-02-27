@@ -1,0 +1,19 @@
+{
+  "id": 1,
+  "roasterID": 0,
+  "status": "ok",
+  "data": {
+    "creationDate": "1772174553",
+    "endTemp": 180,
+    "endWeight": 0,
+    "fillTemp": 119.25,
+    "fillWeight": 0,
+    "greenCoffeeId": "8",
+    "isTestRoast": false,
+    "name": "자메이카 클리프톤 Mt 블루마운틴 No.1",
+    "note": "",
+    "recipeReferenceCreationDate": "1772174375",
+    "reference": false,
+    "roastingTime": 795
+  }
+}
