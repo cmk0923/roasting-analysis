@@ -58,6 +58,43 @@
     </script>
     
     <link rel="stylesheet" href="css/elementary.css">
+    <style>
+        .pagination {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 0.5rem;
+            margin-top: 1.5rem;
+            flex-wrap: wrap;
+        }
+        .pagination button {
+            background: transparent;
+            border: 1px solid rgba(191, 191, 191, 0.3);
+            color: rgb(191, 191, 191);
+            padding: 0.4rem 0.8rem;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-size: 0.9rem;
+        }
+        .pagination button:hover:not(:disabled) {
+            background: rgba(191, 191, 191, 0.1);
+            border-color: rgba(191, 191, 191, 0.5);
+        }
+        .pagination button:disabled {
+            opacity: 0.3;
+            cursor: not-allowed;
+        }
+        .pagination button.active {
+            background: rgba(255, 77, 109, 0.2);
+            border-color: #ff4d6d;
+            color: #ff4d6d;
+        }
+        .pagination-info {
+            color: rgba(191, 191, 191, 0.6);
+            font-size: 0.85rem;
+            margin-left: 1rem;
+        }
+    </style>
 </head>
 <body class="dark">
     <div class="container">
@@ -82,6 +119,7 @@
                     <div class="parent" id="roastingList">
                         <!-- 로스팅 데이터 목록이 여기에 렌더링됩니다 -->
                     </div>
+                    <div class="pagination" id="roastingPagination"></div>
                 </details>
             </section>
             <section id="posts">
@@ -92,6 +130,7 @@
                     <div class="parent" id="shopList">
                         <!-- 로스팅 데이터 목록이 여기에 렌더링됩니다 -->
                     </div>
+                    <div class="pagination" id="shopPagination"></div>
                 </details>
             </section>
             <section id="posts">
@@ -120,20 +159,30 @@
     </footer>
 
     <script>
+        const ITEMS_PER_PAGE = 10;
+
+        // 로스팅 리스트 페이지네이션 상태
+        let roastingData = [];
+        let roastingCurrentPage = 1;
+
+        // 생두 리스트 페이지네이션 상태
+        let beanData = [];
+        let beanCurrentPage = 1;
+
         window.addEventListener('DOMContentLoaded', loadRoastingList);
         window.addEventListener('DOMContentLoaded', loadBeanList);
 
         async function loadRoastingList() {
             const list = document.getElementById('roastingList');
-            
+
             try {
                 const response = await fetch('roastingData/index.json');
                 if (!response.ok) {
                     throw new Error('로스팅 데이터를 불러올 수 없습니다.');
                 }
-                const roastingFolders = await response.json();
-                
-                if (roastingFolders.length === 0) {
+                roastingData = await response.json();
+
+                if (roastingData.length === 0) {
                     list.innerHTML = `
                         <div style="text-align: center; padding: 2rem; color: #8b949e;">
                             <div>저장된 데이터가 없습니다.</div>
@@ -141,15 +190,9 @@
                     `;
                 } else {
                     // id 기준 내림차순 정렬
-                    roastingFolders.sort((a, b) => {
-                        return parseInt(b.id) - parseInt(a.id);
-                    });
-                    
-                    list.innerHTML = roastingFolders.map(f => `
-                        <div class="post-wrapper">
-                            <a href="roasting/${f.id}.html">[${f.id}] ${f.name}</a>
-                        </div>
-                    `).join('');
+                    roastingData.sort((a, b) => parseInt(b.id) - parseInt(a.id));
+                    roastingCurrentPage = 1;
+                    renderRoastingList();
                 }
             } catch (error) {
                 list.innerHTML = `
@@ -160,17 +203,38 @@
             }
         }
 
+        function renderRoastingList() {
+            const list = document.getElementById('roastingList');
+            const pagination = document.getElementById('roastingPagination');
+
+            const totalPages = Math.ceil(roastingData.length / ITEMS_PER_PAGE);
+            const start = (roastingCurrentPage - 1) * ITEMS_PER_PAGE;
+            const end = start + ITEMS_PER_PAGE;
+            const pageItems = roastingData.slice(start, end);
+
+            list.innerHTML = pageItems.map(f => `
+                <div class="post-wrapper">
+                    <a href="roasting/${f.id}.html">[${f.id}] ${f.name}</a>
+                </div>
+            `).join('');
+
+            renderPagination(pagination, roastingCurrentPage, totalPages, roastingData.length, (page) => {
+                roastingCurrentPage = page;
+                renderRoastingList();
+            });
+        }
+
         async function loadBeanList() {
             const list = document.getElementById('shopList');
-            
+
             try {
                 const response = await fetch('beanData/index.json');
                 if (!response.ok) {
                     throw new Error('생두 데이터를 불러올 수 없습니다.');
                 }
-                const beans = await response.json();
-                
-                if (beans.length === 0) {
+                beanData = await response.json();
+
+                if (beanData.length === 0) {
                     list.innerHTML = `
                         <div style="text-align: center; padding: 2rem; color: #8b949e;">
                             <div>저장된 데이터가 없습니다.</div>
@@ -178,22 +242,9 @@
                     `;
                 } else {
                     // 날짜 기준 내림차순 정렬 (최신순)
-                    beans.sort((a, b) => {
-                        const dateA = new Date(a.date);
-                        const dateB = new Date(b.date);
-                        return dateB - dateA;
-                    });
-                    
-                    list.innerHTML = beans.map(b => {
-                        const displayName = `${b.date || ''} ${b.distributor || ''} ${b.name || ''} ${b.price || 0}원`.trim();
-                        // file에서 확장자 제거한 부분을 id로 사용
-                        const beanId = b.file.replace('.json', '');
-                        return `
-                            <div class="post-wrapper">
-                                <a href="bean.html?id=${beanId}" target="_blank">${displayName}</a>
-                            </div>
-                        `;
-                    }).join('');
+                    beanData.sort((a, b) => new Date(b.date) - new Date(a.date));
+                    beanCurrentPage = 1;
+                    renderBeanList();
                 }
             } catch (error) {
                 list.innerHTML = `
@@ -202,6 +253,85 @@
                     </div>
                 `;
             }
+        }
+
+        function renderBeanList() {
+            const list = document.getElementById('shopList');
+            const pagination = document.getElementById('shopPagination');
+
+            const totalPages = Math.ceil(beanData.length / ITEMS_PER_PAGE);
+            const start = (beanCurrentPage - 1) * ITEMS_PER_PAGE;
+            const end = start + ITEMS_PER_PAGE;
+            const pageItems = beanData.slice(start, end);
+
+            list.innerHTML = pageItems.map(b => {
+                const displayName = `${b.date || ''} ${b.distributor || ''} ${b.name || ''} ${b.price || 0}원`.trim();
+                const beanId = b.file.replace('.json', '');
+                return `
+                    <div class="post-wrapper">
+                        <a href="bean.html?id=${beanId}" target="_blank">${displayName}</a>
+                    </div>
+                `;
+            }).join('');
+
+            renderPagination(pagination, beanCurrentPage, totalPages, beanData.length, (page) => {
+                beanCurrentPage = page;
+                renderBeanList();
+            });
+        }
+
+        function renderPagination(container, currentPage, totalPages, totalItems, onPageChange) {
+            if (totalPages <= 1) {
+                container.innerHTML = '';
+                return;
+            }
+
+            let html = '';
+
+            // 이전 버튼
+            html += `<button ${currentPage === 1 ? 'disabled' : ''} onclick="event.preventDefault(); this.dispatchEvent(new CustomEvent('page-change', {detail: ${currentPage - 1}}))">← 이전</button>`;
+
+            // 페이지 번호
+            const maxVisiblePages = 5;
+            let startPage = Math.max(1, currentPage - Math.floor(maxVisiblePages / 2));
+            let endPage = Math.min(totalPages, startPage + maxVisiblePages - 1);
+
+            if (endPage - startPage + 1 < maxVisiblePages) {
+                startPage = Math.max(1, endPage - maxVisiblePages + 1);
+            }
+
+            if (startPage > 1) {
+                html += `<button onclick="event.preventDefault(); this.dispatchEvent(new CustomEvent('page-change', {detail: 1}))">1</button>`;
+                if (startPage > 2) {
+                    html += `<span style="color: rgba(191,191,191,0.5);">...</span>`;
+                }
+            }
+
+            for (let i = startPage; i <= endPage; i++) {
+                html += `<button class="${i === currentPage ? 'active' : ''}" onclick="event.preventDefault(); this.dispatchEvent(new CustomEvent('page-change', {detail: ${i}}))">${i}</button>`;
+            }
+
+            if (endPage < totalPages) {
+                if (endPage < totalPages - 1) {
+                    html += `<span style="color: rgba(191,191,191,0.5);">...</span>`;
+                }
+                html += `<button onclick="event.preventDefault(); this.dispatchEvent(new CustomEvent('page-change', {detail: ${totalPages}}))">${totalPages}</button>`;
+            }
+
+            // 다음 버튼
+            html += `<button ${currentPage === totalPages ? 'disabled' : ''} onclick="event.preventDefault(); this.dispatchEvent(new CustomEvent('page-change', {detail: ${currentPage + 1}}))">다음 →</button>`;
+
+            // 페이지 정보
+            html += `<span class="pagination-info">총 ${totalItems}개</span>`;
+
+            container.innerHTML = html;
+
+            // 이벤트 리스너 등록
+            container.querySelectorAll('button').forEach(btn => {
+                btn.addEventListener('page-change', (e) => {
+                    onPageChange(e.detail);
+                });
+            });
         }
     </script>
 </body>

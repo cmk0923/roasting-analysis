@@ -280,22 +280,26 @@
 
     <div id="dashHeader" class="dashboard-header hidden">
         <div class="bean-row">
-            <div class="stat-row"><span class="label">Bean</span><span id="dashBean" class="value clickable" style="cursor: pointer; text-decoration: underline;">-</span></div>
+            <div class="stat-row"><span class="label">원두</span><span id="dashBean" class="value clickable" style="cursor: pointer; text-decoration: underline;">-</span></div>
         </div>
         <div class="stat-group">
             <div class="stat-row"><span id="dashDate" class="value" style="font-size: 1rem;">-</span></div>
         </div>
         <div class="stat-group">
-            <div class="stat-row"><span class="label">Total Time</span><span id="dashTotalTime" class="value">-</span></div>
+            <div class="stat-row"><span class="label">총 시간</span><span id="dashTotalTime" class="value">-</span></div>
         </div>
         <div class="stat-group">
-            <div class="stat-row"><span class="label">Green Weight</span><span id="dashGreen" class="value">-</span></div>
-            <div class="stat-row"><span class="label">Roasted Weight</span><span id="dashRoasted" class="value">-</span></div>
-            <div class="stat-row"><span class="label">Weight Loss</span><span id="dashLoss" class="value">-</span></div>
+            <div class="stat-row"><span class="label">생두 무게</span><span id="dashGreen" class="value">-</span></div>
+            <div class="stat-row"><span class="label">로스팅 무게</span><span id="dashRoasted" class="value">-</span></div>
+            <div class="stat-row"><span class="label">감량율</span><span id="dashLoss" class="value highlight">-</span></div>
         </div>
         <div class="stat-group">
-            <div class="stat-row"><span class="label">Roast Level</span><span id="dashLevel" class="value">Medium</span></div>
-            <div class="stat-row"><span class="label">Last BT</span><span id="dashAmbient" class="value">-</span></div>
+            <div class="stat-row"><span class="label">로스팅 레벨</span><span id="dashLevel" class="value">Medium</span></div>
+            <div class="stat-row"><span class="label">최종 BT</span><span id="dashAmbient" class="value">-</span></div>
+        </div>
+        <div class="stat-group" id="agtronGroup" style="display: none;">
+            <div class="stat-row"><span class="label">홀빈 아그트론</span><span id="dashHolbinAgtron" class="value highlight">-</span></div>
+            <div class="stat-row"><span class="label">그라운드 아그트론</span><span id="dashGroundAgtron" class="value highlight">-</span></div>
         </div>
     </div>
 
@@ -405,6 +409,9 @@
 
             // Giscus 로드 (로스팅 배치별 댓글 분리)
             loadGiscus(folderId);
+
+            // 아그트론 데이터 로드
+            loadAgtronData(folderId);
 
             // 1. 헤더 데이터 매핑
             const creationDate = entry.creationDate ? new Date(parseInt(entry.creationDate) * 1000) : new Date();
@@ -872,6 +879,34 @@
                 document.getElementById('cupPrice').textContent = `${cupPriceInt.toLocaleString()}원`;
             } else {
                 document.getElementById('cupPrice').textContent = '-';
+            }
+        }
+
+        // 아그트론 데이터 로드
+        async function loadAgtronData(folderId) {
+            try {
+                const response = await fetch(`roastingData/index.json`);
+                if (!response.ok) return;
+
+                const indexData = await response.json();
+                const roastingItem = indexData.find(item => item.id === folderId);
+
+                if (roastingItem) {
+                    const agtronGroup = document.getElementById('agtronGroup');
+                    const holbinEl = document.getElementById('dashHolbinAgtron');
+                    const groundEl = document.getElementById('dashGroundAgtron');
+
+                    const hasHolbin = roastingItem.holbin_agtron !== null && roastingItem.holbin_agtron !== undefined;
+                    const hasGround = roastingItem.ground_agtron !== null && roastingItem.ground_agtron !== undefined;
+
+                    if (hasHolbin || hasGround) {
+                        agtronGroup.style.display = 'flex';
+                        holbinEl.textContent = hasHolbin ? roastingItem.holbin_agtron : '-';
+                        groundEl.textContent = hasGround ? roastingItem.ground_agtron : '-';
+                    }
+                }
+            } catch (e) {
+                console.warn('아그트론 데이터 로드 실패:', e);
             }
         }
 
